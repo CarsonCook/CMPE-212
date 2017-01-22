@@ -2,9 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="087b5f6d-2069-4751-8051-20b45a06a494" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/carson/lectures.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Excercise1/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../Excercise1/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Excercise1/.idea/misc.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Excercise1/.idea/modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Excercise1/.idea/uiDesigner.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Excercise1/.idea/vcs.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Excercise1/.idea/workspace.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Excercise1/out/production/Excercise1/com/carson/excercise1/Part1_Output.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Excercise1/out/production/Excercise1/com/carson/excercise1/Part2_Printf_Output.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Excercise1/out/production/Excercise1/com/carson/excercise1/Part3_GUI_Output_JOptionPane.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Excercise1/out/production/Excercise1/com/carson/excercise1/Part4_Console_Window_Input.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Excercise1/out/production/Excercise1/com/carson/excercise1/Part5_Low_Console_Input.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Excercise1/src/com/carson/excercise1/Part1_Output.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Excercise1/src/com/carson/excercise1/Part2_Printf_Output.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Excercise1/src/com/carson/excercise1/Part3_GUI_Output_JOptionPane.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Excercise1/src/com/carson/excercise1/Part4_Console_Window_Input.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Excercise1/src/com/carson/excercise1/Part5_Low_Console_Input.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Excercise1/src/com/carson/excercise1/Part6_GUI_Input.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Excercises/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../Excercises/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/carson/lectures.java" afterPath="$PROJECT_DIR$/src/com/carson/lectures.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,8 +39,8 @@
       <file leaf-file-name="lectures.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/carson/lectures.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="16" column="73" lean-forward="false" selection-start-line="16" selection-start-column="73" selection-end-line="16" selection-end-column="73" />
+            <state relative-caret-position="238">
+              <caret line="14" column="20" lean-forward="true" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -130,6 +146,7 @@
     <property name="nodejs_interpreter_path" value="C:/Program Files (x86)/nodejs/node" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files (x86)\nodejs\node.exe" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Excercises" />
   </component>
   <component name="RunManager" selected="Application.lectures">
     <configuration default="false" name="lectures" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -560,16 +577,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1484682212479</updated>
-      <workItem from="1484682221838" duration="396000" />
+      <workItem from="1484682221838" duration="1826000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="396000" />
+    <option name="totallyTimeSpent" value="1826000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -581,7 +598,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -619,8 +636,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/com/carson/lectures.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="16" column="73" lean-forward="false" selection-start-line="16" selection-start-column="73" selection-end-line="16" selection-end-column="73" />
+        <state relative-caret-position="238">
+          <caret line="14" column="20" lean-forward="true" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
           <folding />
         </state>
       </provider>
