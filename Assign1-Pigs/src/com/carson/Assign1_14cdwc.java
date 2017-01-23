@@ -1,6 +1,5 @@
 package com.carson;
 
-import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -8,21 +7,23 @@ import java.util.Scanner;
  * Created by Carson on 19/01/2017.
  */
 public class Assign1_14cdwc {
-
     //class constants - unchanging messages/conditionals
     private static final int WIN_CONDITION = 100;
-    private static final int COMP_HOLD_SCORE = 40;
+    private static final int COMP_HOLD_SCORE = 20;
+    private static final int FLAG_NORMAL = 0;
+    private static final int FLAG_CONTINUE = 1;
+    private static final int FLAG_BREAK = -1;
     private static final String COMP_WON_MESSAGE = "*****COMPUTER WON!*****";
-    public static final String HUMAN_WON_MESSAGE = "*****YOU WON!*****";
-    private static final String DOUBLE_ONES_MESSAGE = "TURN OVER! Score sum is zero!";
-    private static final String SINGLE_ONE_MESSAGE = "TURN OVER! Turn sum is zero!";
-    private static final String DOUBLES_MESSAGE = "Doubles! MUST roll again";
+    private static final String HUMAN_WON_MESSAGE = "*****YOU WON!*****";
+    private static final String DOUBLE_ONES_MESSAGE = "TURN OVER! Score sum is zero!\n";
+    private static final String SINGLE_ONE_MESSAGE = "TURN OVER! Turn sum is zero!\n";
+    private static final String DOUBLES_MESSAGE = "Doubles! MUST roll again\n";
     private static final String HOLD = "n";
     private static final String ROLL = "y";
 
     //constant classes
     private static final Scanner mScanner = new Scanner(System.in);
-    private static final Random generator = new Random(System.currentTimeMillis());
+    private static final Random mGenerator = new Random(System.currentTimeMillis());
 
     public static void main(String[] args) {
         int humanScore = 0; //total human score
@@ -33,67 +34,53 @@ public class Assign1_14cdwc {
         int roll1 = 0;
         int roll2 = 0;
         int turnScore = 0;
+        int turn = 1;
         while (!isWin(humanScore) && !isWin(compScore)) {
+            //change turn information to be for human
+            humanTurn = true;
+            turnScore = 0;
+            printWhoseTurn(humanTurn);
             while (true) { //execute player turn until condition or input that says to break
                 roll1 = getRoll();
                 roll2 = getRoll();
-                if (roll1 == 1 && roll2 == 1) {
-                    humanScore = 0;
-                    turnScore = 0;
-                    printRoll(humanTurn, roll1, roll2, 0, humanScore, compScore);
-                    print(DOUBLE_ONES_MESSAGE);
+                int[] turnInfo = turn(humanTurn, turnScore, roll1, roll2, humanScore);
+                turnScore = turnInfo[0];
+                if (turnInfo[1] == -1) {
                     break;
-                } else if (roll1 == 1 || roll2 == 1) {
-                    printRoll(humanTurn, roll1, roll2, 0, humanScore, compScore);
-                    print(SINGLE_ONE_MESSAGE);
-                    turnScore = 0;
-                    break;
-                } else if (roll1 == roll2) {
-                    turnScore = turnScore + roll1 + roll2;
-                    printRoll(humanTurn, roll1, roll2, turnScore, humanScore, compScore);
-                    printSummary(humanTurn, turnScore, humanScore);
-                    print(DOUBLES_MESSAGE);
+                } else if (turnInfo[1] == 1) {
                     continue;
-                } else {
-                    turnScore = turnScore + roll1 + roll2;
-                    printRoll(humanTurn, roll1, roll2, turnScore, humanScore, compScore);
-                    printSummary(humanTurn, turnScore, humanScore);
+                }
+                //auto stop if human has enough points to win
+                if (isWin(humanScore + turnScore)) {
+                    endGame(humanScore + turnScore, compScore);
                 }
                 //get here then person has choice to hold or continue with turn
                 if (!doesHumanContinueTurn()) {
                     break;
                 }
             }
-            //change turn information for computer's turn
-            humanScore += turnScore;
-            humanTurn = !humanTurn;
-            turnScore = 0;
 
-            pauseGame(humanScore, compScore);
+            //change turn information for computer's turn
+            humanScore += turnScore; //turnScore and humanScore set to 0 if the roll
+            // calls for it, so can still just add together
+            humanTurn = false;
+            turnScore = 0;
+            printScoreSummary(humanScore, compScore);
+            printWhoseTurn(humanTurn);
+
             while (true) { //execute computer turn until condition says to break
                 roll1 = getRoll();
                 roll2 = getRoll();
-                if (roll1 == 1 && roll2 == 1) {
-                    compScore = 0;
-                    turnScore = 0;
-                    printRoll(humanTurn, roll1, roll2, 0, humanScore, compScore);
-                    print(DOUBLE_ONES_MESSAGE);
+                int[] turnInfo = turn(humanTurn, turnScore, roll1, roll2, compScore);
+                turnScore = turnInfo[0];
+                if (turnInfo[1] == -1) {
                     break;
-                } else if (roll1 == 1 || roll2 == 1) {
-                    turnScore = 0;
-                    printRoll(humanTurn, roll1, roll2, 0, humanScore, compScore);
-                    print(SINGLE_ONE_MESSAGE);
-                    break;
-                } else if (roll1 == roll2) {
-                    turnScore = turnScore + roll1 + roll2;
-                    printRoll(humanTurn, roll1, roll2, turnScore, humanScore, compScore);
-                    printSummary(humanTurn, turnScore, humanScore);
-                    print(DOUBLES_MESSAGE);
+                } else if (turnInfo[1] == 1) {
                     continue;
-                } else {
-                    turnScore = turnScore + roll1 + roll2;
-                    printRoll(humanTurn, roll1, roll2, turnScore, humanScore, compScore);
-                    printSummary(humanTurn, turnScore, humanScore);
+                }
+                //auto stop if computer has enough points to win
+                if (isWin(compScore + turnScore)) {
+                    endGame(humanScore, compScore);
                 }
                 //get here then computer has choice to hold or continue with turn
                 if (computerEndsTurn(turnScore, compScore)) {
@@ -101,70 +88,69 @@ public class Assign1_14cdwc {
                 }
             }
             compScore += turnScore;
-            humanTurn = !humanTurn;
-            turnScore = 0;
-            pauseGame(humanScore, compScore);
-            /*roll1 = getRoll();
-            roll2 = getRoll();
-            forceTurnOver = false;//assume there is a choice to start each turn
-            forceRoll = false; //assume choice to start turn
-            if (roll1 == 1 && roll2 == 1) { //turn score and total score 0 for whoever's turn it is
-                humanScore = (humanTurn ? 0 : humanScore);
-                compScore = (humanTurn ? compScore : 0);
-                turnScore = 0;
-                forceTurnOver = true;
-                printTurnInfo(humanTurn, roll1, roll2, turnScore, humanScore,
-                        compScore, forceTurnOver, forceRoll, DOUBLE_ONES_MESSAGE);
-            } else if (roll1 == 1 || roll2 == 1) { //turn score set to 0
-                turnScore = 0;
-                forceTurnOver = true;
-                printTurnInfo(humanTurn, roll1, roll2, turnScore, humanScore,
-                        compScore, forceTurnOver, forceRoll, SINGLE_ONE_MESSAGE);
-            } else if (roll1 == roll2) { //force another roll
-                humanScore = (humanTurn ? humanScore + turnScore : humanScore);
-                compScore = (humanTurn ? compScore : compScore + turnScore);
-                forceRoll = true;
-                printTurnInfo(humanTurn, roll1, roll2, turnScore, humanScore,
-                        compScore, forceTurnOver, forceRoll, DOUBLES_MESSAGE);
-            } else { //up to player/computer if they continue
-                turnScore = roll1 + roll2;
-                humanScore = (humanTurn ? humanScore + turnScore : humanScore);
-                compScore = (humanTurn ? compScore : compScore + turnScore);
-                printTurnInfo(humanTurn, roll1, roll2, turnScore, humanScore,
-                        compScore, forceTurnOver, forceRoll, DOUBLES_MESSAGE);
-            }
-            if (switchTurn(forceRoll, forceTurnOver, humanTurn, compScore)) {
-                humanTurn = !humanTurn;
-            }*/
+            turn++;
+            printScoreSummary(humanScore, compScore);
+            pauseGame(turn);
         }
-        endGame(humanScore);//game is over, decide who won, notify and close streams
+        endGame(humanScore, compScore);//shouldn't reach due to end once player/computer won, but keep just in case
     }
 
-    private static boolean choiceToContinue(boolean forceRoll, boolean forceTurnOver) {
-        return !forceRoll && !forceTurnOver;
-    }
-
-    private static void printRoll(boolean humanTurn, int roll1, int roll2, int turnScore, int humanScore, int compScore) {
-        if (humanTurn) {
-            print("Player rolled " + numToWord(roll1) + " + " + numToWord(roll2));
+    private static int[] turn(boolean humanTurn, int turnScore, int roll1, int roll2, int totalScore) {
+        int[] retArr = {0, FLAG_NORMAL}; //will hold turnScore and information to continue or end turn
+        if (specialRoll(roll1, roll2)) {
+            retArr[0] = handleRoll(turnScore, totalScore, roll1, roll2, humanTurn);
+            if (retArr[0] > 0) { //special roll and turnScore not 0/offsetting total score means
+                //doubles were rolled, so force another roll
+                print(DOUBLES_MESSAGE);
+                retArr[1] = FLAG_CONTINUE;
+            } else {
+                retArr[1] = FLAG_BREAK;
+            }
         } else {
-            print("Computer rolled " + numToWord(roll1) + " + " + numToWord(roll2));
+            retArr[0] = handleRoll(turnScore, totalScore, roll1, roll2, humanTurn);
+            printSummary(humanTurn, turnScore, totalScore);
+        }
+        return retArr;
+    }
+
+    private static boolean specialRoll(int roll1, int roll2) {
+        return (roll1 == 1 && roll2 == 1) || (roll1 == 1 || roll2 == 1) || (roll1 == roll2);
+    }
+
+    private static int handleRoll(int turnScore, int totalScore, int roll1, int roll2, boolean humanTurn) {
+        printRoll(humanTurn, roll1, roll2);
+        if (roll1 == 1 && roll2 == 1) {
+            print(DOUBLE_ONES_MESSAGE);
+            return -totalScore; //use turnScore to set totalScore to 0
+        } else if (roll1 == 1 || roll2 == 1) {
+            print(SINGLE_ONE_MESSAGE);
+            return 0; //turnScore is 0
+        } else {
+            return turnScore + roll1 + roll2;
+        }
+    }
+
+    private static void printRoll(boolean humanTurn, int roll1, int roll2) {
+        if (humanTurn) {
+            print("Player rolled " + numToWord(roll1) + " + " + numToWord(roll2) + "\n");
+        } else {
+            print("Computer rolled " + numToWord(roll1) + " + " + numToWord(roll2) + "\n");
         }
     }
 
     private static void printSummary(boolean humanTurn, int turnScore, int totalScore) {
         if (humanTurn) {
-            print("Player's turn sum is: " + turnScore + " and game sum is: " + totalScore);
+            print("Player's turn sum is: " + turnScore + " and game sum is: " + totalScore + "\n");
         } else {
-            print("Computer's turn sum is: " + turnScore + " and game sum is: " + totalScore);
+            print("Computer's turn sum is: " + turnScore + " and game sum is: " + totalScore + "\n");
         }
     }
 
     private static void printWhoseTurn(boolean humanTurn) {
         if (humanTurn) {
-            print("Player's turn");
+            print("\nPlayer's turn:\n");
         } else {
-            print("Computer's turn");
+            print("\nComputer's turn:\n");
         }
     }
 
@@ -188,23 +174,17 @@ public class Assign1_14cdwc {
         }
     }
 
-    private static void pauseGame(int humanScore, int compScore) {
-        print("\nPlayer's sum is: " + String.valueOf(humanScore) + " Computer's sum is: " + String.valueOf(compScore));
-        //pause program so user can absorb info
-        print("Press <enter> to continue");
-        String dump = mScanner.nextLine();
+    private static void printScoreSummary(int humanScore, int compScore) {
+        print("\nPlayer's sum is: " + humanScore + " Computer's sum is: " + compScore + "\n");
     }
 
-    private static boolean switchTurn(boolean forceRoll, boolean forceTurnOver, boolean humanTurn, int compScore) {
-        if (humanTurn) {
-            return forceTurnOver || (choiceToContinue(forceRoll, forceTurnOver) && doesHumanContinueTurn());
-        } else {
-            return forceTurnOver || computerEndsTurn(compScore);
-        }
+    private static void pauseGame(int turn) {
+        print("Press <enter> to start turn " + turn);
+        String dump = mScanner.nextLine(); //waits until user inputs an enter
     }
 
     private static int getRoll() {
-        return generator.nextInt(5) + 1; //generates number 0-5, then add one for dice roll of 1-6
+        return mGenerator.nextInt(6) + 1; //generates number 0-5, then add one for dice roll of 1-6
     }
 
     private static boolean doesHumanContinueTurn() {
@@ -212,18 +192,13 @@ public class Assign1_14cdwc {
         String input = "";
         boolean inputOK = false;
         while (!inputOK) {
-            try {
-                Assign1_14cdwc.print("Roll again? (y/n)?: ");
-                input = mScanner.next();
-                dump = mScanner.nextLine(); //gets rid of enter key
-                if (goodInput(input)) {
-                    inputOK = true;
-                } else {
-                    Assign1_14cdwc.print("That was not a valid answer!");
-                }
-            } catch (InputMismatchException e) { //input not of same type as .nextTYPE() call
-                dump = mScanner.nextLine();
-                Assign1_14cdwc.print("\"" + dump + "\" is not an int.");
+            print("Roll again? (y/n)?: ");
+            input = mScanner.next();
+            dump = mScanner.nextLine(); //gets rid of enter key
+            if (goodInput(input)) {
+                inputOK = true;
+            } else {
+                print("That was not a valid answer!\n");
             }
         }
         return input.equals(ROLL);//true if roll, false if hold
@@ -233,16 +208,18 @@ public class Assign1_14cdwc {
         return input.equals(ROLL) || input.equals(HOLD); //only options are to enter y or n
     }
 
-    private static void endGame(int humanScore) {
-        //get here, then either humanWin() or compWin() returns true
-        //thus, if humanWin() false, compWin() is true
+    private static void endGame(int humanScore, int compScore) {
+        //get here, then either human or computer won
+        //thus, if isWin(humanScore) false, isWin(compScore) is true
+        print("Player score: " + humanScore + " Computer score: " + compScore);
         String message = isWin(humanScore) ? HUMAN_WON_MESSAGE : COMP_WON_MESSAGE;
         print(message);
         mScanner.close(); //close scanner at end of program, NOT in middle, this creates an error if try to get input again
+        System.exit(0); //if called for auto-win, need to end the program
     }
 
-    public static boolean computerEndsTurn(int turnScore, int compScore) {
-        return turnScore >= COMP_HOLD_SCORE || compScore >= WIN_CONDITION; //problem defined computer logic on when to hold --> hold when
+    private static boolean computerEndsTurn(int turnScore, int compScore) {
+        return turnScore >= COMP_HOLD_SCORE || (compScore + turnScore) >= WIN_CONDITION; //problem defined computer logic on when to hold --> hold when
     }
 
     private static boolean isWin(int score) {
@@ -250,6 +227,6 @@ public class Assign1_14cdwc {
     }
 
     private static void print(String message) {
-        System.out.println(message);
+        System.out.print(message);
     }
 }
