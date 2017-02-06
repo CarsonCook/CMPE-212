@@ -2,30 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bc10285d-07e9-4ca6-b459-ab7046632638" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Assign1-Pigs/.idea/uiDesigner.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Assign1-Pigs/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Assign1-Pigs/src/com/carson/Assign1_14cdwc.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Assign1-Pigs/src/com/carson/Computer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Assign1-Pigs/src/com/carson/Human.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Excercise1/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Excercise1/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Excercise1/.idea/uiDesigner.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Excercise1/.idea/vcs.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Excercise1/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Excercise1/out/production/Excercise1/com/carson/excercise1/Part1_Output.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Excercise1/out/production/Excercise1/com/carson/excercise1/Part2_Printf_Output.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Excercise1/out/production/Excercise1/com/carson/excercise1/Part3_GUI_Output_JOptionPane.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Excercise1/out/production/Excercise1/com/carson/excercise1/Part4_Console_Window_Input.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Excercise1/out/production/Excercise1/com/carson/excercise1/Part5_Low_Console_Input.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Excercise1/src/com/carson/excercise1/Part1_Output.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Excercise1/src/com/carson/excercise1/Part2_Printf_Output.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Excercise1/src/com/carson/excercise1/Part3_GUI_Output_JOptionPane.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Excercise1/src/com/carson/excercise1/Part4_Console_Window_Input.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Excercise1/src/com/carson/excercise1/Part5_Low_Console_Input.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Excercise1/src/com/carson/excercise1/Part6_GUI_Input.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Assign1-Pigs/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../Assign1-Pigs/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Lectures/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../Lectures/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Lectures/src/com/carson/lectures.java" afterPath="$PROJECT_DIR$/../Lectures/src/com/carson/lectures.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,11 +19,31 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Part4_Console_Window_Input.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/carson/excercise1/Part4_Console_Window_Input.java">
+      <file leaf-file-name="SelectionSort.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/carson/excercise2/SelectionSort.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="21" column="8" lean-forward="false" selection-start-line="21" selection-start-column="8" selection-end-line="35" selection-end-column="9" />
+            <state relative-caret-position="306">
+              <caret line="18" column="24" lean-forward="false" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Search.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/carson/excercise2/Search.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" column="33" lean-forward="false" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SelectionSortC.c" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/carson/excercise2/SelectionSortC.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1513">
+              <caret line="89" column="10" lean-forward="false" selection-start-line="89" selection-start-column="10" selection-end-line="89" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -83,6 +81,9 @@
         <option value="$PROJECT_DIR$/src/com/carson/excercise1/IO_Helper/IO_Helper_Tester.java" />
         <option value="$PROJECT_DIR$/src/com/carson/excercise1/IO_Helper/TestIOHelper.java" />
         <option value="$PROJECT_DIR$/src/com/carson/excercise1/IO_Helper/IOHelper.java" />
+        <option value="$PROJECT_DIR$/src/com/carson/excercise2/Part1SelectionSort.java" />
+        <option value="$PROJECT_DIR$/src/com/carson/excercise2/Search.java" />
+        <option value="$PROJECT_DIR$/src/com/carson/excercise2/SelectionSort.java" />
       </list>
     </option>
   </component>
@@ -116,6 +117,21 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Excercise1">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="PackagesPane">
         <subPane>
           <PATH>
@@ -160,7 +176,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="excercise1" />
+              <option name="myItemId" value="carson" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="excercise2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -178,31 +198,12 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="excercise1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="IO_Helper" />
+              <option name="myItemId" value="carson" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="Excercise1">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -214,27 +215,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.updates" />
   </component>
-  <component name="RunManager" selected="Application.TestIOHelper">
-    <configuration default="false" name="Part3_GUI_Output_JOptionPane" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.carson.excercise1.IO_Helper.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="com.carson.excercise1.Part3_GUI_Output_JOptionPane" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="Excercise1" />
-      <envs />
-      <method />
-    </configuration>
+  <component name="RunManager">
     <configuration default="false" name="Part4_Console_Window_Input" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -303,6 +284,26 @@
         </pattern>
       </extension>
       <option name="MAIN_CLASS_NAME" value="com.carson.excercise1.IO_Helper.TestIOHelper" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Excercises" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="SelectionSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.carson.excercise2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.carson.excercise2.SelectionSort" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -712,24 +713,27 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Application.Part3_GUI_Output_JOptionPane" />
-      <item index="1" class="java.lang.String" itemvalue="Application.Part4_Console_Window_Input" />
-      <item index="2" class="java.lang.String" itemvalue="Application.Part5_Low_Console_Input" />
-      <item index="3" class="java.lang.String" itemvalue="Application.Part6_GUI_Input" />
-      <item index="4" class="java.lang.String" itemvalue="Application.TestIOHelper" />
+      <item index="0" class="java.lang.String" itemvalue="Application.Part4_Console_Window_Input" />
+      <item index="1" class="java.lang.String" itemvalue="Application.Part5_Low_Console_Input" />
+      <item index="2" class="java.lang.String" itemvalue="Application.Part6_GUI_Input" />
+      <item index="3" class="java.lang.String" itemvalue="Application.TestIOHelper" />
+      <item index="4" class="java.lang.String" itemvalue="Application.SelectionSort" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.TestIOHelper" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Part6_GUI_Input" />
-        <item index="2" class="java.lang.String" itemvalue="Application.Part5_Low_Console_Input" />
-        <item index="3" class="java.lang.String" itemvalue="Application.Part4_Console_Window_Input" />
-        <item index="4" class="java.lang.String" itemvalue="Application.Part3_GUI_Output_JOptionPane" />
+        <item index="0" class="java.lang.String" itemvalue="Application.SelectionSort" />
+        <item index="1" class="java.lang.String" itemvalue="Application.TestIOHelper" />
+        <item index="2" class="java.lang.String" itemvalue="Application.Part6_GUI_Input" />
+        <item index="3" class="java.lang.String" itemvalue="Application.Part5_Low_Console_Input" />
+        <item index="4" class="java.lang.String" itemvalue="Application.Part4_Console_Window_Input" />
       </list>
     </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -746,15 +750,17 @@
       <workItem from="1484856758745" duration="806000" />
       <workItem from="1485104305896" duration="774000" />
       <workItem from="1485125887181" duration="58000" />
+      <workItem from="1485549347914" duration="2611000" />
+      <workItem from="1486419375903" duration="102000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9859000" />
+    <option name="totallyTimeSpent" value="12572000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -770,7 +776,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20202559" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20735608" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -802,10 +808,26 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/carson/excercise1/Part4_Console_Window_Input.java">
+    <entry file="file://$PROJECT_DIR$/src/com/carson/excercise2/SelectionSort.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="24" lean-forward="true" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/carson/excercise2/Search.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/carson/excercise2/SelectionSortC.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1513">
+          <caret line="89" column="10" lean-forward="true" selection-start-line="89" selection-start-column="10" selection-end-line="89" selection-end-column="10" />
           <folding />
         </state>
       </provider>
@@ -814,7 +836,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/carson/excercise1/Part4_Console_Window_Input.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/carson/excercise1/Part4_Console_Window_Input.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -954,8 +989,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/carson/excercise1/Part4_Console_Window_Input.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="21" column="8" lean-forward="false" selection-start-line="21" selection-start-column="8" selection-end-line="35" selection-end-column="9" />
+        <state relative-caret-position="200">
+          <caret line="25" column="26" lean-forward="true" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/carson/excercise2/SelectionSortC.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1513">
+          <caret line="89" column="10" lean-forward="false" selection-start-line="89" selection-start-column="10" selection-end-line="89" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/carson/excercise2/SelectionSort.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="24" lean-forward="false" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/carson/excercise2/Search.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="33" lean-forward="false" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
           <folding />
         </state>
       </provider>
