@@ -5,7 +5,7 @@ import javax.swing.*;
  * Carson Cook - 14cdwc - CMPE 212 Assignment 2.
  */
 public class Matrix {
-
+    //todo matrix on matrix math check
     public static void main(String[] args) {
         Matrix matrix = new Matrix();
         System.out.println("Original Matrix:");
@@ -15,15 +15,21 @@ public class Matrix {
             }
             System.out.print("\n");
         }
-        System.out.println("det: "+matrix.determinant());
+        System.out.println("mult by 5:");
+        matrix.multiply(5);
+        for (int i = 0; i < matrix.getM(); i++) {
+            for (int j = 0; j < matrix.getN(); j++) {
+                System.out.print(matrix.get(i, j) + " ");
+            }
+            System.out.print("\n");
+        }
     }
 
-    //minimum dimensions for the values
-    private static int dimenMin = 0;
+    private static int dimenMin = 0; //minimum dimensions for the values
 
     private int m; //number of rows in values
     private int n; //number of columns in values
-    private double values[][];
+    private double values[][]; //values in the matrix
 
     public Matrix(int m, int n) {
         if (goodMatrixSize(m, n)) {
@@ -88,6 +94,13 @@ public class Matrix {
         return newM; //this matrix is the one that has been changed
     }
 
+    /**
+     * Multiplies the calling Matrix class' values by a scalar.
+     * @param x The scalar to multiply the values by.
+     * @return The new Matrix, with its values multiplied by x.
+     * "This" because the calling instance of the class is the one
+     * that has been affected.
+     */
     Matrix multiply(double x) {
         //loop through all matrix values
         for (int i = 0; i < m; i++) {
@@ -110,7 +123,15 @@ public class Matrix {
         return newM; //this matrix is the one that has been changed
     }
 
-    //done
+    /**
+     * Method to find the determinant of a matrix. Matrix must be square,
+     * and the question stipulates that the matrix must be less than size 4.
+     * If the matrix does not pass these stipulations, the method will return
+     * the maximum value of a double as a flag that an issue occurred.
+     *
+     * @return The maximum value of a double if a poor matrix is sent in, otherwise
+     * it will be the determinant of the matrix.
+     */
     double determinant() {
         //question stipulation to have square matrix and size less than 4.
         //m can be used to check size, because m == n
@@ -142,6 +163,7 @@ public class Matrix {
     /**
      * Method that checks if a matrix is square and returns a boolean indicating if it is square.
      * A square matrix is one with an equal number of rows and columns.
+     *
      * @return Boolean: true if matrix is square, false if not.
      */
     boolean isSquare() {
@@ -154,6 +176,7 @@ public class Matrix {
      * a matrix from that.
      * Proper dimensions for a matrix are that both number of rows and columns are greater than 0.
      * This method is static and private.
+     *
      * @param m The number of columns (integer).
      * @param n The number of rows (integer).
      * @return True if both dimensions are greater than 0, else false.
@@ -165,11 +188,14 @@ public class Matrix {
 
     /**
      * Method that gets an integer as input from the user. Does this
-     * through JOption pane popup windows.
-     * @param title
-     * @return
+     * through JOption pane popup windows. This is used to get the
+     * dimensions for the user inputted matrix.
+     * Method is private and static.
+     *
+     * @param title String to display in input window.
+     * @return Integer that user inputted.
      */
-    private int getInt(String title) {
+    private static int getInt(String title) {
         int num = -1;//flag for didn't get proper input
         boolean inputOK = false;
         while (!inputOK) { //keep going until get proper input
@@ -191,7 +217,16 @@ public class Matrix {
         return num;
     }
 
-    private double getDouble(String title) {
+    /**
+     * Method that gets a number as input from the user. Does this
+     * through JOption pane popup windows. This is used to get the
+     * values for the user inputted matrix.
+     * Method is private and static.
+     *
+     * @param title String to display in input window.
+     * @return Number that user inputted.
+     */
+    private static double getDouble(String title) {
         double num = Double.MAX_VALUE;//flag for didn't get proper input
         //shouldn't ever need to use as a flag, however
         boolean inputOK = false;
@@ -209,18 +244,42 @@ public class Matrix {
         return num;
     }
 
+    /**
+     * Getter for m attribute - the number of rows in the matrix.
+     *
+     * @return m attribute.
+     */
     int getM() {
         return m;
     }
 
+    /**
+     * Getter for n attribute - the number of columns in the matrix.
+     *
+     * @return n attribute.
+     */
     int getN() {
         return n;
     }
 
+    /**
+     * Getter for a value at a specific location in the matrix.
+     *
+     * @param i The row number for the value.
+     * @param j The column number for the value.
+     * @return Double value within the matrix.
+     */
     double get(int i, int j) {
         return values[i][j];
     }
 
+    /**
+     * Setter for a value at a specific location in the matrix.
+     *
+     * @param i   The row number for the value.
+     * @param j   The column number for the value.
+     * @param val The value to be set.
+     */
     void set(int i, int j, double val) {
         values[i][j] = val;
     }
