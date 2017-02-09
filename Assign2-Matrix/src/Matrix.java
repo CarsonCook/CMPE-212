@@ -7,11 +7,10 @@ import java.text.DecimalFormat;
  */
 public class Matrix {
 
-    //TODO test that calling instance matrix is not changed
-
     public static void main(String[] args) {
         Matrix matrix1 = new Matrix();
         System.out.println(matrix1.toString() + "\n");
+
         Matrix matrix2 = new Matrix();
         System.out.println(matrix2.toString() + "\n");
     }
