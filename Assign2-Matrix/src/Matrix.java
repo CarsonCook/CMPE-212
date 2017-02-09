@@ -7,35 +7,15 @@ import javax.swing.*;
 public class Matrix {
 
     //TODO cut off .0 in something like 1.0
+    //TODO test that calling instance matrix is not changed
 
     public static void main(String[] args) {
         Matrix matrix1 = new Matrix();
-        System.out.println("Original Matrix 1:");
-        for (int i = 0; i < matrix1.getM(); i++) {
-            for (int j = 0; j < matrix1.getN(); j++) {
-                System.out.print(matrix1.get(i, j) + " ");
-            }
-            System.out.print("\n");
-        }
-
-
+        System.out.println(matrix1.toString() + "\n");
         Matrix matrix2 = new Matrix();
-        System.out.println("Original Matrix 2:");
-        for (int i = 0; i < matrix2.getM(); i++) {
-            for (int j = 0; j < matrix2.getN(); j++) {
-                System.out.print(matrix2.get(i, j) + " ");
-            }
-            System.out.print("\n");
-        }
+        System.out.println(matrix2.toString() + "\n");
 
-        System.out.println("matrix2/matrix1:");
-        Matrix matrix3 = matrix1.divide(matrix2);
-        for (int i = 0; i < matrix3.getM(); i++) {
-            for (int j = 0; j < matrix3.getN(); j++) {
-                System.out.print(matrix3.get(i, j) + " ");
-            }
-            System.out.print("\n");
-        }
+
     }
 
     private static int dimenMin = 0; //minimum dimensions for the values
@@ -84,17 +64,6 @@ public class Matrix {
     //TODO constructor for csv file
 
     /**
-     * Constructor for a matrix in order to copy it.
-     *
-     * @param oldMatrix the matrix to be copied.
-     */
-    public Matrix(Matrix oldMatrix) {
-        this.m = oldMatrix.m;
-        n = oldMatrix.n;
-        values = oldMatrix.values;
-    }
-
-    /**
      * Method to add two matrices. Checks for matrices that can't be added (aren't same size) and will
      * kill program if they can't be added. Dimensions will be okay because the matrices have
      * already been initialized, so the dimensions have been checked.
@@ -102,7 +71,7 @@ public class Matrix {
      * @param m Matrix that is added to the calling instance of Matrix.
      * @return new Matrix that is the result of the calling instance and the parameter Matrix added.
      */
-    Matrix add(Matrix m) {
+    public Matrix add(Matrix m) {
         //to add matrices, need them to be the same size
         if (m.getM() != this.m || m.getN() != n) {
             //kill program so nothing bad happens
@@ -131,7 +100,7 @@ public class Matrix {
      * @return the resultant Matrix from subtracting the parameter Matrix from the calling
      * instance.
      */
-    Matrix subtract(Matrix m) {
+    public Matrix subtract(Matrix m) {
         //to subtract matrices, need them to be the same size
         if (m.getM() != this.m || m.getN() != n) {
             //kill program so nothing bad happens
@@ -159,7 +128,7 @@ public class Matrix {
      * @param m Matrix to multiply the calling instance of Matrix with.
      * @return the resultant Matrix from calling instance * parameter Matrix.
      */
-    Matrix multiply(Matrix m) {
+    public Matrix multiply(Matrix m) {
         //to multiply matrices, need the first matrix's number of columns
         //to equal the second matrix's number of rows
         if (m.getM() != n) {
@@ -194,7 +163,7 @@ public class Matrix {
      * "This" because the calling instance of the class is the one
      * that has been affected.
      */
-    Matrix multiply(double x) {
+    public Matrix multiply(double x) {
         Matrix newM = new Matrix(m, n);
         //loop through all matrix values
         for (int i = 0; i < m; i++) {
@@ -206,10 +175,20 @@ public class Matrix {
         return newM; //this matrix is the one that has been changed
     }
 
-    //TODO fix divide method
-    Matrix divide(Matrix m) {
+    /**
+     * Divides the parameter Matrix by the calling Matrix (m/this).
+     * Matrix division is actually just the numerator * inverse of denominator
+     * (m*this^-1).
+     * Don't need to check for proper Matrix sizes here because that will be done inside the
+     * multiply function.
+     *
+     * @param m Matrix being divided by calling instance.
+     * @return resultant Matrix gotten from dividing the parameter Matrix by the calling instance.
+     */
+    public Matrix divide(Matrix m) {
+        //matrix division is just multiplying the numerator matrix by the inverse of the denominator
         Matrix dividerMatrix = this.inverse();
-        return dividerMatrix.multiply(m);
+        return m.multiply(dividerMatrix);
     }
 
     /**
@@ -221,7 +200,7 @@ public class Matrix {
      * @return The maximum value of a double if a poor matrix is sent in, otherwise
      * it will be the determinant of the matrix.
      */
-    double determinant() {
+    public double determinant() {
         //question stipulation to have square matrix and size less than 4.
         //m can be used to check size, because m == n
         if (isSquare() && m < 4) {
@@ -232,7 +211,6 @@ public class Matrix {
                 case 2:
                     return values[0][0] * values[1][1] - values[0][1] * values[1][0];
                 case 3:
-                    //TODO get algorithm(?)
                     return (values[0][0] * (values[1][1] * values[2][2] - values[1][2] * values[2][1]) +
                             values[1][0] * (values[0][1] * values[2][2] - values[0][2] * values[2][1]) +
                             values[2][0] * (values[0][1] * values[1][2] - values[0][2] * values[1][1]));
@@ -244,27 +222,53 @@ public class Matrix {
         return Double.MAX_VALUE; //won't actually get here but removes IDE error. Would be flag for bad call of method.
     }
 
-    Matrix inverse() {
+    public Matrix inverse() {
         //question stipulation to have square matrix and size less than 4.
         //m can be used to check size, because m == n
+        //because calling Matrix has been instantiated, no need to check that
+        //dimensions are above 0
         if (isSquare() && m < 4) {
             //we know matrix size is 1, 2 or 3, so we can just make special case for each
             switch (m) {
                 case 1:
                     //inverse of matrix size 1 is just that same matrix
                     return this;
+
                 case 2:
-                    //inverse of {{a,b},{c,d}} size 2 is 1/det * {{d,-b},{-c.a}}
+                    //inverse of {{a,b},{c,d}} size 2 is 1/det * {{d,-b},{-c,a}}
                     double det = this.determinant();
-                    Matrix copy = new Matrix(this);
+                    Matrix copy = new Matrix(this.getM(), this.getN());
                     //set new values for the special matrix to get inverse
                     copy.set(0, 0, this.get(1, 1));
                     copy.set(1, 1, this.get(0, 0));
                     copy.set(0, 1, -1 * this.get(0, 1));
                     copy.set(1, 0, -1 * this.get(1, 0));
-                    return copy.multiply(1.0 / det);
+                    return copy.multiply(1.0 / det); //1.0 to force division to be a float value
+
                 case 3:
-                    //TODO get algorithm
+                    //first find matrix of minors: each position in Matrix is a determinant
+                    //of the 2x2 matrix when you cross out the numbers in same row/column as j
+                    /*Matrix inv = new Matrix(3, 3);
+                    for (int i = 0; i < 3; i++) {
+                        for (int j = 0; j < 3; j++) {
+                            inv.set(i, j, getDetMatrix(this, i, j).determinant());
+                        }
+                    }
+
+                    //now swap values in middle of each edge and swap sign(matrix of co-factors and adjoint)
+                    double top = inv.get(0, 1);
+                    double left = inv.get(1, 0);
+                    double right = inv.get(1, 2);
+                    double bottom = inv.get(2, 1);
+
+                    inv.set(0, 1, left * -1); //top and left
+                    inv.set(1, 0, top * -1); //left and top
+                    inv.set(2, 1, bottom * -1); //right and bottom
+                    inv.set(1, 2, right * -1); //bottom and right
+
+                    //now multiply this adjoint matrix by determinant of original matrix
+                    return inv.multiply(this.determinant());*/
+                    return null;
             }
         }
         //kill program so nothing bad happens
@@ -273,13 +277,28 @@ public class Matrix {
         return null; //won't actually get here but removes IDE error. Would be flag for bad call of method.
     }
 
+    /*private Matrix getDetMatrix(Matrix orgMatrix, int row, int col) {
+        Matrix minorMatrix = new Matrix(2, 2);
+        if (row==0 && col==0){
+
+        } else if (row==0 && col==1){
+
+        } else if (row==1 && col==0){
+
+        } else if (row==1 && col==1){
+
+        } else if (row==2 && col==0){
+
+        }
+    }*/
+
     /**
      * Method that checks if a matrix is square and returns a boolean indicating if it is square.
      * A square matrix is one with an equal number of rows and columns.
      *
      * @return Boolean: true if matrix is square, false if not.
      */
-    boolean isSquare() {
+    public boolean isSquare() {
         return m == n; //same number of rows as columns
     }
 
@@ -290,7 +309,7 @@ public class Matrix {
      *
      * @return the transpose of the calling Matrix.
      */
-    Matrix transpose() {
+    public Matrix transpose() {
         Matrix transpose = new Matrix(n, m);
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
@@ -303,7 +322,7 @@ public class Matrix {
     /**
      * Method to turn Matrix into String in format defined by question.
      * Defined as public unlike other methods because there was an issue
-     * with the java.lang.object toString() method.
+     * colliding with the java.lang.object toString() method.
      *
      * @return String showing the Matrix, in the format defined by the question.
      */
@@ -328,10 +347,11 @@ public class Matrix {
      * Method to create identity Matrix of size defined by a parameter.
      * Identity Matrix is square with all 0s except the diagonals are 1s.
      * Static method.
+     *
      * @param size integer for number of columns and rows in Matrix.
      * @return the identity Matrix of size of the parameter.
      */
-    static Matrix identity(int size) {
+    public static Matrix identity(int size) {
         //initialize Matrix with all 0s
         Matrix I = new Matrix(size, size);
         //fill diagonals with 1s
@@ -420,7 +440,7 @@ public class Matrix {
      *
      * @return m attribute.
      */
-    int getM() {
+    public int getM() {
         return m;
     }
 
@@ -429,7 +449,7 @@ public class Matrix {
      *
      * @return n attribute.
      */
-    int getN() {
+    public int getN() {
         return n;
     }
 
@@ -440,7 +460,7 @@ public class Matrix {
      * @param j The column number for the value.
      * @return Double value within the matrix.
      */
-    double get(int i, int j) {
+    public double get(int i, int j) {
         return values[i][j];
     }
 
@@ -451,7 +471,7 @@ public class Matrix {
      * @param j   The column number for the value.
      * @param val The value to be set.
      */
-    void set(int i, int j, double val) {
+    public void set(int i, int j, double val) {
         values[i][j] = val;
     }
 }
