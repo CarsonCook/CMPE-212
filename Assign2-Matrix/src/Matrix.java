@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.text.DecimalFormat;
 
 /**
  * Created by Carson on 06/02/2017.
@@ -6,7 +7,6 @@ import javax.swing.*;
  */
 public class Matrix {
 
-    //TODO cut off .0 in something like 1.0
     //TODO test that calling instance matrix is not changed
 
     public static void main(String[] args) {
@@ -14,8 +14,6 @@ public class Matrix {
         System.out.println(matrix1.toString() + "\n");
         Matrix matrix2 = new Matrix();
         System.out.println(matrix2.toString() + "\n");
-
-
     }
 
     private static int dimenMin = 0; //minimum dimensions for the values
@@ -328,9 +326,10 @@ public class Matrix {
      */
     public String toString() {
         String output = m + "," + n + "\n";
+        DecimalFormat formatter = new DecimalFormat("0.#"); //cuts off trailing 0s
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                output += values[i][j];
+                output += formatter.format(values[i][j]);
                 //only add comma if number not the last one on the line
                 if (j < n - 1) {
                     output += ",";
