@@ -9,14 +9,10 @@ import java.text.DecimalFormat;
 public class Matrix {
 
     public static void main(String[] args) {
-        /*Matrix matrix1 = new Matrix();
+        Matrix matrix1 = new Matrix();
         System.out.println(matrix1.toString() + "\n");
 
-        Matrix matrix2 = new Matrix();
-        System.out.println(matrix2.toString() + "\n");*/
-        Matrix matrix = new Matrix("inputFile.csv");
-        System.out.println("matrix: " + matrix);
-        matrix.print("outputFile.csv");
+        System.out.println(matrix1.inverse());
     }
 
     private static int dimenMin = 0; //minimum dimensions for the values
@@ -88,6 +84,7 @@ public class Matrix {
 
     /**
      * Parses through the String version of the input file and creates a Matrix from the information in the String.
+     *
      * @param input String containing the information from the csv file.
      */
     private void parseMatrix(String input) {
@@ -236,8 +233,6 @@ public class Matrix {
      *
      * @param x The scalar to multiply the values by.
      * @return The new Matrix, with its values multiplied by x.
-     * "This" because the calling instance of the class is the one
-     * that has been affected.
      */
     public Matrix multiply(double x) {
         Matrix newM = new Matrix(m, n);
@@ -270,8 +265,7 @@ public class Matrix {
     /**
      * Method to find the determinant of a matrix. Matrix must be square,
      * and the question stipulates that the matrix must be less than size 4.
-     * If the matrix does not pass these stipulations, the method will return
-     * the maximum value of a double as a flag that an issue occurred.
+     * If the matrix does not pass these stipulations, the method will end the program.
      *
      * @return The maximum value of a double if a poor matrix is sent in, otherwise
      * it will be the determinant of the matrix.
@@ -287,18 +281,24 @@ public class Matrix {
                 case 2:
                     return values[0][0] * values[1][1] - values[0][1] * values[1][0];
                 case 3:
-                    return (values[0][0] * (values[1][1] * values[2][2] - values[1][2] * values[2][1]) +
+                    return (values[0][0] * (values[1][1] * values[2][2] - values[1][2] * values[2][1]) -
                             values[1][0] * (values[0][1] * values[2][2] - values[0][2] * values[2][1]) +
                             values[2][0] * (values[0][1] * values[1][2] - values[0][2] * values[1][1]));
             }
         }
         //kill program so nothing bad happens
-        System.out.println("You tried to find determinant of matrix that isn't square (or greater than size 4");
+        System.out.println("You tried to find determinant of matrix that isn't square or is greater than size 4");
         System.exit(4);
         return Double.MAX_VALUE; //won't actually get here but removes IDE error. Would be flag for bad call of method.
     }
 
-    //TODO do case for 3x3
+
+    /**
+     * Method to calculate inverse of calling Matrix. Matrix must be square,
+     * and the question stipulates that the matrix must be less than size 4.
+     * If the matrix does not pass these stipulations, the method will end the program.
+     * @return Matrix that is the inverse of the calling Matrix.
+     */
     public Matrix inverse() {
         //question stipulation to have square matrix and size less than 4.
         //m can be used to check size, because m == n
@@ -325,7 +325,7 @@ public class Matrix {
                 case 3:
                     //first find matrix of minors: each position in Matrix is a determinant
                     //of the 2x2 matrix when you cross out the numbers in same row/column as j
-                    /*Matrix inv = new Matrix(3, 3);
+                    Matrix inv = new Matrix(3, 3);
                     for (int i = 0; i < 3; i++) {
                         for (int j = 0; j < 3; j++) {
                             inv.set(i, j, getDetMatrix(this, i, j).determinant());
@@ -344,30 +344,75 @@ public class Matrix {
                     inv.set(1, 2, right * -1); //bottom and right
 
                     //now multiply this adjoint matrix by determinant of original matrix
-                    return inv.multiply(this.determinant());*/
-                    return null;
+                    return inv.multiply(this.determinant());
             }
         }
         //kill program so nothing bad happens
-        System.out.println("You tried to find inverse of matrix that isn't square");
+        System.out.println("You tried to find inverse of matrix that isn't square or is bigger than 4x4");
         System.exit(5);
         return null; //won't actually get here but removes IDE error. Would be flag for bad call of method.
     }
 
-    /*private Matrix getDetMatrix(Matrix orgMatrix, int row, int col) {
+    /**
+     * Method to get the Matrix to find the determinant of when getting the Matrix of Minors for the inverse method.
+     * Does not need to sanitize parameters because it is only called from a method that already does that.
+     * @param orgMatrix Matrix form which the minor Matrix is found.
+     * @param row The row cancelled out of the orgMatrix.
+     * @param col The column cancelled out of the orgMatrix.
+     * @return the minor Matrix for the given row/column cancelling out.
+     */
+    private Matrix getDetMatrix(Matrix orgMatrix, int row, int col) {
         Matrix minorMatrix = new Matrix(2, 2);
-        if (row==0 && col==0){
-
-        } else if (row==0 && col==1){
-
-        } else if (row==1 && col==0){
-
-        } else if (row==1 && col==1){
-
-        } else if (row==2 && col==0){
-
+        //know that orgMatrix is 3x3, so just hardcode resultant minorMatrix
+        if (row == 0 && col == 0) {
+            for (int i = 0; i < 2; i++) {
+                for (int j = 0; j < 2; j++) {
+                    minorMatrix.set(i, j, orgMatrix.get(i + 1, j + 1));
+                }
+            }
+        } else if (row == 0 && col == 1) {
+            minorMatrix.set(0, 0, orgMatrix.get(1, 0));
+            minorMatrix.set(0, 1, orgMatrix.get(1, 2));
+            minorMatrix.set(1, 0, orgMatrix.get(2, 0));
+            minorMatrix.set(1, 1, orgMatrix.get(2, 2));
+        } else if (row == 0 && col == 2) {
+            minorMatrix.set(0, 0, orgMatrix.get(1, 0));
+            minorMatrix.set(0, 1, orgMatrix.get(1, 1));
+            minorMatrix.set(1, 0, orgMatrix.get(2, 0));
+            minorMatrix.set(1, 1, orgMatrix.get(2, 1));
+        } else if (row == 1 && col == 0) {
+            minorMatrix.set(0, 0, orgMatrix.get(0, 1));
+            minorMatrix.set(0, 1, orgMatrix.get(0, 2));
+            minorMatrix.set(1, 0, orgMatrix.get(2, 1));
+            minorMatrix.set(1, 1, orgMatrix.get(2, 2));
+        } else if (row == 1 && col == 1) {
+            minorMatrix.set(0, 0, orgMatrix.get(0, 0));
+            minorMatrix.set(0, 1, orgMatrix.get(0, 2));
+            minorMatrix.set(1, 0, orgMatrix.get(2, 0));
+            minorMatrix.set(1, 1, orgMatrix.get(2, 2));
+        } else if (row == 1 && col == 2) {
+            minorMatrix.set(0, 0, orgMatrix.get(0, 0));
+            minorMatrix.set(0, 1, orgMatrix.get(0, 1));
+            minorMatrix.set(1, 0, orgMatrix.get(2, 0));
+            minorMatrix.set(1, 1, orgMatrix.get(2, 1));
+        } else if (row == 2 && col == 0) {
+            minorMatrix.set(0, 0, orgMatrix.get(0, 1));
+            minorMatrix.set(0, 1, orgMatrix.get(0, 2));
+            minorMatrix.set(1, 0, orgMatrix.get(1, 1));
+            minorMatrix.set(1, 1, orgMatrix.get(1, 2));
+        } else if (row == 2 && col == 1) {
+            minorMatrix.set(0, 0, orgMatrix.get(0, 0));
+            minorMatrix.set(0, 1, orgMatrix.get(0, 2));
+            minorMatrix.set(1, 0, orgMatrix.get(1, 0));
+            minorMatrix.set(1, 1, orgMatrix.get(1, 2));
+        } else if (row == 2 && col == 2) {
+            minorMatrix.set(0, 0, orgMatrix.get(0, 0));
+            minorMatrix.set(0, 1, orgMatrix.get(0, 1));
+            minorMatrix.set(1, 0, orgMatrix.get(1, 0));
+            minorMatrix.set(1, 1, orgMatrix.get(1, 1));
         }
-    }*/
+        return minorMatrix;
+    }
 
     /**
      * Method that checks if a matrix is square and returns a boolean indicating if it is square.
@@ -419,10 +464,17 @@ public class Matrix {
         return output;
     }
 
+    /**
+     * Method to print a Matrix to a csv file. The format is
+     * defined by the question: number of rows, number of columns
+     * number,number
+     * number,number etc.
+     * @param fileName The file name/path of where the Matrix is being printed.
+     */
     public void print(String fileName) {
         String output = this.toString(); //format to output in
         try {
-            PrintWriter pw = new PrintWriter(new File("outputFile.csv"));
+            PrintWriter pw = new PrintWriter(new File(fileName));
             System.out.println("matrix to print:\n" + this);
             pw.write(output);
             pw.close();
