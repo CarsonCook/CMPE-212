@@ -225,7 +225,7 @@ public class Matrix {
             }
         }
 
-        return newM; //this matrix is the one that has been changed
+        return newM;
     }
 
     /**
@@ -243,7 +243,7 @@ public class Matrix {
                 newM.set(i, j, x * values[i][j]);
             }
         }
-        return newM; //this matrix is the one that has been changed
+        return newM;
     }
 
     /**
@@ -297,6 +297,7 @@ public class Matrix {
      * Method to calculate inverse of calling Matrix. Matrix must be square,
      * and the question stipulates that the matrix must be less than size 4.
      * If the matrix does not pass these stipulations, the method will end the program.
+     *
      * @return Matrix that is the inverse of the calling Matrix.
      */
     public Matrix inverse() {
@@ -313,14 +314,13 @@ public class Matrix {
 
                 case 2:
                     //inverse of {{a,b},{c,d}} size 2 is 1/det * {{d,-b},{-c,a}}
-                    double det = this.determinant();
                     Matrix copy = new Matrix(this.getM(), this.getN());
                     //set new values for the special matrix to get inverse
                     copy.set(0, 0, this.get(1, 1));
                     copy.set(1, 1, this.get(0, 0));
                     copy.set(0, 1, -1 * this.get(0, 1));
                     copy.set(1, 0, -1 * this.get(1, 0));
-                    return copy.multiply(1.0 / det); //1.0 to force division to be a float value
+                    return copy.multiply(1.0 / this.determinant()); //1.0 to force division to be a float value
 
                 case 3:
                     //first find matrix of minors: each position in Matrix is a determinant
@@ -333,18 +333,23 @@ public class Matrix {
                     }
 
                     //now swap values in middle of each edge and swap sign(matrix of co-factors and adjoint)
+                    //also swap top right and bottom left (but not sign)
                     double top = inv.get(0, 1);
                     double left = inv.get(1, 0);
+                    double topRight = inv.get(0, 2);
+                    double bottomLeft = inv.get(2, 0);
                     double right = inv.get(1, 2);
                     double bottom = inv.get(2, 1);
 
-                    inv.set(0, 1, left * -1); //top and left
-                    inv.set(1, 0, top * -1); //left and top
-                    inv.set(2, 1, bottom * -1); //right and bottom
-                    inv.set(1, 2, right * -1); //bottom and right
+                    inv.set(0, 1, left * -1); //top set
+                    inv.set(1, 0, top * -1); //left set
+                    inv.set(0, 2, bottomLeft); //top right set
+                    inv.set(2, 0, topRight); //bottom left set
+                    inv.set(1, 2, bottom * -1); //right set
+                    inv.set(2, 1, right * -1); //bottom set
 
                     //now multiply this adjoint matrix by determinant of original matrix
-                    return inv.multiply(this.determinant());
+                    return inv.multiply(1.0/this.determinant()); //1.0 so that division is forced to be a float value
             }
         }
         //kill program so nothing bad happens
@@ -356,9 +361,10 @@ public class Matrix {
     /**
      * Method to get the Matrix to find the determinant of when getting the Matrix of Minors for the inverse method.
      * Does not need to sanitize parameters because it is only called from a method that already does that.
+     *
      * @param orgMatrix Matrix form which the minor Matrix is found.
-     * @param row The row cancelled out of the orgMatrix.
-     * @param col The column cancelled out of the orgMatrix.
+     * @param row       The row cancelled out of the orgMatrix.
+     * @param col       The column cancelled out of the orgMatrix.
      * @return the minor Matrix for the given row/column cancelling out.
      */
     private Matrix getDetMatrix(Matrix orgMatrix, int row, int col) {
@@ -469,6 +475,7 @@ public class Matrix {
      * defined by the question: number of rows, number of columns
      * number,number
      * number,number etc.
+     *
      * @param fileName The file name/path of where the Matrix is being printed.
      */
     public void print(String fileName) {
@@ -612,6 +619,11 @@ public class Matrix {
      * @param val The value to be set.
      */
     public void set(int i, int j, double val) {
+        //if value is super small round to 0
+        //gets rid of floating point error, which also is an issue that can show a "-0"
+        if (val<Math.abs(0.000001)){
+            val=0;
+        }
         values[i][j] = val;
     }
 }
