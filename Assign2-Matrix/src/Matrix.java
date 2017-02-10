@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.io.*;
 import java.text.DecimalFormat;
 
 /**
@@ -8,11 +9,14 @@ import java.text.DecimalFormat;
 public class Matrix {
 
     public static void main(String[] args) {
-        Matrix matrix1 = new Matrix();
+        /*Matrix matrix1 = new Matrix();
         System.out.println(matrix1.toString() + "\n");
 
         Matrix matrix2 = new Matrix();
-        System.out.println(matrix2.toString() + "\n");
+        System.out.println(matrix2.toString() + "\n");*/
+        Matrix matrix = new Matrix("inputFile.csv");
+        System.out.println("matrix: " + matrix);
+        matrix.print("outputFile.csv");
     }
 
     private static int dimenMin = 0; //minimum dimensions for the values
@@ -41,7 +45,7 @@ public class Matrix {
     }
 
     /**
-     * Constructor for a matrix. User inputs the dimensions and all
+     * Constructor for a Matrix. User inputs the dimensions and all
      * of the values in it through JOptionPane popups.
      */
     public Matrix() {
@@ -58,7 +62,82 @@ public class Matrix {
         }
     }
 
-    //TODO constructor for csv file
+    /**
+     * Constructor for a Matrix. Takes the file name/path of a file and creates a Matrix from it.
+     * The file must follow the following format:
+     * The first number is the number of rows, then a comma, then the number of columns.
+     * Then, on the next line, the first row is specified with a comma only between each number.
+     * Subsequent rows come on next lines.
+     *
+     * @param fileName The path/name of the file to create the Matrix from.
+     */
+    public Matrix(String fileName) {
+        try {
+            BufferedReader csvFile = new BufferedReader(new FileReader(fileName));
+            String input = "";
+            String dataRow = readCSVLine(csvFile);
+            while (dataRow != null) {
+                input += (dataRow + "\n"); //readLine doesn't read the end line character
+                dataRow = readCSVLine(csvFile);
+            }
+            parseMatrix(input);
+        } catch (FileNotFoundException e) {
+            System.out.println("error: " + e);
+        }
+    }
+
+    /**
+     * Parses through the String version of the input file and creates a Matrix from the information in the String.
+     * @param input String containing the information from the csv file.
+     */
+    private void parseMatrix(String input) {
+        //get dimensions
+        m = Character.getNumericValue(input.charAt(0));
+        n = Character.getNumericValue(input.charAt(2));//comma separates m and n
+        //now make matrix
+        values = new double[m][n];
+        //counters for where we are in matrix
+        int row = 0;
+        int col = 0;
+        for (int i = 4; i < input.length(); i++) { //i starts at 4 because already dealt with top line ('m'',''n''\n')
+            //get each number - split by commas and end lines
+            String oneNum = "";
+            int j = i;
+            while (input.charAt(j) != ',' && input.charAt(j) != '\n') {
+                oneNum += input.charAt(j);
+                j++;
+            }
+            //set number in matrix
+            this.set(row, col, Double.parseDouble(oneNum));
+            //get ready to set number in next position in Matrix
+            if (col == n - 1) {
+                col = 0;
+                row++;
+            } else {
+                col++;
+            }
+            //continue through string
+            i = j;
+        }
+    }
+
+    /**
+     * Method to read a line from the csv file used to create a Matrix.
+     * Puts a try-catch block around the readLine() call from the BufferedReader.
+     * Method is private and static.
+     *
+     * @param csvFile The BufferedReader the Matrix is being created from.
+     * @return One line of the csv file, or, if and IOException
+     * is caught, returns null.
+     */
+    private static String readCSVLine(BufferedReader csvFile) {
+        try {
+            return csvFile.readLine();
+        } catch (IOException e) {
+            System.out.println("error: " + e);
+            return null;
+        }
+    }
 
     /**
      * Method to add two matrices. Checks for matrices that can't be added (aren't same size) and will
@@ -219,6 +298,7 @@ public class Matrix {
         return Double.MAX_VALUE; //won't actually get here but removes IDE error. Would be flag for bad call of method.
     }
 
+    //TODO do case for 3x3
     public Matrix inverse() {
         //question stipulation to have square matrix and size less than 4.
         //m can be used to check size, because m == n
@@ -339,7 +419,17 @@ public class Matrix {
         return output;
     }
 
-    //TODO print method
+    public void print(String fileName) {
+        String output = this.toString(); //format to output in
+        try {
+            PrintWriter pw = new PrintWriter(new File("outputFile.csv"));
+            System.out.println("matrix to print:\n" + this);
+            pw.write(output);
+            pw.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("error: " + e);
+        }
+    }
 
     /**
      * Method to create identity Matrix of size defined by a parameter.
