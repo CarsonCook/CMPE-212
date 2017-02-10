@@ -8,6 +8,24 @@ import java.text.DecimalFormat;
  */
 public class Matrix {
 
+    public static void main(String[] args) {
+
+        //test all methods - some are tested by being called from other methods
+        Matrix matrix1 = new Matrix();
+        Matrix matrix2 = new Matrix("inputFile.csv");
+        Matrix matrix3 = new Matrix(3, 3);
+
+        System.out.println("inverse of matrix1:\n" + matrix1.inverse());
+        System.out.println("determinant of matrix1:\n" + matrix1.determinant());
+        System.out.println("transpose of matrix1:\n" + matrix1.transpose());
+        System.out.println("identity of matrix size 3:\n" + Matrix.identity(3));
+        System.out.println("matrix1 + matrix2:\n" + matrix1.add(matrix2));
+        System.out.println("matrix1-matrix2:\n" + matrix1.subtract(matrix2));
+        System.out.println("matrix1*5:\n" + matrix1.multiply(5));
+        System.out.println("matrix1*matrix2:\n" + matrix1.multiply(matrix2));
+        System.out.println("matrix2/matrix1:\n" + matrix1.divide(matrix2));
+    }
+
     private static int dimenMin = 0; //minimum dimensions for the values
 
     private int m; //number of rows in values
@@ -342,7 +360,7 @@ public class Matrix {
                     inv.set(2, 1, right * -1); //bottom set
 
                     //now multiply this adjoint matrix by determinant of original matrix
-                    return inv.multiply(1.0/this.determinant()); //1.0 so that division is forced to be a float value
+                    return inv.multiply(1.0 / this.determinant()); //1.0 so that division is forced to be a float value
             }
         }
         //kill program so nothing bad happens
@@ -614,8 +632,8 @@ public class Matrix {
     public void set(int i, int j, double val) {
         //if value is super small round to 0
         //gets rid of floating point error, which also is an issue that can show a "-0"
-        if (val<Math.abs(0.000001)){
-            val=0;
+        if (val < Math.abs(0.000001)) {
+            val = 0;
         }
         values[i][j] = val;
     }
