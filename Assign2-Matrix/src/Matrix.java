@@ -8,13 +8,6 @@ import java.text.DecimalFormat;
  */
 public class Matrix {
 
-    public static void main(String[] args) {
-        Matrix matrix1 = new Matrix();
-        System.out.println(matrix1.toString() + "\n");
-
-        System.out.println(matrix1.inverse());
-    }
-
     private static int dimenMin = 0; //minimum dimensions for the values
 
     private int m; //number of rows in values
