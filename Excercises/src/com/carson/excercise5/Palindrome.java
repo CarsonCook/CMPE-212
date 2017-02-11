@@ -71,8 +71,12 @@ public class Palindrome {
         return copy;
     }
 
-    // test returns true if the String argument is a palindrome, false otherwise.
-    // test uses the other methods defined above.
+    /**
+     * Method that finds if the String argument is a palindrome.
+     *
+     * @param s String to see if it is a palindrome.
+     * @return True if it is a palindrome, else false.
+     */
     public static boolean test(String s) {
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) != s.charAt(s.length() - 1 - i)) {
