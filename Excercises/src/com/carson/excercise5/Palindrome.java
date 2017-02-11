@@ -7,14 +7,6 @@ package com.carson.excercise5;
  */
 public class Palindrome {
 
-    public static void main(String[] args) {
-        System.out.println("string: " + Palindrome.test("string"));
-        String s = "1hih2";
-        System.out.println(s + ": " + Palindrome.test("1hih2") + " org: " + s);
-        String s2 = "hannah";
-        System.out.println(s2 + ": " + Palindrome.test("hannah") + " org: " + s2);
-    }
-
     /**
      * Method that removes non-letter characters from the String argument and makes the String
      * all lower case. Returns the resultant String.
