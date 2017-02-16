@@ -1,6 +1,4 @@
-package com.carson.excercise2;
-
-import java.util.Scanner;
+package com.carson.exercise2;
 
 /**
  * Created by Carson on 27/01/2017.

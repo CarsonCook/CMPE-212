@@ -1,4 +1,4 @@
-package com.carson.excercise1;
+package com.carson.exercise1;
 
 import java.io.IOException;
 

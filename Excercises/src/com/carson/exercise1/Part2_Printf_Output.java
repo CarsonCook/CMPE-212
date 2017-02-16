@@ -1,4 +1,4 @@
-package com.carson.excercise1;
+package com.carson.exercise1;
 
 /**
  * Created by Carson on 16/01/2017.

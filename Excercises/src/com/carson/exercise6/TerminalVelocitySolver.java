@@ -1,10 +1,10 @@
-package com.carson.excercise6;
+package com.carson.exercise6;
 
-import com.carson.excercise1.IO_Helper.IOHelper;
+import com.carson.exercise1.IO_Helper.IOHelper;
 
 /**
  * Created by Carson on 14/02/2017.
- * CMPE 212 Section 01 - Exercise 6 Terminal Velocity of a Sphere
+ * CMPE 212 Section 01 - Exercise 6 Terminal Velocity of a Sphere.
  */
 public class TerminalVelocitySolver {
 

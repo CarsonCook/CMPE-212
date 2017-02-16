@@ -1,6 +1,6 @@
-package com.carson.excercise3;
+package com.carson.exercise3;
 
-import com.carson.excercise1.IO_Helper.IOHelper;
+import com.carson.exercise1.IO_Helper.IOHelper;
 
 import java.util.Random;
 

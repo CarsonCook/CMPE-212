@@ -1,4 +1,4 @@
-package com.carson.excercise1.IO_Helper;
+package com.carson.exercise1.IO_Helper;
 
 /*
  * This is a class that you may use to test the

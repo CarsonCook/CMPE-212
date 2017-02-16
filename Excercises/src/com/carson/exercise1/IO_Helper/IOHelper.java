@@ -1,4 +1,4 @@
-package com.carson.excercise1.IO_Helper;
+package com.carson.exercise1.IO_Helper;
 
 import javax.swing.*;
 
