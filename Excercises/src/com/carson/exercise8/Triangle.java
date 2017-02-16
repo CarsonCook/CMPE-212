@@ -21,6 +21,55 @@ public class Triangle {
     }
 
     /**
+     * Compares the area of the parameter Triangle to the current Triangle's area.
+     *
+     * @param tri The parameter Triangle to compare area with.
+     * @return 0 if areas equal, -1 if the parameter area is higher, 1 if the current area is higher.
+     */
+    public int compareTo(Triangle tri) {
+        if (this.getArea() == tri.getArea()) {
+            return 0;
+        } else if (this.getArea() > tri.getArea()) {
+            return 1;
+        } else {
+            return -1;
+        }
+    }
+
+    /**
+     * Checks if the parameter Triangle is the same as the calling Triangle. Equal if the 3 dimensions
+     * are equal, in any order (e.g. a==c, b==b, c==a).
+     *
+     * @param tri The parameter Triangle to see if it is equal to the caller.
+     * @return True if the Triangles are equal, false if not.
+     */
+    public boolean isEqual(Triangle tri) {
+        if (tri.a == this.a && tri.b == this.b && tri.c == this.c) {
+            return true;
+        } else if (tri.a == this.a && tri.c == this.b && tri.b == this.c) {
+            return true;
+        } else if (tri.b == this.a && tri.a == this.b && tri.c == this.c) {
+            return true;
+        } else if (tri.b == this.a && tri.c == this.b && tri.a == this.c) {
+            return true;
+        } else if (tri.c == this.a && tri.a == this.b && tri.b == this.c) {
+            return true;
+        } else if (tri.c == this.a && tri.b == this.b && tri.a == this.c) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Creates a String representation of the Triangle. In the format a,b,c.
+     *
+     * @return The String representing the Triangle.
+     */
+    public String toString() {
+        return (a + "," + b + "," + c);
+    }
+
+    /**
      * Accessor to get the dimensions of the Triangle.
      *
      * @return Array holding a, b and c respectively.
