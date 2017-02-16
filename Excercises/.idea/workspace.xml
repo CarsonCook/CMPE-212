@@ -2,24 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bc10285d-07e9-4ca6-b459-ab7046632638" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/carson/exercise7/Equation.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/carson/exercise7/FallingSphereEquation.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/carson/excercise1/IO_Helper/IOHelper.java" afterPath="$PROJECT_DIR$/src/com/carson/exercise1/IO_Helper/IOHelper.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/carson/excercise1/IO_Helper/TestIOHelper.java" afterPath="$PROJECT_DIR$/src/com/carson/exercise1/IO_Helper/TestIOHelper.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/carson/excercise1/Part1_Output.java" afterPath="$PROJECT_DIR$/src/com/carson/exercise1/Part1_Output.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/carson/excercise1/Part2_Printf_Output.java" afterPath="$PROJECT_DIR$/src/com/carson/exercise1/Part2_Printf_Output.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/carson/excercise1/Part3_GUI_Output_JOptionPane.java" afterPath="$PROJECT_DIR$/src/com/carson/exercise1/Part3_GUI_Output_JOptionPane.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/carson/excercise1/Part4_Console_Window_Input.java" afterPath="$PROJECT_DIR$/src/com/carson/exercise1/Part4_Console_Window_Input.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/carson/excercise1/Part5_Low_Console_Input.java" afterPath="$PROJECT_DIR$/src/com/carson/exercise1/Part5_Low_Console_Input.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/carson/excercise1/Part6_GUI_Input.java" afterPath="$PROJECT_DIR$/src/com/carson/exercise1/Part6_GUI_Input.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/carson/excercise2/Search.java" afterPath="$PROJECT_DIR$/src/com/carson/exercise2/Search.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/carson/excercise2/SelectionSort.java" afterPath="$PROJECT_DIR$/src/com/carson/exercise2/SelectionSort.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/carson/excercise2/SelectionSortC.c" afterPath="$PROJECT_DIR$/src/com/carson/exercise2/SelectionSortC.c" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/carson/excercise3/NimGame.java" afterPath="$PROJECT_DIR$/src/com/carson/exercise3/NimGame.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/carson/excercise5/Palindrome.java" afterPath="$PROJECT_DIR$/src/com/carson/exercise5/Palindrome.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/carson/excercise6/TerminalVelocitySolver.java" afterPath="$PROJECT_DIR$/src/com/carson/exercise6/TerminalVelocitySolver.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/carson/exercise7/SolveEquation.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Assign2-Matrix/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../Assign2-Matrix/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/carson/exercise7/Equation.java" afterPath="$PROJECT_DIR$/src/com/carson/exercise7/Equation.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/carson/exercise7/FallingSphereEquation.java" afterPath="$PROJECT_DIR$/src/com/carson/exercise7/FallingSphereEquation.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,11 +22,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Equation.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/carson/exercise7/Equation.java">
+      <file leaf-file-name="TerminalVelocitySolver.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/carson/exercise6/TerminalVelocitySolver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+            <state relative-caret-position="325">
+              <caret line="63" column="12" lean-forward="true" selection-start-line="63" selection-start-column="12" selection-end-line="63" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -48,15 +35,28 @@
       <file leaf-file-name="FallingSphereEquation.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/carson/exercise7/FallingSphereEquation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="8" lean-forward="false" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="17" />
+            <state relative-caret-position="68">
+              <caret line="4" column="51" lean-forward="false" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
               <folding>
-                <element signature="e#177#178#0" expanded="true" />
-                <element signature="e#201#202#0" expanded="true" />
-                <element signature="e#251#252#0" expanded="true" />
-                <element signature="e#275#276#0" expanded="true" />
-                <element signature="e#329#330#0" expanded="true" />
-                <element signature="e#353#354#0" expanded="true" />
+                <element signature="e#695#696#0" expanded="true" />
+                <element signature="e#719#720#0" expanded="true" />
+                <element signature="e#769#770#0" expanded="true" />
+                <element signature="e#794#795#0" expanded="true" />
+                <element signature="e#845#846#0" expanded="true" />
+                <element signature="e#924#925#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SolveEquation.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/carson/exercise7/SolveEquation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="20" lean-forward="false" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+              <folding>
+                <element signature="e#187#188#0" expanded="true" />
+                <element signature="e#283#284#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -106,6 +106,10 @@
         <option value="$PROJECT_DIR$/src/com/carson/excercise5/Palindrome.java" />
         <option value="$PROJECT_DIR$/src/com/carson/excercise3/NimGame.java" />
         <option value="$PROJECT_DIR$/src/com/carson/excercise6/TerminalVelocitySolver.java" />
+        <option value="$PROJECT_DIR$/src/com/carson/exercise6/TerminalVelocitySolver.java" />
+        <option value="$PROJECT_DIR$/src/com/carson/exercise7/BisectionRootSolver.java" />
+        <option value="$PROJECT_DIR$/src/com/carson/exercise7/FallingSphereSolver.java" />
+        <option value="$PROJECT_DIR$/src/com/carson/exercise7/SolveEquation.java" />
         <option value="$PROJECT_DIR$/src/com/carson/exercise7/Equation.java" />
         <option value="$PROJECT_DIR$/src/com/carson/exercise7/FallingSphereEquation.java" />
       </list>
@@ -205,6 +209,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="exercise7" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Excercises" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Excercises" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carson" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="exercise6" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -802,12 +828,12 @@
       <workItem from="1486495626976" duration="840000" />
       <workItem from="1486790901535" duration="4259000" />
       <workItem from="1487132303467" duration="3159000" />
-      <workItem from="1487200934438" duration="1297000" />
+      <workItem from="1487200934438" duration="2674000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22141000" />
+    <option name="totallyTimeSpent" value="23518000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1171,31 +1197,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/carson/exercise6/TerminalVelocitySolver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        <state relative-caret-position="325">
+          <caret line="63" column="12" lean-forward="true" selection-start-line="63" selection-start-column="12" selection-end-line="63" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/carson/exercise7/Equation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        <state relative-caret-position="119">
+          <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/carson/exercise7/SolveEquation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="20" lean-forward="false" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+          <folding>
+            <element signature="e#187#188#0" expanded="true" />
+            <element signature="e#283#284#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/carson/exercise7/FallingSphereEquation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="8" lean-forward="false" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="17" />
+        <state relative-caret-position="68">
+          <caret line="4" column="51" lean-forward="false" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
           <folding>
-            <element signature="e#177#178#0" expanded="true" />
-            <element signature="e#201#202#0" expanded="true" />
-            <element signature="e#251#252#0" expanded="true" />
-            <element signature="e#275#276#0" expanded="true" />
-            <element signature="e#329#330#0" expanded="true" />
-            <element signature="e#353#354#0" expanded="true" />
+            <element signature="e#695#696#0" expanded="true" />
+            <element signature="e#719#720#0" expanded="true" />
+            <element signature="e#769#770#0" expanded="true" />
+            <element signature="e#794#795#0" expanded="true" />
+            <element signature="e#845#846#0" expanded="true" />
+            <element signature="e#924#925#0" expanded="true" />
           </folding>
         </state>
       </provider>
