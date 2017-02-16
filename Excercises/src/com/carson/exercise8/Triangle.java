@@ -6,9 +6,11 @@ package com.carson.exercise8;
  */
 public class Triangle {
 
-    private double a;
-    private double b;
-    private double c;
+    private double a, b, c;
+
+    Triangle(double[] dimens) throws IllegalTriangleException {
+        this(dimens[0], dimens[1], dimens[2]);
+    }
 
     Triangle(double a, double b, double c) throws IllegalTriangleException {
         if (a + b > c && b + c > a && a + c > b) {
@@ -18,6 +20,21 @@ public class Triangle {
             this.b = b;
             this.c = c;
         }
+    }
+
+    /**
+     * Clones the calling Triangle.
+     *
+     * @return The new Triangle, cloned from calling Triangle.
+     */
+    public Triangle clone() {
+        Triangle newTri;
+        try {
+            newTri = new Triangle(a, b, c);
+        } catch (IllegalTriangleException e) {
+            return null;
+        }
+        return newTri;
     }
 
     /**
