@@ -28,6 +28,12 @@ public class FallingSphereEquation implements Equation {
         return 30;
     }
 
+    /**
+     * Implements the equation to find the Reynolds number of a given velocity.
+     *
+     * @param velocity The velocity for which to find the Reynolds number.
+     * @return Double that is the Reynolds number.
+     */
     private double reynoldsNum(double velocity) {
         return velocity * SPHERE_DIAMETER * AIR_DENSITY / AIR_VISCOSITY;
     }
