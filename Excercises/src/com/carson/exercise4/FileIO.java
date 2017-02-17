@@ -5,6 +5,7 @@ import java.nio.ByteBuffer;
 import java.nio.DoubleBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.file.*;
+import java.util.ArrayList;
 
 /**
  * Created by Carson on 17/02/2017.
@@ -15,29 +16,50 @@ public class FileIO {
     public static void main(String[] args) {
         String fileName = "test.txt"; //put one level above src automatically
         double[] data = generateDoubleArray(10000);
-        long startTime = System.nanoTime();
+        long startTime = System.currentTimeMillis();
         writeToFile(fileName, data);
-        long endTime = System.nanoTime();
+        long endTime = System.currentTimeMillis();
         System.out.println("Normal file:\n");
         displayResults(endTime - startTime, fileName);
 
         String fileNameBin = "testBin.dat";
-        startTime = System.nanoTime();
+        startTime = System.currentTimeMillis();
         writeToBinaryFile(fileNameBin, data);
-        endTime = System.nanoTime();
+        endTime = System.currentTimeMillis();
         System.out.println("Binary file:\n");
         displayResults(endTime - startTime, fileNameBin);
 
         String fileNameRABin = "testRABin.dat";
-        startTime = System.nanoTime();
+        startTime = System.currentTimeMillis();
         writeToRABinFile(fileNameRABin, data);
-        endTime = System.nanoTime();
+        endTime = System.currentTimeMillis();
         System.out.println("RA Bin file:\n");
         displayResults(endTime - startTime, fileNameRABin);
+
+        startTime = System.currentTimeMillis();
+        ArrayList<Double> info = readFile(fileName);
+        endTime = System.currentTimeMillis();
+        System.out.println("Normal file in:\n");
+        displayResults(endTime - startTime, fileName);
+        System.out.println(info.toString());
+
+        startTime = System.currentTimeMillis();
+        info = readBinFile(fileNameBin);
+        endTime = System.currentTimeMillis();
+        System.out.println("Binary file in:\n");
+        displayResults(endTime - startTime, fileNameBin);
+        System.out.println(info.toString());
+
+        startTime = System.currentTimeMillis();
+        info = readRABinFile(fileNameRABin);
+        endTime = System.currentTimeMillis();
+        System.out.println("RA binary file in:\n");
+        displayResults(endTime - startTime, fileNameRABin);
+        System.out.println(info.toString());
     }
 
     private static void displayResults(long runTime, String fileName) {
-        System.out.println("Run time: " + runTime + "ns");
+        System.out.println("Run time: " + runTime + " ms");
         System.out.println("File size: " + getFileSize(fileName) + "\n");
     }
 
@@ -56,6 +78,25 @@ public class FileIO {
         }
     }
 
+    private static ArrayList<Double> readRABinFile(String fileName) {
+        RandomAccessFile randFileIn = null;
+        try {
+            randFileIn = new RandomAccessFile(fileName, "r");
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+        ArrayList<Double> data = new ArrayList<>();
+        try {
+            for (int i = 0; i < 10000; i++) {
+                data.add(randFileIn.readDouble());
+            }
+            randFileIn.close();
+        } catch (IOException e) {
+            System.out.println("ERROR: " + e);
+        }
+        return data;
+    }
+
     private static void writeToBinaryFile(String fileName, double[] data) {
         Path file = Paths.get(fileName);
         try (ObjectOutputStream writer = new ObjectOutputStream(new BufferedOutputStream(
@@ -66,6 +107,23 @@ public class FileIO {
         } catch (IOException e) {
             System.out.println("ERROR: " + e);
         }
+    }
+
+    private static ArrayList<Double> readBinFile(String fileName) {
+        ArrayList<Double> data = new ArrayList<>();
+        Path file = Paths.get(fileName);
+        Double item = -1.1;
+        try (ObjectInputStream reader = new ObjectInputStream(new BufferedInputStream(
+                new FileInputStream(file.toFile())))) {
+            int count = 0;
+            while (count < 10000) { //know 10000 items in file
+                data.add(reader.readDouble());
+                count++;
+            }
+        } catch (IOException e) {
+            System.out.println("ERROR: " + e + " " + item);
+        }
+        return data;
     }
 
     private static void writeToFile(String fileName, double[] data) {
@@ -79,6 +137,21 @@ public class FileIO {
         } catch (IOException e) {
             System.out.println("ERROR: " + e);
         }
+    }
+
+    private static ArrayList<Double> readFile(String fileName) {
+        ArrayList<Double> data = new ArrayList<>();
+        Path file = Paths.get(fileName);
+        try (BufferedReader reader = Files.newBufferedReader(file)) {
+            String line = reader.readLine();
+            while (line != null) {
+                data.add(Double.parseDouble(line));
+                line = reader.readLine();
+            }
+        } catch (IOException e) {
+            System.out.println("ERROR: " + e);
+        }
+        return data;
     }
 
     private static double[] generateDoubleArray(int size) {
