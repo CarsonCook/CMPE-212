@@ -58,11 +58,23 @@ public class FileIO {
         System.out.println(info.toString());
     }
 
+    /**
+     * Shows the run time of reading/writing a file and its size/
+     *
+     * @param runTime  The run time.
+     * @param fileName The file name/path.
+     */
     private static void displayResults(long runTime, String fileName) {
         System.out.println("Run time: " + runTime + " ms");
         System.out.println("File size: " + getFileSize(fileName) + "\n");
     }
 
+    /**
+     * Writes a double array to a random access binary file.
+     *
+     * @param fileName The file to write to.
+     * @param data     The data to write.
+     */
     private static void writeToRABinFile(String fileName, double[] data) {
         ByteBuffer buffer = ByteBuffer.allocate(8 * data.length); //8 bits for one item in data
         DoubleBuffer dBuffer = buffer.asDoubleBuffer();
@@ -78,6 +90,12 @@ public class FileIO {
         }
     }
 
+    /**
+     * Reads a bunch of doubles on different lines from a random access binary file. Assumes there are 10000 doubles to read.
+     *
+     * @param fileName The file to read from.
+     * @return ArrayList of type double holding all of the doubles in the file.
+     */
     private static ArrayList<Double> readRABinFile(String fileName) {
         RandomAccessFile randFileIn = null;
         try {
@@ -97,6 +115,12 @@ public class FileIO {
         return data;
     }
 
+    /**
+     * Writes a double array to a binary file.
+     *
+     * @param fileName The file to write to.
+     * @param data     The data to write.
+     */
     private static void writeToBinaryFile(String fileName, double[] data) {
         Path file = Paths.get(fileName);
         try (ObjectOutputStream writer = new ObjectOutputStream(new BufferedOutputStream(
@@ -109,6 +133,12 @@ public class FileIO {
         }
     }
 
+    /**
+     * Reads a bunch of doubles on different lines from a binary file. Assumes there are 10000 doubles to read.
+     *
+     * @param fileName The file to read from.
+     * @return ArrayList of type double holding all of the doubles in the file.
+     */
     private static ArrayList<Double> readBinFile(String fileName) {
         ArrayList<Double> data = new ArrayList<>();
         Path file = Paths.get(fileName);
@@ -126,6 +156,12 @@ public class FileIO {
         return data;
     }
 
+    /**
+     * Writes a double array to a file.
+     *
+     * @param fileName The file to write to.
+     * @param data     The data to write.
+     */
     private static void writeToFile(String fileName, double[] data) {
         Path file = Paths.get(fileName);
         try (BufferedWriter writer = Files.newBufferedWriter(file)) {
@@ -139,6 +175,12 @@ public class FileIO {
         }
     }
 
+    /**
+     * Reads a bunch of doubles on different lines from a file.
+     *
+     * @param fileName The file to read from.
+     * @return ArrayList of type double holding all of the doubles in the file.
+     */
     private static ArrayList<Double> readFile(String fileName) {
         ArrayList<Double> data = new ArrayList<>();
         Path file = Paths.get(fileName);
@@ -154,6 +196,12 @@ public class FileIO {
         return data;
     }
 
+    /**
+     * Generates a double array of size "size" containing random values from 0 to 1
+     *
+     * @param size The size of the array.
+     * @return A double array with random values.
+     */
     private static double[] generateDoubleArray(int size) {
         double[] arr = new double[size];
         for (int i = 0; i < size; i++) {
@@ -162,6 +210,12 @@ public class FileIO {
         return arr;
     }
 
+    /**
+     * Finds the size of a file in bytes.
+     *
+     * @param fileName The path/name of the file.
+     * @return long that is the size of the file in bytes.
+     */
     private static long getFileSize(String fileName) {
         long fileSize = 0;
         try {
