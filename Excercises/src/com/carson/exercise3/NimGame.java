@@ -13,7 +13,7 @@ public class NimGame {
     public static void main(String[] args) {
         int pileSize = getRandInt(100, 10);
         boolean humanTurn = humanStarts();
-        boolean computerSmart = computerPlaysSmart();
+        boolean computerSmart = doesComputerPlaySmart();
         displayStartingConditions(humanTurn, pileSize, computerSmart);
         while (pileSize > 1) {
             int choice;
@@ -34,6 +34,12 @@ public class NimGame {
             }
             //change turns
             humanTurn = !humanTurn;
+            //slow down execution so user can read game, and random seed is more different
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                System.out.println("ERROR: " + e);
+            }
         }
         displayWinner(humanTurn);
     }
@@ -46,18 +52,29 @@ public class NimGame {
      * @return int that is the number of marbles the computer has chosen.
      */
     private static int getComputerChoice(int pileSize, boolean playSmart) {
-        /*if (playSmart) {
+        if (playSmart) {
             //check if can make smart choice
-            if (Math.pow(2, 2) - 1 == pileSize || Math.pow(2, 3) - 1 == pileSize || Math.pow(2, 4) - 1 == pileSize
-                    || Math.pow(2, 5) - 1 == pileSize || Math.pow(2, 6) - 1 == pileSize) {
-                int power = getRandInt(6, 2);
-                return (int) Math.round(Math.pow(2, power) - 1); //pow returns double, round returns long, so round then cast to int
+            if (pileSize - 3 <= pileSize / 2 || pileSize - 7 <= pileSize / 2 || pileSize - 15 <= pileSize / 2
+                    || pileSize - 31 <= pileSize / 2 || pileSize - 63 <= pileSize / 2) {
+                int choice = getRandInt(pileSize / 2, 1);
+                if (pileSize - 63 <= pileSize / 2 && pileSize - 63 > 0) {
+                    choice = pileSize - 63;
+                } else if (pileSize - 31 <= pileSize / 2 && pileSize - 63 > 0) {
+                    choice = pileSize - 31;
+                } else if (pileSize - 15 <= pileSize / 2 && pileSize - 63 > 0) {
+                    choice = pileSize - 15;
+                } else if (pileSize - 7 <= pileSize / 2 && pileSize - 63 > 0) {
+                    choice = pileSize - 7;
+                } else if (pileSize - 3 <= pileSize / 2 && pileSize - 3 > 0) {
+                    choice = pileSize - 3;
+                }
+                return choice;
             } else { //if no smart choice available, choose randomly
                 return getRandInt(pileSize / 2, 1);
             }
-        } else {*/
-        return getRandInt(pileSize / 2, 1);
-        //}
+        } else {
+            return getRandInt(pileSize / 2, 1);
+        }
     }
 
     /**
@@ -73,14 +90,14 @@ public class NimGame {
     /**
      * Displays the starting conditions - who starts the game, the starting pile size and if the computer is playing smart.
      *
-     * @param humanStarts  Who starts the game.
-     * @param startingPile The starting pile size.
+     * @param humanStarts   Who starts the game.
+     * @param startingPile  The starting pile size.
      * @param computerSmart Describes if the computer is playing smart or randomly.
      */
     private static void displayStartingConditions(boolean humanStarts, int startingPile, boolean computerSmart) {
         String output = (humanStarts ? "Human" : "Computer") + " starts, with a starting marble pile of " + startingPile;
         System.out.println(output);
-        System.out.println("Computer is playing" + (computerSmart ? "smartly" : "randomly"));
+        System.out.println("Computer is playing " + (computerSmart ? "smartly" : "randomly"));
     }
 
     /**
@@ -152,7 +169,7 @@ public class NimGame {
      *
      * @return True if the computer will play smart, false if not.
      */
-    private static boolean computerPlaysSmart() {
+    private static boolean doesComputerPlaySmart() {
         return humanStarts(); //same logic
     }
 }
