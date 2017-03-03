@@ -13,17 +13,14 @@ public class Book extends Item {
     private String authors, publisher;
 
     public Book(int year, String authors, String publisher, String name) {
+        super(name);
         this.year = year;
         this.authors = authors;
         this.publisher = publisher;
-        setName(name);
     }
 
     public Book(Book book) {
-        if (book == null) {
-            System.out.println("Tried to copy a null device");
-            System.exit(1);
-        }
+        super(book.getName());
         new Book(book.year, book.authors, book.publisher, book.getName());
     }
 
@@ -51,11 +48,32 @@ public class Book extends Item {
         return year;
     }
 
+    public void setYear(int year) {
+        //check for bad year, if it is, set it to 0 as a flag/default value
+        if (year < 0) {
+            year = 0;
+        }
+        this.year = year;
+    }
+
     public String getAuthors() {
         return authors;
     }
 
+    public void setAuthors(String authors) {
+        //check if authors is empty, if it is, set it to Carson Cook as a flag/default value
+        if (authors.isEmpty()) {
+            authors = "Carson Cook";
+        }
+        this.authors = authors;
+    }
+
     public String getPublisher() {
         return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        //don't check for empty publisher because a book can be made with no publisher
+        this.publisher = publisher;
     }
 }

@@ -9,15 +9,12 @@ public class Device extends Item {
     private double rentalCost;
 
     public Device(double rentalCost, String name) {
+        super(name);
         this.rentalCost = rentalCost;
-        setName(name);
     }
 
     public Device(Device device) {
-        if (device == null) {
-            System.out.println("Tried to copy a null device");
-            System.exit(1);
-        }
+        super(device.getName());
         new Device(device.rentalCost, device.getName());
     }
 
@@ -48,5 +45,13 @@ public class Device extends Item {
 
     public double getRentalCost() {
         return rentalCost;
+    }
+
+    public void setRentalCost(double rentalCost) {
+        //check if rental cost invalid, if it is, set to 0 as a flag/default value
+        if (rentalCost < 0) {
+            rentalCost = 0;
+        }
+        this.rentalCost = rentalCost;
     }
 }
