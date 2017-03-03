@@ -4,18 +4,19 @@ package library;
  * Created by Carson on 02/03/2017.
  * 14cdwc
  * Parent class for all items within the library.
- * <p>
- * Test for null value in copy constructor
- * test ID incremented properly
+ *
+ * Null value in constructor fails - how to check before calling super constructor
  */
 public abstract class Item {
-    private static int id = 0;
+    private static int instanceCounter = 0;
+    private int id;
     private String name;
 
     public Item(String name) {
         //use getter's ability to check for invalid name
         setName(name);
-        id++;
+        instanceCounter++;
+        id = instanceCounter;
     }
 
     abstract public double getLateFees(int daysLate);
