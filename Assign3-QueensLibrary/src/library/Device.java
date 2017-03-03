@@ -35,7 +35,7 @@ public class Device extends Item {
     }
 
     @Override
-    public Object clone() throws CloneNotSupportedException {
+    public Device clone() throws CloneNotSupportedException {
         return new Device(this); //newer Java version so don't need to cast
     }
 

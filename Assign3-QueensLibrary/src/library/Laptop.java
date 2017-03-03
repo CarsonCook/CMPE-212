@@ -32,7 +32,7 @@ public class Laptop extends Device {
     }
 
     @Override
-    public Object clone() throws CloneNotSupportedException {
+    public Laptop clone() throws CloneNotSupportedException {
         return new Laptop(this);
     }
 

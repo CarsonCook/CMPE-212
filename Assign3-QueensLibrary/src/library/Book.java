@@ -41,7 +41,7 @@ public class Book extends Item {
     }
 
     @Override
-    public Object clone() throws CloneNotSupportedException {
+    public Book clone() throws CloneNotSupportedException {
         return new Book(this);
     }
 

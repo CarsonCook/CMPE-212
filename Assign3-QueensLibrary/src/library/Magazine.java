@@ -33,7 +33,7 @@ public class Magazine extends Book {
     }
 
     @Override
-    public Object clone() throws CloneNotSupportedException {
+    public Magazine clone() throws CloneNotSupportedException {
         return new Magazine(this);
     }
 

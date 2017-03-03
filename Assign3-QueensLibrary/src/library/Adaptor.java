@@ -32,7 +32,7 @@ public class Adaptor extends Device {
     }
 
     @Override
-    public Object clone() throws CloneNotSupportedException {
+    public Adaptor clone() throws CloneNotSupportedException {
         return new Adaptor(this);
     }
 
