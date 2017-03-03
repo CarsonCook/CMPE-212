@@ -13,7 +13,8 @@ public abstract class Item {
     private String name;
 
     public Item(String name) {
-        this.name = name;
+        //use getter's ability to check for invalid name
+        setName(name);
         id++;
     }
 

@@ -10,7 +10,8 @@ public class Device extends Item {
 
     public Device(double rentalCost, String name) {
         super(name);
-        this.rentalCost = rentalCost;
+        //use setter's check for invalid rental cost
+        setRentalCost(rentalCost);
     }
 
     public Device(Device device) {
