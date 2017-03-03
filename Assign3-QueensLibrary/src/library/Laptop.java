@@ -8,16 +8,27 @@ package library;
  */
 public class Laptop extends Device {
 
+    /**
+     * Constructor that sets attribute for this Laptop.
+     * @param rentalCost double representing the rental cost of this Laptop.
+     * @param name String representing the name of this Laptop.
+     */
     public Laptop(double rentalCost, String name) {
         super(rentalCost, name);
     }
 
-    public Laptop(Device device) {
-        super(device);
+    /**
+     * Copy constructor for a Laptop.
+     * @param laptop Laptop to be copied
+     */
+    public Laptop(Laptop laptop) {
+        super(laptop);
     }
 
     @Override
     public boolean equals(Object obj) {
+        //need to check if obj is an instance of Adaptor, if not, caller and obj are not equal
+        //also deals with null parameter
         if (!(obj instanceof Laptop)) {
             return false;
         }

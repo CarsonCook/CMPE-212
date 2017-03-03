@@ -8,10 +8,23 @@ package library;
  */
 public class Textbook extends Book {
 
+    /**
+     * Constructor that sets attribute values.
+     *
+     * @param year      int representing the year the Book was published.
+     * @param authors   String representing the author that wrote the Book.
+     * @param publisher String representing the publisher that published the Book.
+     * @param name      String representing the name of the Book.
+     */
     public Textbook(int year, String authors, String publisher, String name) {
         super(year, authors, publisher, name);
     }
 
+    /**
+     * Copy constructor for a Book.
+     *
+     * @param textbook Textbook to be copied.
+     */
     public Textbook(Textbook textbook) {
         super(textbook);
     }
@@ -24,6 +37,8 @@ public class Textbook extends Book {
 
     @Override
     public boolean equals(Object obj) {
+        //need to check if obj is an instance of Adaptor, if not, caller and obj are not equal
+        //also deals with null parameter
         if (!(obj instanceof Textbook)) {
             return false;
         }

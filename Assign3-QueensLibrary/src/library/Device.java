@@ -8,12 +8,23 @@ package library;
 public class Device extends Item {
     private double rentalCost;
 
+    /**
+     * Constructor that sets attribute values.
+     *
+     * @param rentalCost double representing the cost of renting this Device.
+     * @param name       String representing the name of this Device.
+     */
     public Device(double rentalCost, String name) {
         super(name);
         //use setter's check for invalid rental cost
         setRentalCost(rentalCost);
     }
 
+    /**
+     * Copy constructor for a Device.
+     *
+     * @param device Device object to be copied.
+     */
     public Device(Device device) {
         super(device.getName());
         new Device(device.rentalCost, device.getName());
@@ -21,7 +32,9 @@ public class Device extends Item {
 
     @Override
     public boolean equals(Object obj) {
-        if (!(obj instanceof Device)) { //if obj is null then this is false
+        //need to check if obj is an instance of Adaptor, if not, caller and obj are not equal
+        //also deals with null parameter
+        if (!(obj instanceof Device)) {
             return false;
         }
         Device otherDevice = (Device) obj;
@@ -44,10 +57,20 @@ public class Device extends Item {
         return 2 * daysLate + 0.1 * rentalCost;
     }
 
+    /**
+     * Getter for the rental cost of this Device.
+     *
+     * @return double representing the rental cost.
+     */
     public double getRentalCost() {
         return rentalCost;
     }
 
+    /**
+     * Setter for the rental cost of this Device. Also sanitizes the parameter and if it is bad sets it to a default value.
+     *
+     * @param rentalCost double representing the rental cost of this device.
+     */
     public void setRentalCost(double rentalCost) {
         //check if rental cost invalid, if it is, set to 0 as a flag/default value
         if (rentalCost < 0) {
