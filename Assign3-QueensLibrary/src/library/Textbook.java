@@ -31,8 +31,7 @@ public class Textbook extends Book {
 
     @Override
     public String toString() {
-        return "ID: " + getID() + " textbook name: " + getName() + " year: " + getYear() + " authors: " + getAuthors() +
-                " publisher: " + getPublisher();
+        return "Textbook " + super.toString();
     }
 
     @Override

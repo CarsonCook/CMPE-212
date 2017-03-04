@@ -10,8 +10,9 @@ public class Adaptor extends Device {
 
     /**
      * Constructor that sets attribute values.
+     *
      * @param rentalCost double representing rental cost of the Adaptor.
-     * @param name String representing the name of the Adaptor.
+     * @param name       String representing the name of the Adaptor.
      */
     public Adaptor(double rentalCost, String name) {
         super(rentalCost, name);
@@ -19,6 +20,7 @@ public class Adaptor extends Device {
 
     /**
      * Copy constructor for an Adaptor.
+     *
      * @param adaptor Adaptor to be copied.
      */
     public Adaptor(Adaptor adaptor) {
@@ -40,7 +42,7 @@ public class Adaptor extends Device {
 
     @Override
     public String toString() {
-        return "ID: " + getID() + " adaptor name: " + getName() + " rental cost: " + getRentalCost();
+        return "Adaptor " + super.toString();
     }
 
     @Override

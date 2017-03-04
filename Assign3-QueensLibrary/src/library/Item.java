@@ -17,7 +17,7 @@ public abstract class Item {
      * Constructor used to set the name of the item in the library, and to increment the ID of the item.
      * ID is the number of items thus far in the library.
      *
-     * @param name
+     * @param name String representing the name of the item.
      */
     public Item(String name) {
         //use setter's ability to check for invalid name
@@ -34,31 +34,10 @@ public abstract class Item {
      */
     abstract public double getLateFees(int daysLate);
 
-    //instructions said only one abstract, but that all classes need these methods,
-    //so to remind myself I made abstract methods for them.
-
-    /**
-     * Abstract method ensuring every item has it's own toString method.
-     *
-     * @return String that describes the parent and child attributes of each item.
-     */
-    abstract public String toString();
-
-    /**
-     * Abstract method ensuring every item has it's own equals method.
-     *
-     * @param obj Object to be tested if is equal to the calling instance.
-     * @return boolean - true if the parameter and calling object have the same attribute values, else false.
-     */
-    abstract public boolean equals(Object obj);
-
-    /**
-     * Abstract method ensuring every item has it's own clone method.
-     *
-     * @return Object that is the clone of the calling instance.
-     * @throws CloneNotSupportedException Some objects do not support cloning.
-     */
-    abstract public Object clone() throws CloneNotSupportedException;
+    @Override
+    public String toString() {
+        return "ID: " + id + ", name: " + name;
+    }
 
     /**
      * Getter for ID

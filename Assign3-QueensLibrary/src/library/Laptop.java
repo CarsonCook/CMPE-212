@@ -10,8 +10,9 @@ public class Laptop extends Device {
 
     /**
      * Constructor that sets attribute for this Laptop.
+     *
      * @param rentalCost double representing the rental cost of this Laptop.
-     * @param name String representing the name of this Laptop.
+     * @param name       String representing the name of this Laptop.
      */
     public Laptop(double rentalCost, String name) {
         super(rentalCost, name);
@@ -19,6 +20,7 @@ public class Laptop extends Device {
 
     /**
      * Copy constructor for a Laptop.
+     *
      * @param laptop Laptop to be copied
      */
     public Laptop(Laptop laptop) {
@@ -39,7 +41,7 @@ public class Laptop extends Device {
 
     @Override
     public String toString() {
-        return "ID: " + getID() + " laptop name: " + getName() + " rental cost: " + getRentalCost();
+        return "Device " + super.toString();
     }
 
     @Override

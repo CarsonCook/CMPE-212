@@ -22,6 +22,7 @@ public class Magazine extends Book {
 
     /**
      * Copy constructor.
+     *
      * @param magazine Magazine object to be copied.
      */
     public Magazine(Magazine magazine) {
@@ -30,8 +31,7 @@ public class Magazine extends Book {
 
     @Override
     public String toString() {
-        return "ID: " + getID() + " magazine name: " + getName() + " year: " + getYear() + " authors: " + getAuthors() +
-                " publisher: " + getPublisher();
+        return "Magazine " + super.toString();
     }
 
     @Override

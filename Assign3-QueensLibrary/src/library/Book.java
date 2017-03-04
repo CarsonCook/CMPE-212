@@ -45,7 +45,7 @@ public class Book extends Item {
 
     @Override
     public String toString() {
-        return "ID: " + getID() + " book name: " + getName() + " year: " + year + " authors: " + authors + " publisher: ";
+        return "Book " + super.toString() + ", year: " + year + ", authors: " + authors + ", publisher: " + publisher;
     }
 
     @Override

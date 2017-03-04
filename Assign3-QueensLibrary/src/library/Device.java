@@ -44,7 +44,7 @@ public class Device extends Item {
 
     @Override
     public String toString() {
-        return "ID: " + getID() + " device name: " + getName() + " rental cost: " + rentalCost;
+        return "Device " + super.toString() + ", rental cost: " + rentalCost;
     }
 
     @Override
