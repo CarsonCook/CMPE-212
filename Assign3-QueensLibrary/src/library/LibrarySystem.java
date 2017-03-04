@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class LibrarySystem {
 
-    private static ArrayList<Rental> mRentals;
+    private static ArrayList<Rental> mRentals = new ArrayList<>();
 
     public static void main(String[] args) {
         Laptop laptop = new Laptop(10, "laptop");
@@ -30,11 +30,21 @@ public class LibrarySystem {
         System.out.println(textbook.equals(textbook2));
     }
 
+    /**
+     * Adds a rental transaction to the ArrayList mRentals that holds all library rentals.
+     *
+     * @param item Item that was rented.
+     */
     private static void addTransaction(Item item) {
         Rental rental = new Rental(item, 0, 0);
         mRentals.add(rental);
     }
 
+    /**
+     * Gets the total late fees from all rentals in the system.
+     *
+     * @return double representing total late fees.
+     */
     private static double getTotalLateFees() {
         double totalLateFees = 0;
         for (Rental rental : mRentals) {
@@ -43,6 +53,11 @@ public class LibrarySystem {
         return totalLateFees;
     }
 
+    /**
+     * Gets the total rental costs from all devices in the system.
+     *
+     * @return double representing total rental costs.
+     */
     private static double getTotalRentalCosts() {
         double totalRentalCosts = 0;
         for (Rental rental : mRentals) {
