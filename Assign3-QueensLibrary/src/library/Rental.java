@@ -1,0 +1,90 @@
+package library;
+
+/**
+ * Created by Carson on 04/03/2017.
+ * 14cdwc
+ * Class to hold a rental transaction for the library
+ */
+public class Rental {
+
+    private Item item;
+    private int customerID, rentalDays, daysLate;
+
+    public Rental(Item item, int customerID, int rentalDays, int daysLate) {
+        this.item = item;
+        this.customerID = customerID;
+        this.rentalDays = rentalDays;
+        this.daysLate = daysLate;
+    }
+
+    public Rental(Rental rental) {
+        new Rental(rental.item, rental.customerID, rental.rentalDays, rental.daysLate);
+    }
+
+    @Override
+    public String toString() {
+        return "Rental: customer ID: " + customerID + ", item: " + item.getName() + ", rental days: " + rentalDays
+                + ", days late: " + daysLate;
+    }
+
+    @Override
+    public Rental clone() throws CloneNotSupportedException {
+        return new Rental(this);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        //check obj isn't null and is a Rental object
+        if (!(obj instanceof Rental)) {
+            return false;
+        }
+        Rental otherRental = (Rental) obj;
+        return otherRental.customerID == this.customerID && otherRental.daysLate == this.daysLate &&
+                otherRental.rentalDays == this.rentalDays && otherRental.item.equals(this.item);
+    }
+
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        //check for bad item, if it is, set to a default/flag value
+        if (item == null) {
+            item = new Device(0, "not null");
+        }
+        this.item = item;
+    }
+
+    public int getCustomerID() {
+        return customerID;
+    }
+
+    public void setCustomerID(int customerID) {
+        //no check for bad IDs because they *could* be negative and still be different
+        this.customerID = customerID;
+    }
+
+    public int getRentalDays() {
+        return rentalDays;
+    }
+
+    public void setRentalDays(int rentalDays) {
+        //check for bad rentalDays, if it is, set to a default/flag value
+        if (rentalDays < 0) {
+            rentalDays = 0;
+        }
+        this.rentalDays = rentalDays;
+    }
+
+    public int getDaysLate() {
+        return daysLate;
+    }
+
+    public void setDaysLate(int daysLate) {
+        //check for bad daysLate, if it is, set to a default/flag value
+        if (daysLate < 0) {
+            daysLate = 0;
+        }
+        this.daysLate = daysLate;
+    }
+}

@@ -5,8 +5,6 @@ package library;
  * 14cdwc
  * Parent class for all items within the library.
  * Abstract class - a constructor and several parameters with getters and setters.
- * <p>
- * Null value in constructor fails - how to check before calling super constructor
  */
 public abstract class Item {
     private static int instanceCounter = 0; //counts instances of Item - all items in the library
