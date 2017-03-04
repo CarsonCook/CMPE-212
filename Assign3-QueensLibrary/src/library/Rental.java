@@ -9,16 +9,18 @@ public class Rental {
 
     private Item item;
     private int customerID, rentalDays, daysLate;
+    private static int numInstances = 0;
 
-    public Rental(Item item, int customerID, int rentalDays, int daysLate) {
-        this.item = item;
-        this.customerID = customerID;
-        this.rentalDays = rentalDays;
-        this.daysLate = daysLate;
+    public Rental(Item item, int rentalDays, int daysLate) {
+        setItem(item);
+        setDaysLate(daysLate);
+        setRentalDays(rentalDays);
+        numInstances++;
+        this.customerID = numInstances;
     }
 
     public Rental(Rental rental) {
-        new Rental(rental.item, rental.customerID, rental.rentalDays, rental.daysLate);
+        new Rental(rental.item, rental.rentalDays, rental.daysLate);
     }
 
     @Override
@@ -57,11 +59,6 @@ public class Rental {
 
     public int getCustomerID() {
         return customerID;
-    }
-
-    public void setCustomerID(int customerID) {
-        //no check for bad IDs because they *could* be negative and still be different
-        this.customerID = customerID;
     }
 
     public int getRentalDays() {
