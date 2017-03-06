@@ -18,8 +18,12 @@ public abstract class Item {
      * @param name String representing the name of the item.
      */
     public Item(String name) {
+        this();
         //use setter's ability to check for invalid name
         setName(name);
+    }
+
+    public Item() {
         instanceCounter++; //another instance made
         id = instanceCounter; //ID is just the number of instances at this point in time - always increments so no ID the same
     }

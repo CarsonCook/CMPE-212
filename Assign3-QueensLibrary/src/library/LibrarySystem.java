@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * 14cdwc
  * Class to utilize library schema created.
  */
-//TODO copy constructor doesn't work
+//TODO copy constructor breaks if null inputted
 //TODO Ask user to correct null values
 //TODO ask user for values
 
@@ -16,18 +16,46 @@ public class LibrarySystem {
     private static ArrayList<Rental> mRentals = new ArrayList<>();
 
     public static void main(String[] args) {
-        Laptop laptop = new Laptop(10, "laptop");
-        Laptop laptop2 = new Laptop(10, "laptop");
+     //   Laptop laptop = new Laptop(10, "laptop");
+      //  Laptop laptop2 = new Laptop(10, "laptop");
         Adaptor adaptor = new Adaptor(15, "adaptor");
-        Adaptor adaptor2 = new Adaptor(15, "adaptor");
-        Magazine magazine = new Magazine(2016, "pengu", "carson", "magazine");
-        Magazine magazine2 = new Magazine(2016, "pengu", "carson", "magazine");
-        Textbook textbook = new Textbook(2016, "manji", "carson", "math");
-        Textbook textbook2 = new Textbook(2016, "manji", "carson", "math");
-        System.out.println(laptop.equals(laptop2));
-        System.out.println(adaptor.equals(adaptor2));
-        System.out.println(magazine.equals(magazine2));
-        System.out.println(textbook.equals(textbook2));
+      //  Adaptor adaptor2 = new Adaptor(15, "adaptor");
+      //  Magazine magazine = new Magazine(2016, "pengu", "carson", "magazine");
+      //  Magazine magazine2 = new Magazine(2016, "pengu", "carson", "magazine");
+      //  Textbook textbook = new Textbook(2016, "manji", "carson", "math");
+      //  Textbook textbook2 = new Textbook(2016, "manji", "carson", "math");
+        System.out.println(adaptor);
+        System.out.println(cloneDevice(adaptor));
+    }
+
+    /**
+     * Convience method to clone a device, adds the try-catch block around the clone call.
+     *
+     * @param device Device to be cloned
+     * @return Cloned device.
+     */
+    private static Device cloneDevice(Device device) {
+        try {
+            return device.clone();
+        } catch (CloneNotSupportedException e) {
+            System.out.println("Clone not supported!");
+        }
+        return null; //flag for no clone possible
+    }
+
+    /**
+     * Convience method to clone a Book, adds the try-catch block around the clone call.
+     *
+     * @param book Book to be cloned
+     * @return Cloned Book.
+     */
+    private static Book cloneBook(Book book) {
+        try {
+            return book.clone();
+        } catch (CloneNotSupportedException e) {
+            System.out.println("Clone not supported!");
+        }
+        return null; //flag for no clone possible
     }
 
     /**

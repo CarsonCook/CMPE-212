@@ -26,8 +26,7 @@ public class Device extends Item {
      * @param device Device object to be copied.
      */
     public Device(Device device) {
-        super(device.getName());
-        new Device(device.rentalCost, device.getName());
+        this(device.rentalCost, device.getName());
     }
 
     @Override

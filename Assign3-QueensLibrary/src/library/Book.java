@@ -34,8 +34,7 @@ public class Book extends Item {
      * @param book Book to be copied.
      */
     public Book(Book book) {
-        super(book.getName());
-        new Book(book.year, book.authors, book.publisher, book.getName());
+       this(book.year, book.authors, book.publisher, book.getName());
     }
 
     @Override
