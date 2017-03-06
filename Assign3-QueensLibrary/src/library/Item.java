@@ -49,7 +49,7 @@ public abstract class Item {
 
     public void setName(String name) {
         //check if bad name, if it is, set to flag/default value library
-        if (name.isEmpty()) {
+        if (name == null || name.isEmpty()) {
             name = "library";
         }
         this.name = name;

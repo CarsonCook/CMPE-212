@@ -26,7 +26,7 @@ public class Book extends Item {
      * @param book Book to be copied.
      */
     public Book(Book book) {
-       this(book.year, book.authors, book.publisher, book.getName());
+        this(book.year, book.authors, book.publisher, book.getName());
     }
 
     @Override
@@ -75,7 +75,7 @@ public class Book extends Item {
 
     public void setAuthors(String authors) {
         //check if authors is empty, if it is, set it to Carson Cook as a flag/default value
-        if (authors.isEmpty()) {
+        if (authors == null || authors.isEmpty()) {
             authors = "Carson Cook";
         }
         this.authors = authors;

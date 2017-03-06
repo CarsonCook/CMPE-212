@@ -17,7 +17,7 @@ public class Rental {
         setDaysLate(daysLate);
         setRentalDays(rentalDays);
         numInstances++;
-        this.customerID = numInstances;
+        customerID = numInstances;
     }
 
     /**
