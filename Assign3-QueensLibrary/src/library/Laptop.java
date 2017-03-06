@@ -8,12 +8,6 @@ package library;
  */
 public class Laptop extends Device {
 
-    /**
-     * Constructor that sets attribute for this Laptop.
-     *
-     * @param rentalCost double representing the rental cost of this Laptop.
-     * @param name       String representing the name of this Laptop.
-     */
     public Laptop(double rentalCost, String name) {
         super(rentalCost, name);
     }

@@ -8,14 +8,6 @@ package library;
  */
 public class Magazine extends Book {
 
-    /**
-     * Constructor that sets attribute values.
-     *
-     * @param year      int representing the year the Book was published.
-     * @param authors   String representing the author that wrote the Book.
-     * @param publisher String representing the publisher that published the Book.
-     * @param name      String representing the name of the Book.
-     */
     public Magazine(int year, String authors, String publisher, String name) {
         super(year, authors, publisher, name);
     }

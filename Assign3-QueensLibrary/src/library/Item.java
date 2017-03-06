@@ -11,18 +11,16 @@ public abstract class Item {
     private int id;
     private String name;
 
-    /**
-     * Constructor used to set the name of the item in the library, and to increment the ID of the item.
-     * ID is the number of items thus far in the library.
-     *
-     * @param name String representing the name of the item.
-     */
     public Item(String name) {
         this();
         //use setter's ability to check for invalid name
         setName(name);
     }
 
+    /**
+     * Default constructor - need for copy constructors. Also called from other item constructor to
+     * increment instanceCounter and set the ID.
+     */
     public Item() {
         instanceCounter++; //another instance made
         id = instanceCounter; //ID is just the number of instances at this point in time - always increments so no ID the same
@@ -41,29 +39,14 @@ public abstract class Item {
         return "ID: " + id + ", name: " + name;
     }
 
-    /**
-     * Getter for ID
-     *
-     * @return int that is the ID of the calling item.
-     */
     public int getID() {
         return id;
     }
 
-    /**
-     * Getter for name.
-     *
-     * @return String that is the name of the calling item.
-     */
     public String getName() {
         return name;
     }
 
-    /**
-     * Setter for name. Also sanitizes value to be set and if it is bad, set's it to a default value "library".
-     *
-     * @param name String that is the name of the calling item.
-     */
     public void setName(String name) {
         //check if bad name, if it is, set to flag/default value library
         if (name.isEmpty()) {

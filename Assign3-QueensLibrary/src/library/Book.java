@@ -12,14 +12,6 @@ public class Book extends Item {
     private int year;
     private String authors, publisher;
 
-    /**
-     * Constructor that sets attribute values.
-     *
-     * @param year      int representing the year the Book was published.
-     * @param authors   String representing the author that wrote the Book.
-     * @param publisher String representing the publisher that published the Book.
-     * @param name      String representing the name of the Book.
-     */
     public Book(int year, String authors, String publisher, String name) {
         super(name);
         //utilize setters checking for bad values
@@ -65,20 +57,10 @@ public class Book extends Item {
         return new Book(this);
     }
 
-    /**
-     * Getter for year attribute.
-     *
-     * @return int representing the year the Book was published.
-     */
     public int getYear() {
         return year;
     }
 
-    /**
-     * Setter for the year attribute. Also filters bad values (less than 0) and sets them to a default value.
-     *
-     * @param year int representing the year the Book was published.
-     */
     public void setYear(int year) {
         //check for bad year, if it is, set it to 0 as a flag/default value
         if (year < 0) {
@@ -87,20 +69,10 @@ public class Book extends Item {
         this.year = year;
     }
 
-    /**
-     * Getter for the authors attribute.
-     *
-     * @return String representing the authors of the Book.
-     */
     public String getAuthors() {
         return authors;
     }
 
-    /**
-     * Setter for the authors attribute. Also filters bad values (empty) and sets them to a default value.
-     *
-     * @param authors String representing who wrote the Book.
-     */
     public void setAuthors(String authors) {
         //check if authors is empty, if it is, set it to Carson Cook as a flag/default value
         if (authors.isEmpty()) {
@@ -109,20 +81,10 @@ public class Book extends Item {
         this.authors = authors;
     }
 
-    /**
-     * Getter for the publisher attribute.
-     *
-     * @return String representing the authors of the Book.
-     */
     public String getPublisher() {
         return publisher;
     }
 
-    /**
-     * Setter for the publisher attribute. Also filters bad values (less than 0) and sets them to default value.
-     *
-     * @param publisher String representing who published the Book.
-     */
     public void setPublisher(String publisher) {
         //don't check for empty publisher because a book can be made with no publisher
         this.publisher = publisher;

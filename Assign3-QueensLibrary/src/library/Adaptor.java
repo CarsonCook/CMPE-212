@@ -8,12 +8,6 @@ package library;
  */
 public class Adaptor extends Device {
 
-    /**
-     * Constructor that sets attribute values.
-     *
-     * @param rentalCost double representing rental cost of the Adaptor.
-     * @param name       String representing the name of the Adaptor.
-     */
     public Adaptor(double rentalCost, String name) {
         super(rentalCost, name);
     }
