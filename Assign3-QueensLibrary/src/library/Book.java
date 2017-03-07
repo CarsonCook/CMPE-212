@@ -26,7 +26,17 @@ public class Book extends Item {
      * @param book Book to be copied.
      */
     public Book(Book book) {
-        this(book.year, book.authors, book.publisher, book.getName());
+        //don't call super or this in order to check for a null device being copied
+        if (book == null) {
+            //no values available, so use default ones
+            this.setName("");
+            this.setAuthors("");
+            this.setPublisher("");
+        } else {
+            this.setName(book.getName());
+            this.setAuthors(book.getAuthors());
+            this.setPublisher(book.getPublisher());
+        }
     }
 
     @Override
@@ -87,6 +97,9 @@ public class Book extends Item {
 
     public void setPublisher(String publisher) {
         //don't check for empty publisher because a book can be made with no publisher
+        if (publisher == null) {
+            publisher = "";
+        }
         this.publisher = publisher;
     }
 }

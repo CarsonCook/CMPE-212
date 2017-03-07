@@ -15,7 +15,15 @@ public class Device extends Item {
     }
 
     public Device(Device device) {
-        this(device.rentalCost, device.getName());
+        //don't call super or this in order to check for a null device being copied
+        if (device == null) {
+            //no values available, so use default ones
+            this.setName("");
+            this.setRentalCost(0);
+        } else {
+            this.setName(device.getName());
+            this.setRentalCost(device.rentalCost);
+        }
     }
 
     @Override

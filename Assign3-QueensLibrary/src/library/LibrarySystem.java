@@ -17,14 +17,16 @@ public class LibrarySystem {
         //   Laptop laptop = new Laptop(10, "laptop");
         //  Laptop laptop2 = new Laptop(10, "laptop");
         Adaptor adaptor = new Adaptor(15, "adaptor");
+        System.out.println(adaptor);
+        System.out.println(new Adaptor(null));
         //  Adaptor adaptor2 = new Adaptor(15, "adaptor");
         //  Magazine magazine = new Magazine(2016, "pengu", "carson", "magazine");
         //  Magazine magazine2 = new Magazine(2016, "pengu", "carson", "magazine");
         //  Textbook textbook = new Textbook(2016, "manji", "carson", "math");
         //  Textbook textbook2 = new Textbook(2016, "manji", "carson", "math");
-        Rental rental = new Rental(adaptor, 0, 0);
-        System.out.println(rental);
-        System.out.println(cloneRental(rental));
+       // Rental rental = new Rental(adaptor, 0, 0);
+        //System.out.println(rental);
+      //  System.out.println(cloneRental(rental));
     }
 
     private static void addTransaction(Item item) {
