@@ -9,17 +9,16 @@ import java.util.ArrayList;
  * Class to utilize library schema created.
  */
 //TODO null in normal constructor
-//todo rental tostring call item to string
 public class LibrarySystem {
 
     private static ArrayList<Rental> mRentals = new ArrayList<>();
 
     public static void main(String[] args) {
         addTransaction();
-        addTransaction();
+     //   addTransaction();
         printRentals();
         System.out.println(getTotalLateFees());
-        System.out.println(getTotalRentalCosts());
+       // System.out.println(getTotalRentalCosts());
     }
 
     private static void addTransaction() {
