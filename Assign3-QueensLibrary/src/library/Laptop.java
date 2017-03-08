@@ -35,7 +35,7 @@ public class Laptop extends Device {
 
     @Override
     public String toString() {
-        return "Device " + super.toString();
+        return "Laptop " + super.toString();
     }
 
     @Override

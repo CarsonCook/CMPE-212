@@ -13,11 +13,51 @@ public class LibrarySystem {
     private static ArrayList<Rental> mRentals = new ArrayList<>();
 
     public static void main(String[] args) {
-        addTransaction();
-        addTransaction();
+        //test normal constructor and clone method/copy constructor
+        Adaptor adaptor = new Adaptor(5, "HDMI Adaptor");
+        Adaptor cloneAdaptor = (Adaptor) cloneDevice(adaptor);
+        System.out.println(adaptor);
+        System.out.println(cloneAdaptor);
+        Laptop laptop = new Laptop(15, "Asus");
+        Laptop cloneLaptop = (Laptop) cloneDevice(laptop);
+        System.out.println(laptop);
+        System.out.println(cloneLaptop);
+        Magazine magazine = new Magazine(2016, "Carson Cook", "Time", "Cool stuff");
+        Magazine cloneMagazine = (Magazine) cloneBook(magazine);
+        System.out.println(magazine);
+        System.out.println(cloneMagazine);
+        Textbook textbook = new Textbook(2016, "Carson Cook", "Queens", "Programming 101");
+        Textbook cloneTextbook = (Textbook) cloneBook(textbook);
+        System.out.println(textbook);
+        System.out.println(cloneTextbook);
+        //check for null values/copying null item
+        System.out.println(new Adaptor(null));
+        System.out.println(new Laptop(null));
+        System.out.println(new Magazine(null));
+        System.out.println(new Textbook(null));
+        //check equals method
+        System.out.println(adaptor.equals(magazine));
+        System.out.println(adaptor.equals(adaptor));
+        System.out.println(laptop.equals(magazine));
+        System.out.println(laptop.equals(laptop));
+        System.out.println(magazine.equals(adaptor));
+        System.out.println(magazine.equals(magazine));
+        System.out.println(textbook.equals(magazine));
+        System.out.println(textbook.equals(textbook));
+        //test rental system - also tests getLateFees for devices
+        addTransaction(adaptor);
+        addTransaction(laptop);
+        addTransaction(magazine);
+        addTransaction(textbook);
         printAllRentals();
-        System.out.println(getTotalLateFees());
-        System.out.println(getTotalRentalCosts());
+        System.out.println("Total rental costs: " + getTotalRentalCosts());
+        System.out.println("Total late fees: " + getTotalLateFees());
+    }
+
+    private static void addTransaction(Item newItem) {
+        Rental newRental = new Rental(newItem, getInt("Enter the number of days " + newItem.getName() + " will be rented for"),
+                getInt("Enter the number of days " + newItem.getName() + " is late"));
+        mRentals.add(newRental);
     }
 
     private static void addTransaction() {
@@ -46,16 +86,13 @@ public class LibrarySystem {
                         getString("Enter the publisher"), getString("Enter the textbook's name"));
                 break;
         }
-        Rental newRental = new Rental(newItem, getInt("Enter the number of days the item will be rented for"),
-                getInt("Enter the number of days the item is late"));
-        mRentals.add(newRental);
+        addTransaction(newItem);
     }
 
     private static double getTotalLateFees() {
         double totalLateFees = 0;
         for (Rental rental : mRentals) {
-            totalLateFees = rental.getItem().getLateFees(rental.getDaysLate());
-            System.out.println("late fees: " + totalLateFees + " days late: " + rental.getDaysLate());
+            totalLateFees += rental.getItem().getLateFees(rental.getDaysLate());
         }
         return totalLateFees;
     }

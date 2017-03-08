@@ -96,9 +96,9 @@ public class Book extends Item {
     }
 
     public void setPublisher(String publisher) {
-        //don't check for empty publisher because a book can be made with no publisher
-        if (publisher == null) {
-            publisher = "";
+        //check for bad publisher value
+        if (publisher == null || publisher.isEmpty()) {
+            publisher = "none";
         }
         this.publisher = publisher;
     }
