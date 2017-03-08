@@ -45,8 +45,6 @@ public class Magazine extends Book {
 
     @Override
     public double getLateFees(int daysLate) {
-
-        System.out.println(daysLate);
         return 0.75 * daysLate;
     }
 }

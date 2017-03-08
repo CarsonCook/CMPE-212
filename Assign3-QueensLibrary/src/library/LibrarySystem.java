@@ -8,17 +8,16 @@ import java.util.ArrayList;
  * 14cdwc
  * Class to utilize library schema created.
  */
-//TODO null in normal constructor
 public class LibrarySystem {
 
     private static ArrayList<Rental> mRentals = new ArrayList<>();
 
     public static void main(String[] args) {
         addTransaction();
-     //   addTransaction();
-        printRentals();
+        addTransaction();
+        printAllRentals();
         System.out.println(getTotalLateFees());
-       // System.out.println(getTotalRentalCosts());
+        System.out.println(getTotalRentalCosts());
     }
 
     private static void addTransaction() {
@@ -39,11 +38,11 @@ public class LibrarySystem {
                 newItem = new Laptop(getRentalCost(), getString("Enter the laptop's name"));
                 break;
             case "magazine":
-                newItem = new Book(getInt("Enter the year the magazine was published"), getString("Enter the author(s)"),
+                newItem = new Magazine(getInt("Enter the year the magazine was published"), getString("Enter the author(s)"),
                         getString("Enter the publisher"), getString("Enter the magazine's name"));
                 break;
             case "textbook":
-                newItem = new Book(getInt("Enter the year the textbook was published"), getString("Enter the author(s)"),
+                newItem = new Textbook(getInt("Enter the year the textbook was published"), getString("Enter the author(s)"),
                         getString("Enter the publisher"), getString("Enter the textbook's name"));
                 break;
         }
@@ -55,7 +54,8 @@ public class LibrarySystem {
     private static double getTotalLateFees() {
         double totalLateFees = 0;
         for (Rental rental : mRentals) {
-            totalLateFees += rental.getItem().getLateFees(rental.getDaysLate());
+            totalLateFees = rental.getItem().getLateFees(rental.getDaysLate());
+            System.out.println("late fees: " + totalLateFees + " days late: " + rental.getDaysLate());
         }
         return totalLateFees;
     }
@@ -70,7 +70,7 @@ public class LibrarySystem {
         return totalRentalCosts;
     }
 
-    private static void printRentals() {
+    private static void printAllRentals() {
         for (Rental rental : mRentals) {
             System.out.println(rental);
         }
