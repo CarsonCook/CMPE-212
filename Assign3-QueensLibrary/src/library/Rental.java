@@ -31,8 +31,7 @@ public class Rental {
 
     @Override
     public String toString() {
-        return "Rental: customer ID: " + customerID + ", item: " + item.getName() + ", rental days: " + rentalDays
-                + ", days late: " + daysLate;
+        return "Rental: " + item.toString();
     }
 
     @Override
