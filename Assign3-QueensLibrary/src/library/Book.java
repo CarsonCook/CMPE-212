@@ -51,9 +51,8 @@ public class Book extends Item {
 
     @Override
     public boolean equals(Object obj) {
-        //need to check if obj is an instance of Adaptor, if not, caller and obj are not equal
-        //also deals with null parameter
-        if (!(obj instanceof Book)) {
+        //need to check if obj is of type Book, if not, caller and obj are not equal
+        if (obj == null || !(obj.getClass() == Book.class)) {
             return false;
         }
         Book otherBook = (Book) obj;

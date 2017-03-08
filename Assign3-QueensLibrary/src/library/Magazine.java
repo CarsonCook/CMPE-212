@@ -28,9 +28,8 @@ public class Magazine extends Book {
 
     @Override
     public boolean equals(Object obj) {
-        //need to check if obj is an instance of Adaptor, if not, caller and obj are not equal
-        //also deals with null parameter
-        if (!(obj instanceof Magazine)) {
+        //need to check if obj is of type Magazine, if not, caller and obj are not equal
+        if (obj==null||!(obj.getClass()== Magazine.class)) {
             return false;
         }
         Magazine otherMag = (Magazine) obj;

@@ -41,8 +41,8 @@ public class Rental {
 
     @Override
     public boolean equals(Object obj) {
-        //check obj isn't null and is a Rental object
-        if (!(obj instanceof Rental)) {
+        //need to check if obj is of type Rental, if not, caller and obj are not equal
+        if (obj == null || !(obj.getClass() == Rental.class)) {
             return false;
         }
         Rental otherRental = (Rental) obj;

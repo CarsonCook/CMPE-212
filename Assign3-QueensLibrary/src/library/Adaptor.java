@@ -23,9 +23,8 @@ public class Adaptor extends Device {
 
     @Override
     public boolean equals(Object obj) {
-        //need to check if obj is an instance of Adaptor, if not, caller and obj are not equal
-        //also deals with null parameter
-        if (!(obj instanceof Adaptor)) {
+        //need to check if obj is of type Adaptor, if not, caller and obj are not equal
+        if (obj == null || !(obj.getClass() == Adaptor.class)) {
             return false;
         }
         Adaptor otherAdaptor = (Adaptor) obj;
