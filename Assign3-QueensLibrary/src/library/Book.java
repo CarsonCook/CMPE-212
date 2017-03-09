@@ -32,10 +32,12 @@ public class Book extends Item {
             this.setName("");
             this.setAuthors("");
             this.setPublisher("");
+            this.setYear(0);
         } else {
             this.setName(book.getName());
-            this.setAuthors(book.getAuthors());
-            this.setPublisher(book.getPublisher());
+            this.setAuthors(book.authors);
+            this.setPublisher(book.publisher);
+            this.setYear(book.year);
         }
     }
 
