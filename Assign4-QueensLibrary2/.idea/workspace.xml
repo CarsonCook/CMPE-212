@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d06394c6-5ab0-4fff-93dc-59562e0862df" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/library/Enums/RentalStatus.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Assign3-QueensLibrary/out/production/Assign3-QueensLibrary/library/Adaptor.class" afterPath="$PROJECT_DIR$/../Assign3-QueensLibrary/out/production/Assign3-QueensLibrary/library/Adaptor.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Assign3-QueensLibrary/out/production/Assign3-QueensLibrary/library/Book.class" afterPath="$PROJECT_DIR$/../Assign3-QueensLibrary/out/production/Assign3-QueensLibrary/library/Book.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Assign3-QueensLibrary/out/production/Assign3-QueensLibrary/library/Device.class" afterPath="$PROJECT_DIR$/../Assign3-QueensLibrary/out/production/Assign3-QueensLibrary/library/Device.class" />
@@ -11,6 +12,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Assign3-QueensLibrary/out/production/Assign3-QueensLibrary/library/Rental.class" afterPath="$PROJECT_DIR$/../Assign3-QueensLibrary/out/production/Assign3-QueensLibrary/library/Rental.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Assign3-QueensLibrary/out/production/Assign3-QueensLibrary/library/Textbook.class" afterPath="$PROJECT_DIR$/../Assign3-QueensLibrary/out/production/Assign3-QueensLibrary/library/Textbook.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Assign3-QueensLibrary/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../Assign3-QueensLibrary/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/library/Enums/CustomerType.java" afterPath="$PROJECT_DIR$/src/library/Enums/CustomerType.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/library/LibrarySystem.java" afterPath="$PROJECT_DIR$/src/library/LibrarySystem.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/library/Rental.java" afterPath="$PROJECT_DIR$/src/library/Rental.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -27,22 +31,28 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Rental.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/library/Rental.java">
+      <file leaf-file-name="LibrarySystem.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/library/LibrarySystem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="29" lean-forward="false" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
-              <folding />
+            <state relative-caret-position="221">
+              <caret line="82" column="79" lean-forward="false" selection-start-line="82" selection-start-column="79" selection-end-line="82" selection-end-column="79" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Customer.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/library/Customer.java">
+      <file leaf-file-name="Rental.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/library/Rental.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="47" lean-forward="false" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
-              <folding />
+            <state relative-caret-position="308">
+              <caret line="25" column="34" lean-forward="false" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1442#1443#0" expanded="true" />
+                <element signature="e#1532#1533#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -52,8 +62,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -69,9 +79,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/library/Exceptions/DuplicateItemID.java" />
-        <option value="$PROJECT_DIR$/src/library/LibrarySystem.java" />
         <option value="$PROJECT_DIR$/src/library/Enums/CustomerTypes.java" />
-        <option value="$PROJECT_DIR$/src/library/Customer.java" />
         <option value="$PROJECT_DIR$/src/library/Adaptor.java" />
         <option value="$PROJECT_DIR$/src/library/Item.java" />
         <option value="$PROJECT_DIR$/src/library/Device.java" />
@@ -79,7 +87,11 @@
         <option value="$PROJECT_DIR$/src/library/Book.java" />
         <option value="$PROJECT_DIR$/src/library/Textbook.java" />
         <option value="$PROJECT_DIR$/src/library/Magazine.java" />
+        <option value="$PROJECT_DIR$/src/library/Customer.java" />
+        <option value="$PROJECT_DIR$/src/library/Enums/RentalStatus.java" />
+        <option value="$PROJECT_DIR$/src/library/Enums/CustomerType.java" />
         <option value="$PROJECT_DIR$/src/library/Rental.java" />
+        <option value="$PROJECT_DIR$/src/library/LibrarySystem.java" />
       </list>
     </option>
   </component>
@@ -140,6 +152,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="library" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Assign4-QueensLibrary2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Assign4-QueensLibrary2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="library" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Enums" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -564,12 +598,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1490492174570</updated>
-      <workItem from="1490492189788" duration="4015000" />
+      <workItem from="1490492189788" duration="7392000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4015000" />
+    <option name="totallyTimeSpent" value="7392000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1056" extended-state="6" />
@@ -624,41 +658,6 @@
             <element signature="e#220#221#0" expanded="true" />
             <element signature="e#306#307#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/library/Enums/CustomerType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/library/LibrarySystem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <element signature="e#7629#7630#0" expanded="true" />
-            <element signature="e#7693#7694#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/library/Item.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="50" lean-forward="false" selection-start-line="28" selection-start-column="50" selection-end-line="28" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/library/Device.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="32" lean-forward="false" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -718,19 +717,65 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/library/Rental.java">
+    <entry file="file://$PROJECT_DIR$/src/library/Device.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="29" lean-forward="false" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+        <state relative-caret-position="-117">
+          <caret line="12" column="32" lean-forward="false" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/library/Customer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="47" lean-forward="false" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
+        <state relative-caret-position="255">
+          <caret line="15" column="11" lean-forward="false" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/library/Enums/RentalStatus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="33" lean-forward="false" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/library/Enums/CustomerType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="37" lean-forward="false" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/library/Item.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="40" column="27" lean-forward="false" selection-start-line="40" selection-start-column="27" selection-end-line="40" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/library/LibrarySystem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="82" column="79" lean-forward="false" selection-start-line="82" selection-start-column="79" selection-end-line="82" selection-end-column="79" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/library/Rental.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="25" column="34" lean-forward="false" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1442#1443#0" expanded="true" />
+            <element signature="e#1532#1533#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

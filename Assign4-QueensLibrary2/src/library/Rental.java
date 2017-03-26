@@ -1,30 +1,43 @@
 package library;
 
+import library.Enums.CustomerType;
+import library.Enums.RentalStatus;
+
+import java.util.Date;
+
 /**
  * Created by Carson on 04/03/2017.
  * 14cdwc
  * Class to hold a rental transaction for the library
  */
+//TODO test null actual return date
 public class Rental {
 
     private Item item;
-    private int id, rentalDays, daysLate;
+    private Date rentalDate, estReturnDate, actReturnDate; //date holds date and time
+    private int id;
     private static int instanceCounter = 0;
+    private Customer customer;
+    private RentalStatus status;
 
-    public Rental(Item item, int rentalDays, int daysLate) {
+    public Rental(Item item, Customer customer, Date rentalDate, Date estReturnDate) {
         //use setters to filter out bad values
         setItem(item);
-        setDaysLate(daysLate);
-        setRentalDays(rentalDays);
+        setCustomer(customer);
+        setRentalDate(rentalDate);
+        setEstReturnDate(estReturnDate);
+        setStatus(RentalStatus.ACTIVE); //upon rental addition, it is active
         instanceCounter++;
         id = instanceCounter;
     }
 
-    public Rental(Item item, int rentalDays, int daysLate, int id) {
+    public Rental(Item item, int id, Customer customer, Date rentalDate, Date estReturnDate) {
         //use setters to filter out bad values
         setItem(item);
-        setDaysLate(daysLate);
-        setRentalDays(rentalDays);
+        setCustomer(customer);
+        setRentalDate(rentalDate);
+        setEstReturnDate(estReturnDate);
+        setStatus(RentalStatus.ACTIVE); //upon rental addition, it is active
         this.id = id;
         instanceCounter++;
     }
@@ -35,12 +48,13 @@ public class Rental {
      * @param rental Rental object to be copied.
      */
     public Rental(Rental rental) {
-        this(rental.item, rental.rentalDays, rental.daysLate);
+        this(rental.item, rental.customer, rental.rentalDate, rental.estReturnDate);
     }
 
     @Override
     public String toString() {
-        return "Rental: " + item.toString() + ", rental days: " + rentalDays + ", days late: " + daysLate;
+        return "ID: " + id + ", rental: " + item.toString() + ", rented on: " + rentalDate + ", estimated return date: " + estReturnDate +
+                ", date returned: " + actReturnDate + ", customer: " + customer;
     }
 
     @Override
@@ -56,8 +70,112 @@ public class Rental {
         }
         Rental otherRental = (Rental) obj;
         //check values are equal
-        return otherRental.id == this.id && otherRental.daysLate == this.daysLate &&
-                otherRental.rentalDays == this.rentalDays && otherRental.item.equals(this.item);
+        return otherRental.id == this.id && otherRental.customer.equals(this.customer) && otherRental.rentalDate.equals(this.rentalDate)
+                && otherRental.estReturnDate.equals(this.estReturnDate) && otherRental.actReturnDate.equals(this.actReturnDate)
+                && otherRental.item.equals(this.item);
+    }
+
+    /**
+     * Handles logic for getting the late fees of a Rental.
+     *
+     * @return 0 if Rental not late, else the late fee for the rented Item.
+     */
+    public double getLateFees() {
+        //getTime() gets ms, so convert to days
+        if (status == RentalStatus.LATE) {
+            int daysLate = (int) estReturnDate.getTime() / 1000 / 60 / 60 / 24 - (int) actReturnDate.getTime() / 1000 / 60 / 60 / 24;
+            return item.getLateFees(daysLate);
+        } else {
+            return 0; //not late, no cost
+        }
+    }
+
+    /**
+     * Method that gets the rental cost of a Rental.
+     *
+     * @return 0 if Rental is not a Device and thus has no rental cost, else the rental cost of the Device, with a 25%
+     * discount applied if the Customer is a STUDENT.
+     */
+    public double getRentalCost() {
+        if (item instanceof Device) {
+            double baseCost = ((Device) item).getRentalCost();
+            if (getCustomer().getType() == CustomerType.STUDENT) { //student, so 25% discount
+                return baseCost - baseCost * 0.25;
+            } else {
+                return baseCost;
+            }
+        } else { //no rental cost for the Item (it is a Book)
+            return 0;
+        }
+    }
+
+    public double getTotalToBePaid() {
+        return getRentalCost() + getLateFees();
+    }
+
+    /**
+     * Method that returns true if the Rental is late, and sets status to late.
+     *
+     * @param curDate Current date, to be compared to when the Rental should be returned.
+     * @return True if late (curDate<returnDate) else false
+     */
+    public boolean isLate(Date curDate) {
+        if (curDate.getTime() < estReturnDate.getTime()) {
+            setStatus(RentalStatus.LATE);
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Method that handles logic for when the Rental is returned
+     *
+     * @param curDate Date Rental is returned.
+     */
+    public void itemReturned(Date curDate) {
+        setStatus(RentalStatus.CLOSED);
+        setActReturnDate(curDate);
+    }
+
+    public RentalStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(RentalStatus status) {
+        if (status == null) { //avoid null exceptions, use default value
+            status = RentalStatus.ACTIVE;
+        }
+        this.status = status;
+    }
+
+    public Date getRentalDate() {
+        return rentalDate;
+    }
+
+    public void setRentalDate(Date rentalDate) {
+        if (rentalDate == null) { //to avoid null exceptions, make a default/flag date value
+            rentalDate = new Date(1);
+        }
+        this.rentalDate = rentalDate;
+    }
+
+    public Date getEstReturnDate() {
+        return estReturnDate;
+    }
+
+    public void setEstReturnDate(Date estReturnDate) {
+        if (estReturnDate == null) { //to avoid null exceptions, make a default/flag date value
+            estReturnDate = new Date(1);
+        }
+        this.estReturnDate = estReturnDate;
+    }
+
+    public Date getActReturnDate() {
+        return actReturnDate;
+    }
+
+    public void setActReturnDate(Date actReturnDate) {
+        this.actReturnDate = actReturnDate;
     }
 
     public Item getItem() {
@@ -73,31 +191,18 @@ public class Rental {
         }
     }
 
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        if (customer == null) { //if bad customer value, create a default customer
+            customer = new Customer(CustomerType.EMPLOYEE, "first", "last", "dep");
+        }
+        this.customer = customer;
+    }
+
     public int getId() {
         return id;
-    }
-
-    public int getRentalDays() {
-        return rentalDays;
-    }
-
-    public void setRentalDays(int rentalDays) {
-        //check for bad rentalDays, if it is, set to a default/flag value
-        if (rentalDays < 0) {
-            rentalDays = 0;
-        }
-        this.rentalDays = rentalDays;
-    }
-
-    public int getDaysLate() {
-        return daysLate;
-    }
-
-    public void setDaysLate(int daysLate) {
-        //check for bad daysLate, if it is, set to a default/flag value
-        if (daysLate < 0) {
-            daysLate = 0;
-        }
-        this.daysLate = daysLate;
     }
 }

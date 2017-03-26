@@ -4,6 +4,7 @@ import library.Exceptions.DuplicateItemID;
 
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by Carson on 03/03/2017.
@@ -79,8 +80,7 @@ public class LibrarySystem {
                 throw new DuplicateItemID();
             }
         }
-        Rental newRental = new Rental(newItem, getInt("Enter the number of days " + newItem.getName() + " will be rented for"),
-                getInt("Enter the number of days " + newItem.getName() + " is late"));
+        Rental newRental = new Rental(newItem, CUSTOMER, new Date(),RETURN DATE);
         mRentals.add(newRental);
     }
 

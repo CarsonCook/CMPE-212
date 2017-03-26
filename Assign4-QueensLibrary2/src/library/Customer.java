@@ -31,6 +31,11 @@ public class Customer {
         this.id = id;
     }
 
+    @Override
+    public String toString() {
+        return super.toString();
+    }
+
     public String getLastName() {
         return lastName;
     }
