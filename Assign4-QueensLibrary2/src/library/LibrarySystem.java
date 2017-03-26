@@ -1,5 +1,7 @@
 package library;
 
+import library.Exceptions.DuplicateItemID;
+
 import javax.swing.*;
 import java.util.ArrayList;
 
@@ -11,22 +13,23 @@ import java.util.ArrayList;
 public class LibrarySystem {
 
     private static ArrayList<Rental> mRentals = new ArrayList<>();
+    private static int idCounter = 0;
 
     public static void main(String[] args) {
         //test normal constructor and clone method/copy constructor
-        Adaptor adaptor = new Adaptor(5, "HDMI Adaptor");
+        Adaptor adaptor = new Adaptor(5, "HDMI Adaptor", ++idCounter);
         Adaptor cloneAdaptor = (Adaptor) cloneDevice(adaptor);
         System.out.println(adaptor);
         System.out.println(cloneAdaptor);
-        Laptop laptop = new Laptop(15, "Asus");
+        Laptop laptop = new Laptop(15, "Asus", ++idCounter);
         Laptop cloneLaptop = (Laptop) cloneDevice(laptop);
         System.out.println(laptop);
         System.out.println(cloneLaptop);
-        Magazine magazine = new Magazine(2016, "Carson Cook", "Time", "Cool stuff");
+        Magazine magazine = new Magazine(2016, "Carson Cook", "Time", "Cool stuff", ++idCounter);
         Magazine cloneMagazine = (Magazine) cloneBook(magazine);
         System.out.println(magazine);
         System.out.println(cloneMagazine);
-        Textbook textbook = new Textbook(2016, "Carson Cook", "Queens", "Programming 101");
+        Textbook textbook = new Textbook(2016, "Carson Cook", "Queens", "Programming 101", ++idCounter);
         Textbook cloneTextbook = (Textbook) cloneBook(textbook);
         System.out.println(textbook);
         System.out.println(cloneTextbook);
@@ -45,48 +48,76 @@ public class LibrarySystem {
         System.out.println(textbook.equals(magazine));
         System.out.println(textbook.equals(textbook));
         //test rental system - also tests getLateFees for devices
-        addTransaction(adaptor);
-        addTransaction(laptop);
-        addTransaction(magazine);
-        addTransaction(textbook);
+        try {
+            addTransaction(adaptor);
+        } catch (DuplicateItemID e) {
+            System.out.println(e + " " + adaptor.getName() + " was not inserted.");
+        }
+        try {
+            addTransaction(laptop);
+        } catch (DuplicateItemID e) {
+            System.out.println(e + " " + laptop.getName() + " was not inserted.");
+        }
+        try {
+            addTransaction(magazine);
+        } catch (DuplicateItemID e) {
+            System.out.println(e + " " + magazine.getName() + " was not inserted.");
+        }
+        try {
+            addTransaction(textbook);
+        } catch (DuplicateItemID e) {
+            System.out.println(e + " " + textbook.getName() + " was not inserted.");
+        }
         printAllRentals();
         System.out.println("Total rental costs: " + getTotalRentalCosts());
         System.out.println("Total late fees: " + getTotalLateFees());
     }
 
-    private static void addTransaction(Item newItem) {
+    private static void addTransaction(Item newItem) throws DuplicateItemID {
+        for (Rental rental : mRentals) {
+            if (newItem.getID() == rental.getItem().getID()) {
+                throw new DuplicateItemID();
+            }
+        }
         Rental newRental = new Rental(newItem, getInt("Enter the number of days " + newItem.getName() + " will be rented for"),
                 getInt("Enter the number of days " + newItem.getName() + " is late"));
         mRentals.add(newRental);
     }
 
-    private static void addTransaction() {
+    private static void addTransaction(int id) {
         String itemType = getItemType();
-        Item newItem = null; //never will be null after switch due to getItemType sanitizing input
+        Item newItem; //never will be null after switch due to getItemType sanitizing input
         switch (itemType) {
             case "device":
-                newItem = new Device(getRentalCost(), getString("Enter the device's name"));
+                newItem = new Device(getRentalCost(), getString("Enter the device's name"), id);
                 break;
             case "book":
                 newItem = new Book(getInt("Enter the year the book was published"), getString("Enter the author(s)"),
-                        getString("Enter the publisher"), getString("Enter the book's name"));
+                        getString("Enter the publisher"), getString("Enter the book's name"), id);
                 break;
             case "adaptor":
-                newItem = new Adaptor(getRentalCost(), getString("Enter the adaptor's name"));
+                newItem = new Adaptor(getRentalCost(), getString("Enter the adaptor's name"), id);
                 break;
             case "laptop":
-                newItem = new Laptop(getRentalCost(), getString("Enter the laptop's name"));
+                newItem = new Laptop(getRentalCost(), getString("Enter the laptop's name"), id);
                 break;
             case "magazine":
                 newItem = new Magazine(getInt("Enter the year the magazine was published"), getString("Enter the author(s)"),
-                        getString("Enter the publisher"), getString("Enter the magazine's name"));
+                        getString("Enter the publisher"), getString("Enter the magazine's name"), id);
                 break;
             case "textbook":
                 newItem = new Textbook(getInt("Enter the year the textbook was published"), getString("Enter the author(s)"),
-                        getString("Enter the publisher"), getString("Enter the textbook's name"));
+                        getString("Enter the publisher"), getString("Enter the textbook's name"), id);
                 break;
+            default: //dummy proof bad item type - should already be done but do here too
+                System.out.println("You did not enter a proper Item type, so nothing was inserted");
+                return;
         }
-        addTransaction(newItem);
+        try {
+            addTransaction(newItem);
+        } catch (DuplicateItemID e) {
+            System.out.println(e + " " + newItem.getName() + " was not inserted.");
+        }
     }
 
     private static double getTotalLateFees() {

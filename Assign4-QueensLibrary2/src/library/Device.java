@@ -8,20 +8,19 @@ package library;
 public class Device extends Item {
     private double rentalCost;
 
-    public Device(double rentalCost, String name) {
-        super(name);
+    public Device(double rentalCost, String name, int id) {
+        super(name, id);
         //use setter's check for invalid rental cost
         setRentalCost(rentalCost);
     }
 
     public Device(Device device) {
+        super(device.getName(), device.getID()); //could throw null exception, but so does example code, essentially
         //don't call super or this in order to check for a null device being copied
         if (device == null) {
             //no values available, so use default ones
-            this.setName("");
             this.setRentalCost(0);
         } else {
-            this.setName(device.getName());
             this.setRentalCost(device.rentalCost);
         }
     }

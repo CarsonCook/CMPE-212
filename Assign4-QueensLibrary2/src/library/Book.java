@@ -12,8 +12,8 @@ public class Book extends Item {
     private int year;
     private String authors, publisher;
 
-    public Book(int year, String authors, String publisher, String name) {
-        super(name);
+    public Book(int year, String authors, String publisher, String name, int id) {
+        super(name, id);
         //utilize setters checking for bad values
         setYear(year);
         setAuthors(authors);
@@ -26,15 +26,14 @@ public class Book extends Item {
      * @param book Book to be copied.
      */
     public Book(Book book) {
+        super(book.getName(), book.getID()); //can throw a null exception but example code did this essentially
         //don't call super or this in order to check for a null device being copied
         if (book == null) {
             //no values available, so use default ones
-            this.setName("");
             this.setAuthors("");
             this.setPublisher("");
             this.setYear(0);
         } else {
-            this.setName(book.getName());
             this.setAuthors(book.authors);
             this.setPublisher(book.publisher);
             this.setYear(book.year);

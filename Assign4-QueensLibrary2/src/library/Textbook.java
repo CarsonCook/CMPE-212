@@ -8,8 +8,8 @@ package library;
  */
 public class Textbook extends Book {
 
-    public Textbook(int year, String authors, String publisher, String name) {
-        super(year, authors, publisher, name);
+    public Textbook(int year, String authors, String publisher, String name, int id) {
+        super(year, authors, publisher, name, id);
     }
 
     /**

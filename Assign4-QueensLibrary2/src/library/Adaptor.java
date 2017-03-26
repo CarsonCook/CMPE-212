@@ -8,8 +8,8 @@ package library;
  */
 public class Adaptor extends Device {
 
-    public Adaptor(double rentalCost, String name) {
-        super(rentalCost, name);
+    public Adaptor(double rentalCost, String name, int id) {
+        super(rentalCost, name, id);
     }
 
     /**

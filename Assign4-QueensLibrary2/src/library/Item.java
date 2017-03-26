@@ -7,23 +7,13 @@ package library;
  * Abstract class - a constructor and several parameters with getters and setters.
  */
 public abstract class Item {
-    private static int instanceCounter = 0; //counts instances of Item - all items in the library
     private int id;
     private String name;
 
-    public Item(String name) {
-        this();
+    public Item(String name, int id) {
+        this.id = id;
         //use setter's ability to check for invalid name
         setName(name);
-    }
-
-    /**
-     * Default constructor - need for copy constructors. Also called from other item constructor to
-     * increment instanceCounter and set the ID.
-     */
-    public Item() {
-        instanceCounter++; //another instance made
-        id = instanceCounter; //ID is just the number of instances at this point in time - always increments so no ID the same
     }
 
     /**

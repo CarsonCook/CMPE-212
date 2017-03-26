@@ -1,5 +1,7 @@
 package library;
 
+import library.Exceptions.DuplicateItemID;
+
 /**
  * Created by Carson on 04/03/2017.
  * 14cdwc
@@ -9,7 +11,7 @@ public class Rental {
 
     private Item item;
     private int customerID, rentalDays, daysLate;
-    private static int numInstances = 0;
+    private static int numInstances = 0, itemID = 0;
 
     public Rental(Item item, int rentalDays, int daysLate) {
         //use setters to filter out bad values
@@ -57,10 +59,11 @@ public class Rental {
 
     public void setItem(Item item) {
         //check for bad item, if it is, set to a default/flag value
-        if (item == null) {
-            item = new Device(0, "not null");
+        if (item != null) {
+            this.item = item;
+        } else {
+            System.out.println("You tried to set a null Item! Nothing was done.");
         }
-        this.item = item;
     }
 
     public int getCustomerID() {

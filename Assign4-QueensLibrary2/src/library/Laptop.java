@@ -8,8 +8,8 @@ package library;
  */
 public class Laptop extends Device {
 
-    public Laptop(double rentalCost, String name) {
-        super(rentalCost, name);
+    public Laptop(double rentalCost, String name, int id) {
+        super(rentalCost, name, id);
     }
 
     /**

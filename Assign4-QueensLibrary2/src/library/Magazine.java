@@ -8,8 +8,8 @@ package library;
  */
 public class Magazine extends Book {
 
-    public Magazine(int year, String authors, String publisher, String name) {
-        super(year, authors, publisher, name);
+    public Magazine(int year, String authors, String publisher, String name, int id) {
+        super(year, authors, publisher, name, id);
     }
 
     /**
