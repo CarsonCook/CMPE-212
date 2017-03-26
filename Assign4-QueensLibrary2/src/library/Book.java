@@ -12,6 +12,13 @@ public class Book extends Item {
     private int year;
     private String authors, publisher;
 
+    public Book(int year, String authors, String publisher, String name) {
+        super(name);
+        setYear(year);
+        setAuthors(authors);
+        setPublisher(publisher);
+    }
+
     public Book(int year, String authors, String publisher, String name, int id) {
         super(name, id);
         //utilize setters checking for bad values

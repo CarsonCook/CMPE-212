@@ -1,7 +1,5 @@
 package library;
 
-import library.Exceptions.DuplicateItemID;
-
 /**
  * Created by Carson on 04/03/2017.
  * 14cdwc
@@ -10,8 +8,8 @@ import library.Exceptions.DuplicateItemID;
 public class Rental {
 
     private Item item;
-    private int customerID, rentalDays, daysLate;
-    private static int numInstances = 0, itemID = 0;
+    private int customerID, rentalDays, daysLate, transactionID;
+    private static int numInstances = 0, instanceCounter = 0;
 
     public Rental(Item item, int rentalDays, int daysLate) {
         //use setters to filter out bad values

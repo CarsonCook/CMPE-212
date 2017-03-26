@@ -8,6 +8,10 @@ package library;
  */
 public class Magazine extends Book {
 
+    public Magazine(int year, String authors, String publisher, String name) {
+        super(year, authors, publisher, name);
+    }
+
     public Magazine(int year, String authors, String publisher, String name, int id) {
         super(year, authors, publisher, name, id);
     }
@@ -29,7 +33,7 @@ public class Magazine extends Book {
     @Override
     public boolean equals(Object obj) {
         //need to check if obj is of type Magazine, if not, caller and obj are not equal
-        if (obj==null||!(obj.getClass()== Magazine.class)) {
+        if (obj == null || !(obj.getClass() == Magazine.class)) {
             return false;
         }
         Magazine otherMag = (Magazine) obj;

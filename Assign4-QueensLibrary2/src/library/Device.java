@@ -8,6 +8,11 @@ package library;
 public class Device extends Item {
     private double rentalCost;
 
+    public Device(double rentalCost, String name){
+        super(name);
+        setRentalCost(rentalCost);
+    }
+
     public Device(double rentalCost, String name, int id) {
         super(name, id);
         //use setter's check for invalid rental cost
