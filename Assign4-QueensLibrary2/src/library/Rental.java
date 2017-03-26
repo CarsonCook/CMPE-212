@@ -8,16 +8,25 @@ package library;
 public class Rental {
 
     private Item item;
-    private int customerID, rentalDays, daysLate, transactionID;
-    private static int numInstances = 0, instanceCounter = 0;
+    private int id, rentalDays, daysLate;
+    private static int instanceCounter = 0;
 
     public Rental(Item item, int rentalDays, int daysLate) {
         //use setters to filter out bad values
         setItem(item);
         setDaysLate(daysLate);
         setRentalDays(rentalDays);
-        numInstances++;
-        customerID = numInstances;
+        instanceCounter++;
+        id = instanceCounter;
+    }
+
+    public Rental(Item item, int rentalDays, int daysLate, int id) {
+        //use setters to filter out bad values
+        setItem(item);
+        setDaysLate(daysLate);
+        setRentalDays(rentalDays);
+        this.id = id;
+        instanceCounter++;
     }
 
     /**
@@ -47,7 +56,7 @@ public class Rental {
         }
         Rental otherRental = (Rental) obj;
         //check values are equal
-        return otherRental.customerID == this.customerID && otherRental.daysLate == this.daysLate &&
+        return otherRental.id == this.id && otherRental.daysLate == this.daysLate &&
                 otherRental.rentalDays == this.rentalDays && otherRental.item.equals(this.item);
     }
 
@@ -64,8 +73,8 @@ public class Rental {
         }
     }
 
-    public int getCustomerID() {
-        return customerID;
+    public int getId() {
+        return id;
     }
 
     public int getRentalDays() {

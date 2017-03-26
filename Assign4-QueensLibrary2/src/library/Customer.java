@@ -11,8 +11,19 @@ public class Customer {
     private CustomerType type;
     private String firstName, lastName, department;
     private int id;
+    private static int instanceCounter = 0;
+
+    public Customer(CustomerType type, String firstName, String lastName, String department) {
+        instanceCounter++;
+        setType(type);
+        setFirstName(firstName);
+        setLastName(lastName);
+        setDepartment(department);
+        this.id = instanceCounter;
+    }
 
     public Customer(CustomerType type, String firstName, String lastName, String department, int id) {
+        instanceCounter++;
         setType(type);
         setFirstName(firstName);
         setLastName(lastName);
