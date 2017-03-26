@@ -33,7 +33,18 @@ public class Customer {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "ID: " + id + ", first name: " + firstName + ", last name: " + lastName + ", department: " + department
+                + ", type: " + type;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null || obj.getClass() != Customer.class) {
+            return false;
+        }
+        Customer otherCust = (Customer) obj;
+        return otherCust.type == this.type && otherCust.id == this.id && otherCust.firstName.equals(this.firstName) &&
+                otherCust.lastName.equals(this.lastName) && otherCust.department.equals(this.department);
     }
 
     public String getLastName() {
