@@ -125,4 +125,16 @@ public class LibrarySystem {
         }
         return cost;
     }
+
+    public static HashMap<Integer, Item> getItems() {
+        return items;
+    }
+
+    public static HashMap<Integer, Customer> getCustomers() {
+        return customers;
+    }
+
+    public static HashMap<Integer, Rental> getRentals() {
+        return rentals;
+    }
 }
