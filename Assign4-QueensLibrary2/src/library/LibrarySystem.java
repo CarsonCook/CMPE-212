@@ -26,7 +26,7 @@ public class LibrarySystem {
      * Adds a Customer to the collection of Customers.
      *
      * @param newCust New Customer to be added.
-     * @throws DuplicateTransactionID The Customer has an ID that is already in use.
+     * @throws DuplicateCustomerID The Customer has an ID that is already in use.
      */
     public void addCustomer(Customer newCust) throws DuplicateCustomerID {
         //check for duplicate ID
@@ -224,5 +224,45 @@ public class LibrarySystem {
 
     public static HashMap<Integer, Rental> getRentals() {
         return rentals;
+    }
+
+    /**
+     * The following all search for Items. There is one for each possible field for an Item, with the
+     * parameter being the field. The method will return the first Item in the collection with a matching field,
+     * or if no item exists, will return null.
+     */
+
+    public Item searchItem(int id) {
+        return items.get(id); //id is the key in the map
+    }
+
+    public Item searchItem(String term) { //search for name, publisher, authors
+        for (Item item : items.values()) {
+            if (item.getName().equals(term)) {
+                return item; //name matches search
+            } else if (item instanceof Book && (((Book) item).getAuthors().equals(term) ||
+                    ((Book) item).getPublisher().equals(term))) {
+                return item; //author or publisher matches search
+            }
+        }
+        return null;
+    }
+
+    public Item searchItem(double rentalCost) {
+        for (Item item : items.values()) {
+            if (item instanceof Device && ((Device) item).getRentalCost() == rentalCost) {
+                return item;
+            }
+        }
+        return null;
+    }
+
+    public Item searchItem(long year) { //long because ID uses the parameter for int
+        for (Item item : items.values()) {
+            if (item instanceof Book && ((Book) item).getYear() == year) {
+                return item;
+            }
+        }
+        return null;
     }
 }
