@@ -51,53 +51,23 @@ public class TestLibrary {
         System.out.println(magazine.equals(magazine));
         System.out.println(textbook.equals(magazine));
         System.out.println(textbook.equals(textbook));
-        //add to items collection
-        try {
-            system.addItem(adaptor);
-        } catch (DuplicateItemID e) {
-            System.out.println(e + " " + textbook.getName() + " wasn't inserted.");
-        }
-        try {
-            system.addItem(textbook);
-        } catch (DuplicateItemID e) {
-            System.out.println(e + " " + textbook.getName() + " wasn't inserted.");
-        }
-        try {
-            system.addItem(laptop);
-        } catch (DuplicateItemID e) {
-            System.out.println(e + " " + laptop.getName() + " wasn't inserted.");
-        }
-        try {
-            system.addItem(magazine);
-        } catch (DuplicateItemID e) {
-            System.out.println(e + " " + magazine.getName() + " wasn't inserted.");
-        }
-        //test rental system - also tests getLateFees for devices
         Customer customer = getCustomer();
         try {
+            system.addItem(adaptor);
+            system.addItem(textbook);
+            system.addItem(laptop);
+            system.addItem(magazine);
             system.addCustomer(customer);
-        } catch (DuplicateCustomerID e) {
-            System.out.println(e + " " + customer.getFirstName() + " was not inserted.");
-        }
-        try {
             system.addTransaction(adaptor, customer);
-        } catch (DuplicateTransactionID e) {
-            System.out.println(e + " " + adaptor.getName() + " was not inserted.");
-        }
-        try {
             system.addTransaction(laptop, customer);
-        } catch (DuplicateTransactionID e) {
-            System.out.println(e + " " + laptop.getName() + " was not inserted.");
-        }
-        try {
             system.addTransaction(magazine, customer);
-        } catch (DuplicateTransactionID e) {
-            System.out.println(e + " " + magazine.getName() + " was not inserted.");
-        }
-        try {
             system.addTransaction(textbook, customer);
         } catch (DuplicateTransactionID e) {
-            System.out.println(e + " " + textbook.getName() + " was not inserted.");
+            System.out.println(e + " Rental was not inserted.");
+        } catch (DuplicateCustomerID e) {
+            System.out.println(e + " " + customer.getFirstName() + " was not inserted.");
+        } catch (DuplicateItemID e) {
+            System.out.println(e + " Item wasn't inserted.");
         }
         system.printAllRentals();
         System.out.println("Total rental costs: " + system.getTotalRentalCosts());

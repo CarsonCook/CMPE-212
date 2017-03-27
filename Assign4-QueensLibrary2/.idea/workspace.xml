@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d06394c6-5ab0-4fff-93dc-59562e0862df" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/library/Exceptions/DuplicateCustomerID.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/library/Exceptions/DuplicateTransactionID.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/TestLibrary.java" afterPath="$PROJECT_DIR$/src/library/TestLibrary.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Assign3-QueensLibrary/out/production/Assign3-QueensLibrary/library/Adaptor.class" afterPath="$PROJECT_DIR$/../Assign3-QueensLibrary/out/production/Assign3-QueensLibrary/library/Adaptor.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Assign3-QueensLibrary/out/production/Assign3-QueensLibrary/library/Book.class" afterPath="$PROJECT_DIR$/../Assign3-QueensLibrary/out/production/Assign3-QueensLibrary/library/Book.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Assign3-QueensLibrary/out/production/Assign3-QueensLibrary/library/Device.class" afterPath="$PROJECT_DIR$/../Assign3-QueensLibrary/out/production/Assign3-QueensLibrary/library/Device.class" />
@@ -14,9 +11,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Assign3-QueensLibrary/out/production/Assign3-QueensLibrary/library/Rental.class" afterPath="$PROJECT_DIR$/../Assign3-QueensLibrary/out/production/Assign3-QueensLibrary/library/Rental.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Assign3-QueensLibrary/out/production/Assign3-QueensLibrary/library/Textbook.class" afterPath="$PROJECT_DIR$/../Assign3-QueensLibrary/out/production/Assign3-QueensLibrary/library/Textbook.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Assign3-QueensLibrary/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../Assign3-QueensLibrary/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/library/Exceptions/DuplicateItemID.java" afterPath="$PROJECT_DIR$/src/library/Exceptions/DuplicateItemID.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/library/LibrarySystem.java" afterPath="$PROJECT_DIR$/src/library/LibrarySystem.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/library/TestLibrary.java" afterPath="$PROJECT_DIR$/src/library/TestLibrary.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,28 +27,28 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LibrarySystem.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LibrarySystem.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/library/LibrarySystem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="117">
-              <caret line="62" column="62" lean-forward="true" selection-start-line="62" selection-start-column="62" selection-end-line="62" selection-end-column="62" />
+            <state relative-caret-position="253">
+              <caret line="125" column="43" lean-forward="false" selection-start-line="125" selection-start-column="43" selection-end-line="125" selection-end-column="43" />
               <folding>
-                <element signature="e#8630#8631#0" expanded="true" />
-                <element signature="e#8658#8659#0" expanded="true" />
-                <element signature="e#8721#8722#0" expanded="true" />
-                <element signature="e#8753#8754#0" expanded="true" />
-                <element signature="e#8812#8813#0" expanded="true" />
-                <element signature="e#8842#8843#0" expanded="true" />
+                <element signature="e#8855#8856#0" expanded="true" />
+                <element signature="e#8883#8884#0" expanded="true" />
+                <element signature="e#8946#8947#0" expanded="true" />
+                <element signature="e#8978#8979#0" expanded="true" />
+                <element signature="e#9037#9038#0" expanded="true" />
+                <element signature="e#9067#9068#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestLibrary.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TestLibrary.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/library/TestLibrary.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="56" column="9" lean-forward="true" selection-start-line="56" selection-start-column="9" selection-end-line="56" selection-end-column="9" />
+            <state relative-caret-position="186">
+              <caret line="57" column="35" lean-forward="true" selection-start-line="57" selection-start-column="35" selection-end-line="57" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -110,8 +105,8 @@
         <option value="$PROJECT_DIR$/src/library/Exceptions/DuplicateItemID.java" />
         <option value="$PROJECT_DIR$/src/library/Exceptions/DuplicateTransactionID.java" />
         <option value="$PROJECT_DIR$/src/library/Exceptions/DuplicateCustomerID.java" />
-        <option value="$PROJECT_DIR$/src/library/TestLibrary.java" />
         <option value="$PROJECT_DIR$/src/library/LibrarySystem.java" />
+        <option value="$PROJECT_DIR$/src/library/TestLibrary.java" />
       </list>
     </option>
   </component>
@@ -652,12 +647,12 @@
       <updated>1490492174570</updated>
       <workItem from="1490492189788" duration="8075000" />
       <workItem from="1490574231175" duration="4338000" />
-      <workItem from="1490636258603" duration="2434000" />
+      <workItem from="1490636258603" duration="3211000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14847000" />
+    <option name="totallyTimeSpent" value="15624000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
@@ -709,12 +704,12 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#8630#8631#0" expanded="true" />
-            <element signature="e#8658#8659#0" expanded="true" />
-            <element signature="e#8721#8722#0" expanded="true" />
-            <element signature="e#8753#8754#0" expanded="true" />
-            <element signature="e#8812#8813#0" expanded="true" />
-            <element signature="e#8842#8843#0" expanded="true" />
+            <element signature="e#8855#8856#0" expanded="true" />
+            <element signature="e#8883#8884#0" expanded="true" />
+            <element signature="e#8946#8947#0" expanded="true" />
+            <element signature="e#8978#8979#0" expanded="true" />
+            <element signature="e#9037#9038#0" expanded="true" />
+            <element signature="e#9067#9068#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -724,12 +719,12 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#8630#8631#0" expanded="true" />
-            <element signature="e#8658#8659#0" expanded="true" />
-            <element signature="e#8721#8722#0" expanded="true" />
-            <element signature="e#8753#8754#0" expanded="true" />
-            <element signature="e#8812#8813#0" expanded="true" />
-            <element signature="e#8842#8843#0" expanded="true" />
+            <element signature="e#8855#8856#0" expanded="true" />
+            <element signature="e#8883#8884#0" expanded="true" />
+            <element signature="e#8946#8947#0" expanded="true" />
+            <element signature="e#8978#8979#0" expanded="true" />
+            <element signature="e#9037#9038#0" expanded="true" />
+            <element signature="e#9067#9068#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -802,6 +797,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="33" lean-forward="false" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -823,6 +819,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
           <caret line="1027" column="26" lean-forward="false" selection-start-line="1027" selection-start-column="18" selection-end-line="1027" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -830,16 +827,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="7" lean-forward="false" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/library/Rental.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="202" column="33" lean-forward="true" selection-start-line="202" selection-start-column="33" selection-end-line="202" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -886,27 +873,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/library/TestLibrary.java">
+    <entry file="file://$PROJECT_DIR$/src/library/LibrarySystem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="56" column="9" lean-forward="true" selection-start-line="56" selection-start-column="9" selection-end-line="56" selection-end-column="9" />
+        <state relative-caret-position="253">
+          <caret line="125" column="43" lean-forward="false" selection-start-line="125" selection-start-column="43" selection-end-line="125" selection-end-column="43" />
+          <folding>
+            <element signature="e#8855#8856#0" expanded="true" />
+            <element signature="e#8883#8884#0" expanded="true" />
+            <element signature="e#8946#8947#0" expanded="true" />
+            <element signature="e#8978#8979#0" expanded="true" />
+            <element signature="e#9037#9038#0" expanded="true" />
+            <element signature="e#9067#9068#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/library/Rental.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3009">
+          <caret line="193" column="0" lean-forward="true" selection-start-line="193" selection-start-column="0" selection-end-line="193" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/library/LibrarySystem.java">
+    <entry file="file://$PROJECT_DIR$/src/library/TestLibrary.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="62" column="62" lean-forward="true" selection-start-line="62" selection-start-column="62" selection-end-line="62" selection-end-column="62" />
+        <state relative-caret-position="186">
+          <caret line="57" column="35" lean-forward="true" selection-start-line="57" selection-start-column="35" selection-end-line="57" selection-end-column="35" />
           <folding>
-            <element signature="e#8630#8631#0" expanded="true" />
-            <element signature="e#8658#8659#0" expanded="true" />
-            <element signature="e#8721#8722#0" expanded="true" />
-            <element signature="e#8753#8754#0" expanded="true" />
-            <element signature="e#8812#8813#0" expanded="true" />
-            <element signature="e#8842#8843#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
