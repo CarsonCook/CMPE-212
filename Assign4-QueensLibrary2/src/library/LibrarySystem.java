@@ -5,6 +5,8 @@ import library.Exceptions.DuplicateItemID;
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import static library.Util.*;
 
@@ -15,82 +17,38 @@ import static library.Util.*;
  * Imports all of Util so that methods do not need Class.method, saving space.
  */
 //TODO make object of library system in main
+//TODO test in another class
 public class LibrarySystem {
 
-    private static ArrayList<Rental> mRentals = new ArrayList<>();
-    private static int idCounter = 0;
+    private static HashMap<Integer, Item> items = new HashMap<>();
+    private static HashMap<Integer, Customer> customers = new HashMap<>();
+    private static HashMap<Integer, Rental> rentals = new HashMap<>();
 
-    public static void main(String[] args) {
-        //test normal constructor and clone method/copy constructor
-        Adaptor adaptor = new Adaptor(5, "HDMI Adaptor", ++idCounter);
-        Adaptor cloneAdaptor = (Adaptor) cloneDevice(adaptor);
-        System.out.println(adaptor);
-        System.out.println(cloneAdaptor);
-        Laptop laptop = new Laptop(15, "Asus", ++idCounter);
-        Laptop cloneLaptop = (Laptop) cloneDevice(laptop);
-        System.out.println(laptop);
-        System.out.println(cloneLaptop);
-        Magazine magazine = new Magazine(2016, "Carson Cook", "Time", "Cool stuff", ++idCounter);
-        Magazine cloneMagazine = (Magazine) cloneBook(magazine);
-        System.out.println(magazine);
-        System.out.println(cloneMagazine);
-        Textbook textbook = new Textbook(2016, "Carson Cook", "Queens", "Programming 101", ++idCounter);
-        Textbook cloneTextbook = (Textbook) cloneBook(textbook);
-        System.out.println(textbook);
-        System.out.println(cloneTextbook);
-        //check for null values/copying null item
-        System.out.println(new Adaptor(null));
-        System.out.println(new Laptop(null));
-        System.out.println(new Magazine(null));
-        System.out.println(new Textbook(null));
-        //check equals method
-        System.out.println(adaptor.equals(magazine));
-        System.out.println(adaptor.equals(adaptor));
-        System.out.println(laptop.equals(magazine));
-        System.out.println(laptop.equals(laptop));
-        System.out.println(magazine.equals(adaptor));
-        System.out.println(magazine.equals(magazine));
-        System.out.println(textbook.equals(magazine));
-        System.out.println(textbook.equals(textbook));
-        //test rental system - also tests getLateFees for devices
-        try {
-            addTransaction(adaptor);
-        } catch (DuplicateItemID e) {
-            System.out.println(e + " " + adaptor.getName() + " was not inserted.");
-        }
-        try {
-            addTransaction(laptop);
-        } catch (DuplicateItemID e) {
-            System.out.println(e + " " + laptop.getName() + " was not inserted.");
-        }
-        try {
-            addTransaction(magazine);
-        } catch (DuplicateItemID e) {
-            System.out.println(e + " " + magazine.getName() + " was not inserted.");
-        }
-        try {
-            addTransaction(textbook);
-        } catch (DuplicateItemID e) {
-            System.out.println(e + " " + textbook.getName() + " was not inserted.");
-        }
-        printAllRentals();
-        System.out.println("Total rental costs: " + getTotalRentalCosts());
-        System.out.println("Total late fees: " + getTotalLateFees());
-    }
-
-    private static void addTransaction(Item newItem) throws DuplicateItemID {
-        for (Rental rental : mRentals) {
-            if (newItem.getID() == rental.getItem().getID()) {
+    /**
+     * Adds a Rental to the system using an Item.
+     *
+     * @param newItem Item to be rented.
+     * @throws DuplicateItemID The Item has an ID that is already in use.
+     */
+    public void addTransaction(Item newItem) throws DuplicateItemID {
+        for (Rental rental : rentals.values()) {
+            if (rental.getItem().getID() == newItem.getID()) {
                 throw new DuplicateItemID();
             }
         }
         Date returnDate = getReturnDate();
         Customer customer = getCustomer();
         Rental newRental = new Rental(newItem, customer, new Date(), returnDate);
-        mRentals.add(newRental);
+        rentals.put(newItem.getID(), newRental);
     }
 
-    private static void addTransaction(int id) {
+    /**
+     * Adds a Rental to the system using an ID. Doesn't throw DuplicateIDException because
+     * it calls the other addTransaction which will throw that.
+     *
+     * @param id ID of the Item to be rented.
+     */
+    public void addTransaction(int id) {
         String itemType = getItemType();
         Item newItem; //never will be null after switch due to getItemType sanitizing input
         switch (itemType) {
@@ -126,17 +84,17 @@ public class LibrarySystem {
         }
     }
 
-    private static double getTotalLateFees() {
+    public double getTotalLateFees() {
         double totalLateFees = 0;
-        for (Rental rental : mRentals) {
+        for (Rental rental : rentals.values()) {
             totalLateFees += rental.getLateFees();
         }
         return totalLateFees;
     }
 
-    private static double getTotalRentalCosts() {
+    public double getTotalRentalCosts() {
         double totalRentalCosts = 0;
-        for (Rental rental : mRentals) {
+        for (Rental rental : rentals.values()) {
             if (rental.getItem() instanceof Device) {
                 totalRentalCosts += ((Device) rental.getItem()).getRentalCost();
             }
@@ -144,13 +102,13 @@ public class LibrarySystem {
         return totalRentalCosts;
     }
 
-    private static void printAllRentals() {
-        for (Rental rental : mRentals) {
+    public void printAllRentals() {
+        for (Rental rental : rentals.values()) {
             System.out.println(rental);
         }
     }
 
-    private static double getRentalCost() {
+    public double getRentalCost() {
         boolean inputOK = false;
         double cost = -1;
         String input;
