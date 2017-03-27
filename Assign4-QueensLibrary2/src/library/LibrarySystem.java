@@ -16,8 +16,6 @@ import static library.Util.*;
  * Class to utilize library schema created.
  * Imports all of Util so that methods do not need Class.method, saving space.
  */
-//TODO make object of library system in main
-//TODO test in another class
 public class LibrarySystem {
 
     private static HashMap<Integer, Item> items = new HashMap<>();
@@ -39,7 +37,9 @@ public class LibrarySystem {
         Date returnDate = getReturnDate();
         Customer customer = getCustomer();
         Rental newRental = new Rental(newItem, customer, new Date(), returnDate);
-        rentals.put(newItem.getID(), newRental);
+        customers.put(customer.getID(), customer);
+        items.put(newItem.getID(), newItem);
+        rentals.put(newRental.getID(), newRental);
     }
 
     /**

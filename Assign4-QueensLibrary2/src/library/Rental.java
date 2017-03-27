@@ -203,7 +203,7 @@ public class Rental {
         this.customer = customer;
     }
 
-    public int getId() {
+    public int getID() {
         return id;
     }
 }

@@ -79,7 +79,7 @@ public class Customer {
         this.department = department;
     }
 
-    public int getId() {
+    public int getID() {
         return id;
     }
 }
