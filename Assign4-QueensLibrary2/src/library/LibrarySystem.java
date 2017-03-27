@@ -1,12 +1,12 @@
 package library;
 
+import library.Exceptions.DuplicateCustomerID;
 import library.Exceptions.DuplicateItemID;
+import library.Exceptions.DuplicateTransactionID;
 
 import javax.swing.*;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Map;
 
 import static library.Util.*;
 
@@ -23,62 +23,150 @@ public class LibrarySystem {
     private static HashMap<Integer, Rental> rentals = new HashMap<>();
 
     /**
-     * Adds a Rental to the system using an Item.
+     * Adds a Customer to the collection of Customers.
+     *
+     * @param newCust New Customer to be added.
+     * @throws DuplicateTransactionID The Customer has an ID that is already in use.
+     */
+    public void addCustomer(Customer newCust) throws DuplicateCustomerID {
+        //check for duplicate ID
+        if (customers.containsKey(newCust.getID())) {
+            throw new DuplicateCustomerID();
+        }
+        customers.put(newCust.getID(), newCust);
+    }
+
+    /**
+     * Adds a Rental to the collection on Rentals using an Item.
      *
      * @param newItem Item to be rented.
-     * @throws DuplicateItemID The Item has an ID that is already in use.
+     * @throws DuplicateTransactionID The Item has an ID that is already in use.
      */
-    public void addTransaction(Item newItem) throws DuplicateItemID {
-        for (Rental rental : rentals.values()) {
-            if (rental.getItem().getID() == newItem.getID()) {
-                throw new DuplicateItemID();
-            }
-        }
+    public void addTransaction(Item newItem, Customer customer) throws DuplicateTransactionID {
         Date returnDate = getReturnDate();
-        Customer customer = getCustomer();
         Rental newRental = new Rental(newItem, customer, new Date(), returnDate);
-        customers.put(customer.getID(), customer);
-        items.put(newItem.getID(), newItem);
+        //check for duplicate ID
+        if (rentals.containsKey(newRental.getID())) {
+            throw new DuplicateTransactionID();
+        }
         rentals.put(newRental.getID(), newRental);
     }
 
     /**
-     * Adds a Rental to the system using an ID. Doesn't throw DuplicateIDException because
-     * it calls the other addTransaction which will throw that.
+     * Method that adds a new Item to the collection of Items, items. Lets user input Item values,
+     * forces user to continue to input values until they are acceptable.
      *
-     * @param id ID of the Item to be rented.
+     * @param newItem New Item to be added.
+     * @throws DuplicateItemID Item has an ID already in use.
      */
-    public void addTransaction(int id) {
+    public void addItem(Item newItem) throws DuplicateItemID {
+        if (newItem != null) {
+            if (items.containsKey(newItem.getID())) {
+                throw new DuplicateItemID();
+            }
+            items.put(newItem.getID(), newItem);
+        } else {
+            System.out.println("You tried to add a null item!");
+        }
+    }
+
+    /**
+     * Method that adds a new Item to the collection of Items, items. Lets user input Item values,
+     * forces user to continue to input values until they are acceptable. Doesn't throw DuplicateItemID
+     * because it calls a method that does.
+     */
+    public void addItem() {
         String itemType = getItemType();
-        Item newItem; //never will be null after switch due to getItemType sanitizing input
-        switch (itemType) {
-            case "device":
-                newItem = new Device(getRentalCost(), getString("Enter the device's name"), id);
-                break;
-            case "book":
-                newItem = new Book(getInt("Enter the year the book was published"), getString("Enter the author(s)"),
-                        getString("Enter the publisher"), getString("Enter the book's name"), id);
-                break;
-            case "adaptor":
-                newItem = new Adaptor(getRentalCost(), getString("Enter the adaptor's name"), id);
-                break;
-            case "laptop":
-                newItem = new Laptop(getRentalCost(), getString("Enter the laptop's name"), id);
-                break;
-            case "magazine":
-                newItem = new Magazine(getInt("Enter the year the magazine was published"), getString("Enter the author(s)"),
-                        getString("Enter the publisher"), getString("Enter the magazine's name"), id);
-                break;
-            case "textbook":
-                newItem = new Textbook(getInt("Enter the year the textbook was published"), getString("Enter the author(s)"),
-                        getString("Enter the publisher"), getString("Enter the textbook's name"), id);
-                break;
-            default: //dummy proof bad item type - should already be done but do here too
-                System.out.println("You did not enter a proper Item type, so nothing was inserted");
-                return;
+        Item newItem = null; //never will be null after switch due to getItemType sanitizing input
+        boolean itemOK = false;
+        while (!itemOK) {
+            switch (itemType) {
+                case "device":
+                    newItem = new Device(getRentalCost(), getString("Enter the device's name"));
+                    itemOK = true;
+                    break;
+                case "book":
+                    newItem = new Book(getInt("Enter the year the book was published"), getString("Enter the author(s)"),
+                            getString("Enter the publisher"), getString("Enter the book's name"));
+                    itemOK = true;
+                    break;
+                case "adaptor":
+                    newItem = new Adaptor(getRentalCost(), getString("Enter the adaptor's name"));
+                    itemOK = true;
+                    break;
+                case "laptop":
+                    newItem = new Laptop(getRentalCost(), getString("Enter the laptop's name"));
+                    itemOK = true;
+                    break;
+                case "magazine":
+                    newItem = new Magazine(getInt("Enter the year the magazine was published"), getString("Enter the author(s)"),
+                            getString("Enter the publisher"), getString("Enter the magazine's name"));
+                    itemOK = true;
+                    break;
+                case "textbook":
+                    newItem = new Textbook(getInt("Enter the year the textbook was published"), getString("Enter the author(s)"),
+                            getString("Enter the publisher"), getString("Enter the textbook's name"));
+                    itemOK = true;
+                    break;
+                default: //dummy proof bad item type - should already be done but do here too
+                    System.out.println("You did not enter a proper Item type, so nothing was inserted");
+                    itemOK = false;
+            }
         }
         try {
-            addTransaction(newItem);
+            addItem(newItem);
+        } catch (DuplicateItemID e) {
+            System.out.println(e + " " + newItem.getName() + " was not inserted.");
+        }
+    }
+
+    /**
+     * Method that adds an Item to the collections of Items, items. Lets user input Item values,
+     * forces user to continue to input values until they are acceptable. Doesn't throw DuplicateItemID
+     * because it calls a method that does.
+     *
+     * @param id ID for the new Item to have.
+     */
+    public void addItem(int id) {
+        String itemType = getItemType();
+        Item newItem = null; //never will be null after switch due to getItemType sanitizing input
+        boolean itemOK = false;
+        while (!itemOK) {
+            switch (itemType) {
+                case "device":
+                    newItem = new Device(getRentalCost(), getString("Enter the device's name"), id);
+                    itemOK = true;
+                    break;
+                case "book":
+                    newItem = new Book(getInt("Enter the year the book was published"), getString("Enter the author(s)"),
+                            getString("Enter the publisher"), getString("Enter the book's name"), id);
+                    itemOK = true;
+                    break;
+                case "adaptor":
+                    newItem = new Adaptor(getRentalCost(), getString("Enter the adaptor's name"), id);
+                    itemOK = true;
+                    break;
+                case "laptop":
+                    newItem = new Laptop(getRentalCost(), getString("Enter the laptop's name"), id);
+                    itemOK = true;
+                    break;
+                case "magazine":
+                    newItem = new Magazine(getInt("Enter the year the magazine was published"), getString("Enter the author(s)"),
+                            getString("Enter the publisher"), getString("Enter the magazine's name"), id);
+                    itemOK = true;
+                    break;
+                case "textbook":
+                    newItem = new Textbook(getInt("Enter the year the textbook was published"), getString("Enter the author(s)"),
+                            getString("Enter the publisher"), getString("Enter the textbook's name"), id);
+                    itemOK = true;
+                    break;
+                default: //dummy proof bad item type - should already be done but do here too
+                    System.out.println("You did not enter a proper Item type, so nothing was inserted");
+                    itemOK = false;
+            }
+        }
+        try {
+            addItem(newItem);
         } catch (DuplicateItemID e) {
             System.out.println(e + " " + newItem.getName() + " was not inserted.");
         }

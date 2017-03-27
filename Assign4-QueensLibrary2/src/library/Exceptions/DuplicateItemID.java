@@ -7,6 +7,6 @@ package library.Exceptions;
  */
 public class DuplicateItemID extends Exception {
     public DuplicateItemID(){
-        super("You tried to insert an Item with an ID that is aready in use!");
+        super("You tried to insert an Item with an ID that is already in use!");
     }
 }
