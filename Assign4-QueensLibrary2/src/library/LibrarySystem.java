@@ -6,6 +6,8 @@ import library.Exceptions.DuplicateItemID;
 import library.Exceptions.DuplicateTransactionID;
 
 import javax.swing.*;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -229,84 +231,89 @@ public class LibrarySystem {
 
     /**
      * The following all search for Items. There is one for each possible field for an Item, with the
-     * parameter being the field. The method will return the first Item in the collection with a matching field,
-     * or if no Item exists that matches, will return null.
+     * parameter being the field. The method will return a list of Items that match the parameter.
      */
 
     public Item searchItem(int id) {
-        return items.get(id); //id is the key in the map
+        return items.get(id); //id is the key in the map, will only ever be one so no list
     }
 
-    public Item searchItem(String term) { //search for name, publisher, authors
+    public ArrayList<Item> searchItem(String term) { //search for name, publisher, authors
+        ArrayList<Item> foundItems = new ArrayList<>();
         for (Item item : items.values()) {
             if (item.getName().equals(term)) {
-                return item; //name matches search
+                foundItems.add(item); //name matches search
             } else if (item instanceof Book && (((Book) item).getAuthors().equals(term) ||
                     ((Book) item).getPublisher().equals(term))) {
-                return item; //author or publisher matches search
+                foundItems.add(item); //author or publisher matches search
             }
         }
-        return null;
+        return foundItems;
     }
 
-    public Item searchItem(double rentalCost) {
+    public ArrayList<Item> searchItem(double rentalCost) {
+        ArrayList<Item> foundItems = new ArrayList<>();
         for (Item item : items.values()) {
             if (item instanceof Device && ((Device) item).getRentalCost() == rentalCost) {
-                return item;
+                foundItems.add(item);
             }
         }
-        return null;
+        return foundItems;
     }
 
-    public Item searchItem(long year) { //long because ID uses the parameter for int
+    public ArrayList<Item> searchItem(long year) { //long because ID uses the parameter for int
+        ArrayList<Item> foundItems = new ArrayList<>();
         for (Item item : items.values()) {
             if (item instanceof Book && ((Book) item).getYear() == year) {
-                return item;
+                foundItems.add(item);
             }
         }
-        return null;
+        return foundItems;
     }
 
     /**
      * The following all search for Rentals. There is one for each possible field for a Rental, with the
-     * parameter being the field. The method will return the first Rental in the collection with a matching field,
-     * or if no Rental exists that matches, will return null.
+     * parameter being the field. The method will return a list of Rentals that have fields matching the parameter.
      */
 
-    public Rental searchRental(Item item) {
+    public ArrayList<Rental> searchRental(Item item) {
+        ArrayList<Rental> foundRentals = new ArrayList<>();
         for (Rental rental : rentals.values()) {
             if (rental.getItem().equals(item)) {
-                return rental;
+                foundRentals.add(rental);
             }
         }
-        return null;
+        return foundRentals;
     }
 
-    public Rental searchRental(Date date) { //for rental date, actual return date and estimated return date
+    public ArrayList<Rental> searchRental(Date date) { //for rental date, actual return date and estimated return date
+        ArrayList<Rental> foundRentals = new ArrayList<>();
         for (Rental rental : rentals.values()) {
             if (rental.getRentalDate().equals(date) || rental.getActReturnDate().equals(date) ||
                     rental.getEstReturnDate().equals(date)) {
-                return rental;
+                foundRentals.add(rental);
             }
         }
-        return null;
+        return foundRentals;
     }
 
-    public Rental searchRental(RentalStatus status) { //bad idea to search for this...many Rentals will have the same status
+    public ArrayList<Rental> searchRental(RentalStatus status) {
+        ArrayList<Rental> foundRentals = new ArrayList<>();
         for (Rental rental : rentals.values()) {
             if (rental.getStatus() == status) {
-                return rental;
+                foundRentals.add(rental);
             }
         }
-        return null;
+        return foundRentals;
     }
 
-    public Rental searchRental(int id) {
+    public ArrayList<Rental> searchRental(int id) {
+        ArrayList<Rental> foundRentals = new ArrayList<>();
         for (Rental rental : rentals.values()) {
             if (rental.getID() == id) {
-                return rental;
+                foundRentals.add(rental);
             }
         }
-        return null;
+        return foundRentals;
     }
 }
