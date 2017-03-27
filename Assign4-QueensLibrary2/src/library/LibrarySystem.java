@@ -1,5 +1,6 @@
 package library;
 
+import library.Enums.RentalStatus;
 import library.Exceptions.DuplicateCustomerID;
 import library.Exceptions.DuplicateItemID;
 import library.Exceptions.DuplicateTransactionID;
@@ -229,7 +230,7 @@ public class LibrarySystem {
     /**
      * The following all search for Items. There is one for each possible field for an Item, with the
      * parameter being the field. The method will return the first Item in the collection with a matching field,
-     * or if no item exists, will return null.
+     * or if no Item exists that matches, will return null.
      */
 
     public Item searchItem(int id) {
@@ -261,6 +262,49 @@ public class LibrarySystem {
         for (Item item : items.values()) {
             if (item instanceof Book && ((Book) item).getYear() == year) {
                 return item;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * The following all search for Rentals. There is one for each possible field for a Rental, with the
+     * parameter being the field. The method will return the first Rental in the collection with a matching field,
+     * or if no Rental exists that matches, will return null.
+     */
+
+    public Rental searchRental(Item item) {
+        for (Rental rental : rentals.values()) {
+            if (rental.getItem().equals(item)) {
+                return rental;
+            }
+        }
+        return null;
+    }
+
+    public Rental searchRental(Date date) { //for rental date, actual return date and estimated return date
+        for (Rental rental : rentals.values()) {
+            if (rental.getRentalDate().equals(date) || rental.getActReturnDate().equals(date) ||
+                    rental.getEstReturnDate().equals(date)) {
+                return rental;
+            }
+        }
+        return null;
+    }
+
+    public Rental searchRental(RentalStatus status) { //bad idea to search for this...many Rentals will have the same status
+        for (Rental rental : rentals.values()) {
+            if (rental.getStatus() == status) {
+                return rental;
+            }
+        }
+        return null;
+    }
+
+    public Rental searchRental(int id) {
+        for (Rental rental : rentals.values()) {
+            if (rental.getID() == id) {
+                return rental;
             }
         }
         return null;
