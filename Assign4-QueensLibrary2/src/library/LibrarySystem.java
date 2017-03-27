@@ -316,4 +316,21 @@ public class LibrarySystem {
         }
         return foundRentals;
     }
+
+    /**
+     * Method to filter Rentals based on being between two Dates.
+     *
+     * @param from Date at which Rentals can start to be taken
+     * @param to   Date at which Rentals cannot be taken anymore.
+     * @return List of Rentals with rental dates between from and to.
+     */
+    public ArrayList<Rental> filterRentalsByDate(Date from, Date to) {
+        ArrayList<Rental> filteredRentals = new ArrayList<>();
+        for (Rental rental : rentals.values()) {
+            if (rental.getRentalDate().before(to) && from.before(rental.getRentalDate())) {
+                filteredRentals.add(rental);
+            }
+        }
+        return filteredRentals;
+    }
 }
