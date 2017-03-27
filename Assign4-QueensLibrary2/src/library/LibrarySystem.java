@@ -1,8 +1,11 @@
 package library;
 
+import library.Enums.CustomerType;
 import library.Exceptions.DuplicateItemID;
 
 import javax.swing.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -11,6 +14,7 @@ import java.util.Date;
  * 14cdwc
  * Class to utilize library schema created.
  */
+//TODO make object of library system in main
 public class LibrarySystem {
 
     private static ArrayList<Rental> mRentals = new ArrayList<>();
@@ -80,7 +84,9 @@ public class LibrarySystem {
                 throw new DuplicateItemID();
             }
         }
-        Rental newRental = new Rental(newItem, CUSTOMER, new Date(),RETURN DATE);
+        Date returnDate = getReturnDate();
+        Customer customer = getCustomer();
+        Rental newRental = new Rental(newItem, customer, new Date(), returnDate);
         mRentals.add(newRental);
     }
 
@@ -123,7 +129,7 @@ public class LibrarySystem {
     private static double getTotalLateFees() {
         double totalLateFees = 0;
         for (Rental rental : mRentals) {
-            totalLateFees += rental.getItem().getLateFees(rental.getDaysLate());
+            totalLateFees += rental.getLateFees();
         }
         return totalLateFees;
     }
@@ -157,6 +163,41 @@ public class LibrarySystem {
             System.out.println("Clone not supported!");
         }
         return null; //flag for no clone possible
+    }
+
+    private static Customer getCustomer() {
+        CustomerType customerType = getCustomerType();
+        String firstName = getString("Enter the customer's first name:");
+        String lastName = getString("Enter the customer's last name:");
+        String department = getString("Enter the customer's department:");
+        return (new Customer(customerType, firstName, lastName, department));
+    }
+
+    private static CustomerType getCustomerType() {
+        while (true) { //go until get good input and function returns
+            String customer = getString("Enter whether the customer is a student or employee:");
+            customer = customer.toLowerCase();
+            switch (customer) {
+                case "student":
+                    return CustomerType.STUDENT;
+                case "employee":
+                    return CustomerType.EMPLOYEE;
+                default:
+                    System.out.println("You entered a bad customer type! Try again.");
+            }
+        }
+    }
+
+    private static Date getReturnDate() {
+        while (true) { //go until input ok, at which point function returns
+            String sDate = getString("Enter the date in format dd-MMM-yyy:");
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy");
+            try {
+                return dateFormat.parse(sDate);
+            } catch (ParseException e) {
+                System.out.println("You didn't enter a proper date. Follow the format dd-MMM-yyyy and try again.");
+            }
+        }
     }
 
     /**

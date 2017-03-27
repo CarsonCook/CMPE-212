@@ -4,7 +4,7 @@ import library.Enums.CustomerType;
 
 /**
  * Created by Carson on 25/03/2017.
- * 14cdwd
+ * 14cdwc
  * Class defining information about a customer.
  */
 public class Customer {
