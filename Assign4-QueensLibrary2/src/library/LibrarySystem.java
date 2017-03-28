@@ -7,7 +7,6 @@ import library.Exceptions.DuplicateTransactionID;
 import library.Exceptions.WrongRentalCost;
 
 import javax.swing.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -35,9 +34,13 @@ public class LibrarySystem {
     public void addCustomer(Customer newCust) throws DuplicateCustomerID {
         //check for duplicate ID
         if (customers.containsKey(newCust.getID())) {
-            throw new DuplicateCustomerID();
+            throw new DuplicateCustomerID(newCust.getID());
         }
         customers.put(newCust.getID(), newCust);
+    }
+
+    public void addCustomer() {
+
     }
 
     /**
@@ -47,11 +50,15 @@ public class LibrarySystem {
      * @throws DuplicateTransactionID The Item has an ID that is already in use.
      */
     public void addTransaction(Item newItem, Customer customer) throws DuplicateTransactionID {
-        Date returnDate = getReturnDate();
-        Rental newRental = new Rental(newItem, customer, new Date(), returnDate);
+        addTransaction(newItem, customer, new Date());
+    }
+
+    public void addTransaction(Item newItem, Customer customer, Date date) throws DuplicateTransactionID {
+        Date returnDate = getDate();
+        Rental newRental = new Rental(newItem, customer, date, returnDate);
         //check for duplicate ID
         if (rentals.containsKey(newRental.getID())) {
-            throw new DuplicateTransactionID();
+            throw new DuplicateTransactionID(newRental.getID());
         }
         rentals.put(newRental.getID(), newRental);
     }
@@ -66,7 +73,7 @@ public class LibrarySystem {
     public void addItem(Item newItem) throws DuplicateItemID {
         if (newItem != null) {
             if (items.containsKey(newItem.getID())) {
-                throw new DuplicateItemID();
+                throw new DuplicateItemID(newItem.getID());
             }
             items.put(newItem.getID(), newItem);
         } else {

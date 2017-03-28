@@ -75,7 +75,6 @@ public class Util {
     }
 
 
-
     /**
      * Convenience method to clone a Rental, adds the try-catch block around the clone call.
      *
@@ -114,7 +113,7 @@ public class Util {
         }
     }
 
-    public static Date getReturnDate() {
+    public static Date getDate() {
         while (true) { //go until input ok, at which point function returns
             String sDate = getString("Enter the date in format dd-MMM-yyy:");
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy");
