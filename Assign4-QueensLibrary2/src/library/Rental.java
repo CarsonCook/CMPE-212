@@ -2,6 +2,7 @@ package library;
 
 import library.Enums.CustomerType;
 import library.Enums.RentalStatus;
+import library.Exceptions.DateReturnedBeforeDateRented;
 import library.Exceptions.WrongRentalCost;
 
 import java.util.Date;
@@ -140,11 +141,19 @@ public class Rental {
     /**
      * Method that handles logic for when the Rental is returned
      *
-     * @param curDate Date Rental is returned.
+     * @param retDate Date Rental is returned.
      */
-    public void itemReturned(Date curDate) {
+    public void itemReturned(Date retDate) {
+        try {
+            if (actReturnDate.before(rentalDate)) {
+                throw new DateReturnedBeforeDateRented();
+            }
+        } catch (DateReturnedBeforeDateRented e) {
+            System.out.println(e + " Entered as returned the day it was rented.");
+            retDate = rentalDate;
+        }
         setStatus(RentalStatus.CLOSED);
-        setActReturnDate(curDate);
+        setActReturnDate(retDate);
     }
 
     public RentalStatus getStatus() {
