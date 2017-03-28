@@ -11,8 +11,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Assign3-QueensLibrary/out/production/Assign3-QueensLibrary/library/Rental.class" afterPath="$PROJECT_DIR$/../Assign3-QueensLibrary/out/production/Assign3-QueensLibrary/library/Rental.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Assign3-QueensLibrary/out/production/Assign3-QueensLibrary/library/Textbook.class" afterPath="$PROJECT_DIR$/../Assign3-QueensLibrary/out/production/Assign3-QueensLibrary/library/Textbook.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Assign3-QueensLibrary/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../Assign3-QueensLibrary/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/library/LibrarySystem.java" afterPath="$PROJECT_DIR$/src/library/LibrarySystem.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/library/Rental.java" afterPath="$PROJECT_DIR$/src/library/Rental.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/library/TestLibrary.java" afterPath="$PROJECT_DIR$/src/library/TestLibrary.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/library/Util.java" afterPath="$PROJECT_DIR$/src/library/Util.java" />
     </list>
@@ -40,14 +38,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestLibrary.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TestLibrary.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/library/TestLibrary.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="35" column="12" lean-forward="false" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
+            <state relative-caret-position="408">
+              <caret line="24" column="94" lean-forward="true" selection-start-line="24" selection-start-column="94" selection-end-line="24" selection-end-column="94" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Rental.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/library/Rental.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-204">
+              <caret line="31" column="29" lean-forward="true" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -187,6 +195,7 @@
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files (x86)\nodejs\node.exe" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Assign3-QueensLibrary" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -635,12 +644,12 @@
       <workItem from="1490492189788" duration="8075000" />
       <workItem from="1490574231175" duration="4338000" />
       <workItem from="1490636258603" duration="6015000" />
-      <workItem from="1490673646711" duration="3695000" />
+      <workItem from="1490673646711" duration="4113000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22123000" />
+    <option name="totallyTimeSpent" value="22541000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1056" extended-state="6" />
@@ -791,8 +800,8 @@
         <state relative-caret-position="153">
           <caret line="9" column="41" lean-forward="false" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
           <folding>
-            <element signature="e#214#215#0" expanded="true" />
-            <element signature="e#265#266#0" expanded="true" />
+            <element signature="e#214#215#0" expanded="false" />
+            <element signature="e#265#266#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -848,8 +857,8 @@
         <state relative-caret-position="172">
           <caret line="11" column="31" lean-forward="false" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
           <folding>
-            <element signature="e#238#239#0" expanded="true" />
-            <element signature="e#276#277#0" expanded="true" />
+            <element signature="e#238#239#0" expanded="false" />
+            <element signature="e#276#277#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -859,8 +868,8 @@
         <state relative-caret-position="289">
           <caret line="34" column="18" lean-forward="false" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
           <folding>
-            <element signature="e#2295#2296#0" expanded="true" />
-            <element signature="e#2320#2321#0" expanded="true" />
+            <element signature="e#2295#2296#0" expanded="false" />
+            <element signature="e#2320#2321#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -870,18 +879,8 @@
         <state relative-caret-position="170">
           <caret line="11" column="44" lean-forward="false" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
           <folding>
-            <element signature="e#263#264#0" expanded="true" />
-            <element signature="e#316#317#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/library/Rental.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2023">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#263#264#0" expanded="false" />
+            <element signature="e#316#317#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -896,8 +895,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/library/Util.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="117" column="94" lean-forward="false" selection-start-line="117" selection-start-column="94" selection-end-line="117" selection-end-column="94" />
+        <state relative-caret-position="298">
+          <caret line="115" column="41" lean-forward="true" selection-start-line="115" selection-start-column="41" selection-end-line="115" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -906,11 +905,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/library/TestLibrary.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="35" column="12" lean-forward="false" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
+        <state relative-caret-position="408">
+          <caret line="24" column="94" lean-forward="true" selection-start-line="24" selection-start-column="94" selection-end-line="24" selection-end-column="94" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/library/Rental.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-204">
+          <caret line="31" column="29" lean-forward="true" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>

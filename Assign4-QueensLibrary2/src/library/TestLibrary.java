@@ -30,10 +30,10 @@ public class TestLibrary {
             System.out.println(e + " Transaction " + e.getBadID() + "was not made.");
         }
         system.printAllRentals();
-        LibrarySystem.getRentals().get(0).itemReturned(getDate());
+        LibrarySystem.getRentals().get(0).itemReturned(getDate("return date"));
         double lateFees = 0;
         double totalCost = 0;
-        Date date = getDate();
+        Date date = getDate("late date");
         for (Rental rental : LibrarySystem.getRentals().values()) {
             if (rental.isLate(date)) {
                 lateFees += rental.getLateFees();
@@ -41,6 +41,6 @@ public class TestLibrary {
             totalCost += rental.getRentalCost(); //get rental cost, then add all late fees for total
         }
         System.out.println("Total late fees: " + lateFees + " total costs: " + totalCost);
-        LibrarySystem.printLateRentals(getDate());
+        LibrarySystem.printLateRentals(date);
     }
 }

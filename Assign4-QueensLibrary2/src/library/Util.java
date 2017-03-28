@@ -113,9 +113,9 @@ public class Util {
         }
     }
 
-    public static Date getDate() {
+    public static Date getDate(String whatDate) {
         while (true) { //go until input ok, at which point function returns
-            String sDate = getString("Enter the date in format dd-MMM-yyyy (e.g. March is MAR):");
+            String sDate = getString("Enter the " + whatDate + " date in format dd-MMM-yyyy (e.g. March is MAR):");
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy");
             try {
                 return dateFormat.parse(sDate);

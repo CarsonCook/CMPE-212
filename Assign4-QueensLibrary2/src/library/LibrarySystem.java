@@ -54,7 +54,7 @@ public class LibrarySystem {
     }
 
     public void addTransaction(Item newItem, Customer customer, Date date) throws DuplicateTransactionID {
-        Date returnDate = getDate();
+        Date returnDate = getDate("rental date");
         Rental newRental = new Rental(newItem, customer, date, returnDate);
         //check for duplicate ID
         if (rentals.containsKey(newRental.getID())) {
