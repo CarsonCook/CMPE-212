@@ -183,6 +183,16 @@ public class LibrarySystem {
         }
     }
 
+    public static void printLateRentals(Date curDate) {
+        String output = "Late rentals:\n";
+        for (Rental rental : rentals.values()) {
+            if (rental.isLate(curDate)) {
+                output += rental.toString();
+            }
+        }
+        System.out.println(output);
+    }
+
     public double getTotalLateFees() {
         double totalLateFees = 0;
         for (Rental rental : rentals.values()) {

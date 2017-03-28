@@ -12,7 +12,6 @@ import java.util.Date;
  * 14cdwc
  * Class to hold a rental transaction for the library
  */
-//TODO test null date
 public class Rental {
 
     private Item item;
