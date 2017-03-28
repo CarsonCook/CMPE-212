@@ -55,8 +55,15 @@ public class Rental {
 
     @Override
     public String toString() {
-        return "ID: " + id + ", rental: " + item.toString() + ", rented on: " + rentalDate + ", estimated return date: " + estReturnDate +
-                ", date returned: " + actReturnDate + ", customer: " + customer;
+        return "Rental{" +
+                "item=" + item +
+                ", rentalDate=" + rentalDate +
+                ", estReturnDate=" + estReturnDate +
+                ", actReturnDate=" + actReturnDate +
+                ", id=" + id +
+                ", customer=" + customer +
+                ", status=" + status +
+                '}';
     }
 
     @Override

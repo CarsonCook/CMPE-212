@@ -17,16 +17,18 @@ public class TestLibrary {
         LibrarySystem system = new LibrarySystem();
         system.addItem();
         system.addItem(0); //test if id already used exception will work
-        system.addItem();
+      //  system.addItem();
         try {
             system.addCustomer(getCustomer());
-            system.addCustomer(getCustomer());
+          //
+            //  system.addCustomer(getCustomer());
             system.addTransaction(LibrarySystem.getItems().get(0), LibrarySystem.getCustomers().get(0), getDate());
-            system.addTransaction(LibrarySystem.getItems().get(1), LibrarySystem.getCustomers().get(1), getDate());
+        //    system.addTransaction(LibrarySystem.getItems().get(1), LibrarySystem.getCustomers().get(1), getDate());
         } catch (DuplicateCustomerID e) {
             System.out.println(e + " Customer " + e.getBadID() + " was not inserted.");
         } catch (DuplicateTransactionID e) {
             System.out.println(e + " Transaction " + e.getBadID() + "was not made.");
         }
+        system.printAllRentals();
     }
 }

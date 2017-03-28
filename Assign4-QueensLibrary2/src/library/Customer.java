@@ -33,8 +33,13 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "ID: " + id + ", first name: " + firstName + ", last name: " + lastName + ", department: " + department
-                + ", type: " + type;
+        return "Customer{" +
+                "type=" + type +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", department='" + department + '\'' +
+                ", id=" + id +
+                '}';
     }
 
     @Override
