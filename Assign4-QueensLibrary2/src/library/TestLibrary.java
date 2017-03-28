@@ -15,7 +15,6 @@ import static library.Util.getDate;
  * 14cdwc
  * Tester class for the Library System
  */
-//TODO make datereturnedbefore work, more things on system
 public class TestLibrary {
 
     public static void main(String[] args) {
@@ -33,8 +32,6 @@ public class TestLibrary {
         LibrarySystem.printLateRentals();
         System.out.println("Total rent costs: " + system.getTotalRentalCosts() + " total late fees: " +
                 system.getTotalLateFees());
-        LibrarySystem.getRentals().get(1).itemReturned(new Date());
-        LibrarySystem.printAllRentals();
     }
 
     /**

@@ -179,9 +179,18 @@ public class Rental {
 
     public void setRentalDate(Date rentalDate) {
         if (rentalDate == null) { //to avoid null exceptions, make a default/flag date value
-            rentalDate = new Date(1);
+            rentalDate = new Date();
         }
-        this.rentalDate = rentalDate;
+        try {
+            if ((actReturnDate != null && actReturnDate.before(rentalDate)) ||
+                    (estReturnDate != null && actReturnDate.before(rentalDate))) {
+                throw new DateReturnedBeforeDateRented();
+            }
+            this.rentalDate = rentalDate;
+        } catch (DateReturnedBeforeDateRented e) {
+            System.out.println(e + " Current date will be used.");
+            this.rentalDate = new Date();
+        }
     }
 
     public Date getEstReturnDate() {
@@ -190,9 +199,17 @@ public class Rental {
 
     public void setEstReturnDate(Date estReturnDate) {
         if (estReturnDate == null) { //to avoid null exceptions, make a default/flag date value
-            estReturnDate = new Date(1);
+            estReturnDate = new Date();
         }
-        this.estReturnDate = estReturnDate;
+        try {
+            if (rentalDate != null && estReturnDate.before(rentalDate)) {
+                throw new DateReturnedBeforeDateRented();
+            }
+            this.estReturnDate = estReturnDate;
+        } catch (DateReturnedBeforeDateRented e) {
+            System.out.println(e + " Current date will be used.");
+            this.estReturnDate = new Date();
+        }
     }
 
     public Date getActReturnDate() {
