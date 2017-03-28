@@ -48,6 +48,7 @@ public class Laptop extends Device {
 
     @Override
     public double getLateFees(int daysLate) {
+        System.out.println("getLateFees laptop: "+daysLate);
         return 5 * daysLate + 0.2 * getRentalCost();
     }
 }

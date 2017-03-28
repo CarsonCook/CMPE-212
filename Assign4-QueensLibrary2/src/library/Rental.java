@@ -90,9 +90,9 @@ public class Rental {
      */
     public double getLateFees() {
         //getTime() gets ms, so convert to days
-        if (status == RentalStatus.LATE) {
-            int daysLate = (int) (new Date()).getTime() / 1000 / 60 / 60 / 24 - //from current day at time of call
-                    (int) estReturnDate.getTime() / 1000 / 60 / 60 / 24;
+        int daysLate = (int) (new Date()).getTime() / 1000 / 60 / 60 / 24 - //from current day at time of call
+                (int) estReturnDate.getTime() / 1000 / 60 / 60 / 24;
+        if (daysLate > 0) {
             return item.getLateFees(daysLate);
         } else {
             return 0; //not late, no cost
@@ -178,18 +178,20 @@ public class Rental {
     }
 
     public void setRentalDate(Date rentalDate) {
-        if (rentalDate == null) { //to avoid null exceptions, make a default/flag date value
-            rentalDate = new Date();
-        }
-        try {
-            if ((actReturnDate != null && actReturnDate.before(rentalDate)) ||
-                    (estReturnDate != null && actReturnDate.before(rentalDate))) {
-                throw new DateReturnedBeforeDateRented();
-            }
-            this.rentalDate = rentalDate;
-        } catch (DateReturnedBeforeDateRented e) {
-            System.out.println(e + " Current date will be used.");
+        //avoid null exceptions and items can only be rented on this date
+        if (rentalDate == null||rentalDate.before(new Date())) {
             this.rentalDate = new Date();
+        } else {
+            try {
+                if ((actReturnDate != null && actReturnDate.before(rentalDate)) ||
+                        (estReturnDate != null && estReturnDate.before(rentalDate))) {
+                    throw new DateReturnedBeforeDateRented();
+                }
+                this.rentalDate = rentalDate;
+            } catch (DateReturnedBeforeDateRented e) {
+                System.out.println(e + " Current date will be used.");
+                this.rentalDate = new Date();
+            }
         }
     }
 

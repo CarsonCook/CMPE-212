@@ -54,7 +54,7 @@ public class LibrarySystem {
      * @throws DuplicateTransactionID The Item has an ID that is already in use.
      */
     public void addTransaction(Item newItem, Customer customer) throws DuplicateTransactionID {
-        addTransaction(newItem, customer, new Date());
+        addTransaction(newItem, customer, getDate("date rented"));
     }
 
     public void addTransaction(Item newItem, Customer customer, Date date) throws DuplicateTransactionID {
@@ -190,7 +190,7 @@ public class LibrarySystem {
     public static void printLateRentals() {
         String output = "Late rentals:\n";
         for (Rental rental : rentals.values()) {
-            if (rental.isLate(rental.getRentalDate())) {
+            if (rental.isLate(new Date())) {
                 output += rental.toString();
             }
         }

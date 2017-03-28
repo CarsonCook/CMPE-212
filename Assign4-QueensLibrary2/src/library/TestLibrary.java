@@ -19,14 +19,19 @@ public class TestLibrary {
 
     public static void main(String[] args) {
         LibrarySystem system = new LibrarySystem();
+
         Laptop laptop = new Laptop(10, "Asus", 1);
         Adaptor adaptor = new Adaptor(15, "Thunder", 1); //test duplicate item ID
         Customer customer = new Customer(CustomerType.STUDENT, "Carson", "Cook", "Eng", 1);
         Customer customer2 = new Customer(CustomerType.STUDENT, "Bob", "Job", "Eng", 1); //test duplicate customer id
-        insertCustomer(system, customer);
-        insertCustomer(system, customer2);
         insertItem(system, laptop);
         insertItem(system, adaptor);
+        LibrarySystem.printAllItems();
+
+        insertCustomer(system, customer);
+        insertCustomer(system, customer2);
+        LibrarySystem.printAllCustomers();
+
         insertTransaction(system, laptop, customer);
         LibrarySystem.printAllRentals();
         LibrarySystem.printLateRentals();
