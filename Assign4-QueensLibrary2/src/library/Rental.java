@@ -2,6 +2,7 @@ package library;
 
 import library.Enums.CustomerType;
 import library.Enums.RentalStatus;
+import library.Exceptions.WrongRentalCost;
 
 import java.util.Date;
 
@@ -10,7 +11,7 @@ import java.util.Date;
  * 14cdwc
  * Class to hold a rental transaction for the library
  */
-//TODO test null actual return date
+//TODO test null date
 public class Rental {
 
     private Item item;
@@ -99,7 +100,15 @@ public class Rental {
      */
     public double getRentalCost() {
         if (item instanceof Device) {
-            double baseCost = ((Device) item).getRentalCost();
+            double baseCost = -1; //if the getRentalCost() fails, stay at -1 so exception thrown and message displayed
+            try {
+                baseCost = ((Device) item).getRentalCost();
+                if (baseCost < 0) {
+                    throw new WrongRentalCost();
+                }
+            } catch (WrongRentalCost e) {
+                System.out.println(e + " 0 will be used");
+            }
             if (getCustomer().getType() == CustomerType.STUDENT) { //student, so 25% discount
                 return baseCost - baseCost * 0.25;
             } else {

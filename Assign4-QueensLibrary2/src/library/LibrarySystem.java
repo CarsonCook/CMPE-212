@@ -4,6 +4,7 @@ import library.Enums.RentalStatus;
 import library.Exceptions.DuplicateCustomerID;
 import library.Exceptions.DuplicateItemID;
 import library.Exceptions.DuplicateTransactionID;
+import library.Exceptions.WrongRentalCost;
 
 import javax.swing.*;
 import java.lang.reflect.Array;
@@ -183,11 +184,15 @@ public class LibrarySystem {
         return totalLateFees;
     }
 
-    public double getTotalRentalCosts() {
+    public double getTotalRentalCosts() throws WrongRentalCost {
         double totalRentalCosts = 0;
         for (Rental rental : rentals.values()) {
             if (rental.getItem() instanceof Device) {
-                totalRentalCosts += ((Device) rental.getItem()).getRentalCost();
+                double oneCost = ((Device) rental.getItem()).getRentalCost();
+                if (oneCost < 0) {
+                    throw new WrongRentalCost();
+                }
+                totalRentalCosts += oneCost;
             }
         }
         return totalRentalCosts;
@@ -209,7 +214,11 @@ public class LibrarySystem {
                 cost = Double.parseDouble(input);
                 if (cost >= 0) {
                     inputOK = true;
+                } else {
+                    throw new WrongRentalCost();
                 }
+            } catch (WrongRentalCost e) {
+                System.out.println(e + " Try again.");
             } catch (NumberFormatException e) {
                 System.out.println("That wasn't a number!");
             }
