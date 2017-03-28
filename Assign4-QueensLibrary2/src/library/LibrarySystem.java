@@ -184,15 +184,19 @@ public class LibrarySystem {
         return totalLateFees;
     }
 
-    public double getTotalRentalCosts() throws WrongRentalCost {
+    public double getTotalRentalCosts() {
         double totalRentalCosts = 0;
         for (Rental rental : rentals.values()) {
             if (rental.getItem() instanceof Device) {
-                double oneCost = ((Device) rental.getItem()).getRentalCost();
-                if (oneCost < 0) {
-                    throw new WrongRentalCost();
+                try {
+                    double oneCost = ((Device) rental.getItem()).getRentalCost();
+                    if (oneCost < 0) {
+                        throw new WrongRentalCost();
+                    }
+                    totalRentalCosts += oneCost;
+                } catch (WrongRentalCost e) {
+                    System.out.println(e + " 0 was used as the rental cost.");
                 }
-                totalRentalCosts += oneCost;
             }
         }
         return totalRentalCosts;
