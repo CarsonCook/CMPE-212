@@ -34,7 +34,7 @@ public class TestLibrary {
         System.out.println("Total rent costs: " + system.getTotalRentalCosts() + " total late fees: " +
                 system.getTotalLateFees());
         LibrarySystem.getRentals().get(1).itemReturned(new Date());
-        LibrarySystem.printAllRentals();gi
+        LibrarySystem.printAllRentals();
     }
 
     /**
