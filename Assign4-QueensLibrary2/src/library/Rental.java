@@ -91,8 +91,8 @@ public class Rental {
     public double getLateFees() {
         //getTime() gets ms, so convert to days
         if (status == RentalStatus.LATE) {
-            int daysLate = (int) estReturnDate.getTime() / 1000 / 60 / 60 / 24 -
-                    (int) actReturnDate.getTime() / 1000 / 60 / 60 / 24;
+            int daysLate = (int) (new Date()).getTime() / 1000 / 60 / 60 / 24 - //from current day at time of call
+                    (int) estReturnDate.getTime() / 1000 / 60 / 60 / 24;
             return item.getLateFees(daysLate);
         } else {
             return 0; //not late, no cost
@@ -151,7 +151,7 @@ public class Rental {
      */
     public void itemReturned(Date retDate) {
         try {
-            if (actReturnDate.before(rentalDate)) {
+            if (retDate.before(rentalDate)) {
                 throw new DateReturnedBeforeDateRented();
             }
         } catch (DateReturnedBeforeDateRented e) {

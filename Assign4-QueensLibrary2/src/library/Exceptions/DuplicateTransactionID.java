@@ -1,19 +1,22 @@
 package library.Exceptions;
 
+
+import library.Rental;
+
 /**
  * Created by Carson on 27/03/2017.
  * 14cdwc
  * Exception for a Rental having an ID already in use.
  */
 public class DuplicateTransactionID extends Exception {
-    private int badID;
+    private Rental badRental;
 
-    public DuplicateTransactionID(int badID) {
+    public DuplicateTransactionID(Rental badRental) {
         super("You tried to enter a transaction ID that is already in use!");
-        this.badID = badID;
+        this.badRental = badRental;
     }
 
-    public int getBadID() {
-        return badID;
+    public Rental getBadRental() {
+        return badRental;
     }
 }

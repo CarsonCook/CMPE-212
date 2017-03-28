@@ -34,13 +34,17 @@ public class LibrarySystem {
     public void addCustomer(Customer newCust) throws DuplicateCustomerID {
         //check for duplicate ID
         if (customers.containsKey(newCust.getID())) {
-            throw new DuplicateCustomerID(newCust.getID());
+            throw new DuplicateCustomerID(newCust);
         }
         customers.put(newCust.getID(), newCust);
     }
 
     public void addCustomer() {
-
+        try {
+            addCustomer(getCustomer());
+        } catch (DuplicateCustomerID e) {
+            System.out.println(e + " Customer " + e.getBadCustomer() + " was not inserted");
+        }
     }
 
     /**
@@ -54,11 +58,11 @@ public class LibrarySystem {
     }
 
     public void addTransaction(Item newItem, Customer customer, Date date) throws DuplicateTransactionID {
-        Date returnDate = getDate("rental date");
+        Date returnDate = getDate("estimated return date");
         Rental newRental = new Rental(newItem, customer, date, returnDate);
         //check for duplicate ID
         if (rentals.containsKey(newRental.getID())) {
-            throw new DuplicateTransactionID(newRental.getID());
+            throw new DuplicateTransactionID(newRental);
         }
         rentals.put(newRental.getID(), newRental);
     }
@@ -73,7 +77,7 @@ public class LibrarySystem {
     public void addItem(Item newItem) throws DuplicateItemID {
         if (newItem != null) {
             if (items.containsKey(newItem.getID())) {
-                throw new DuplicateItemID(newItem.getID());
+                throw new DuplicateItemID(newItem);
             }
             items.put(newItem.getID(), newItem);
         } else {
@@ -183,10 +187,10 @@ public class LibrarySystem {
         }
     }
 
-    public static void printLateRentals(Date curDate) {
+    public static void printLateRentals() {
         String output = "Late rentals:\n";
         for (Rental rental : rentals.values()) {
-            if (rental.isLate(curDate)) {
+            if (rental.isLate(rental.getRentalDate())) {
                 output += rental.toString();
             }
         }
@@ -219,7 +223,19 @@ public class LibrarySystem {
         return totalRentalCosts;
     }
 
-    public void printAllRentals() {
+    public static void printAllCustomers() {
+        for (Customer customer : customers.values()) {
+            System.out.println(customer);
+        }
+    }
+
+    public static void printAllItems() {
+        for (Item item : items.values()) {
+            System.out.println(item);
+        }
+    }
+
+    public static void printAllRentals() {
         for (Rental rental : rentals.values()) {
             System.out.println(rental);
         }

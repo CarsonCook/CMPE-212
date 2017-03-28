@@ -1,19 +1,21 @@
 package library.Exceptions;
 
+import library.Item;
+
 /**
  * Created by Carson on 25/03/2017.
  * 14cdwc
  * Exception for an Item having an ID that is already used.
  */
 public class DuplicateItemID extends Exception {
-    private int badID;
+    private Item badItem;
 
-    public DuplicateItemID(int badID) {
+    public DuplicateItemID(Item badItem) {
         super("You tried to insert an Item with an ID that is already in use!");
-        this.badID = badID;
+        this.badItem = badItem;
     }
 
-    public int getBadID() {
-        return badID;
+    public Item getBadItem() {
+        return badItem;
     }
 }

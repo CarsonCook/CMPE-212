@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d06394c6-5ab0-4fff-93dc-59562e0862df" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Assign3-QueensLibrary/out/production/Assign3-QueensLibrary/library/Adaptor.class" afterPath="$PROJECT_DIR$/../Assign3-QueensLibrary/out/production/Assign3-QueensLibrary/library/Adaptor.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Assign3-QueensLibrary/out/production/Assign3-QueensLibrary/library/Book.class" afterPath="$PROJECT_DIR$/../Assign3-QueensLibrary/out/production/Assign3-QueensLibrary/library/Book.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Assign3-QueensLibrary/out/production/Assign3-QueensLibrary/library/Device.class" afterPath="$PROJECT_DIR$/../Assign3-QueensLibrary/out/production/Assign3-QueensLibrary/library/Device.class" />
@@ -10,9 +11,21 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Assign3-QueensLibrary/out/production/Assign3-QueensLibrary/library/Magazine.class" afterPath="$PROJECT_DIR$/../Assign3-QueensLibrary/out/production/Assign3-QueensLibrary/library/Magazine.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Assign3-QueensLibrary/out/production/Assign3-QueensLibrary/library/Rental.class" afterPath="$PROJECT_DIR$/../Assign3-QueensLibrary/out/production/Assign3-QueensLibrary/library/Rental.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Assign3-QueensLibrary/out/production/Assign3-QueensLibrary/library/Textbook.class" afterPath="$PROJECT_DIR$/../Assign3-QueensLibrary/out/production/Assign3-QueensLibrary/library/Textbook.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Assign4-QueensLibrary2/library/Exceptions/DuplicateCustomerID.class" afterPath="$PROJECT_DIR$/out/production/Assign4-QueensLibrary2/library/Exceptions/DuplicateCustomerID.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Assign4-QueensLibrary2/library/Exceptions/DuplicateItemID.class" afterPath="$PROJECT_DIR$/out/production/Assign4-QueensLibrary2/library/Exceptions/DuplicateItemID.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Assign4-QueensLibrary2/library/Exceptions/DuplicateTransactionID.class" afterPath="$PROJECT_DIR$/out/production/Assign4-QueensLibrary2/library/Exceptions/DuplicateTransactionID.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Assign4-QueensLibrary2/library/LibrarySystem.class" afterPath="$PROJECT_DIR$/out/production/Assign4-QueensLibrary2/library/LibrarySystem.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Assign4-QueensLibrary2/library/Rental.class" afterPath="$PROJECT_DIR$/out/production/Assign4-QueensLibrary2/library/Rental.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Assign4-QueensLibrary2/library/TestLibrary.class" afterPath="$PROJECT_DIR$/out/production/Assign4-QueensLibrary2/library/TestLibrary.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Assign4-QueensLibrary2/library/Util.class" afterPath="$PROJECT_DIR$/out/production/Assign4-QueensLibrary2/library/Util.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Assign3-QueensLibrary/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../Assign3-QueensLibrary/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/library/Exceptions/DuplicateCustomerID.java" afterPath="$PROJECT_DIR$/src/library/Exceptions/DuplicateCustomerID.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/library/Exceptions/DuplicateItemID.java" afterPath="$PROJECT_DIR$/src/library/Exceptions/DuplicateItemID.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/library/Exceptions/DuplicateTransactionID.java" afterPath="$PROJECT_DIR$/src/library/Exceptions/DuplicateTransactionID.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/library/LibrarySystem.java" afterPath="$PROJECT_DIR$/src/library/LibrarySystem.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/library/Rental.java" afterPath="$PROJECT_DIR$/src/library/Rental.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/library/TestLibrary.java" afterPath="$PROJECT_DIR$/src/library/TestLibrary.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/library/Util.java" afterPath="$PROJECT_DIR$/src/library/Util.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,34 +41,19 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LibrarySystem.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/library/LibrarySystem.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="180" column="37" lean-forward="true" selection-start-line="180" selection-start-column="37" selection-end-line="180" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestLibrary.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TestLibrary.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/library/TestLibrary.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="94" lean-forward="true" selection-start-line="24" selection-start-column="94" selection-end-line="24" selection-end-column="94" />
+            <state relative-caret-position="187">
+              <caret line="36" column="40" lean-forward="false" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#1644#1645#0" expanded="true" />
+                <element signature="e#1676#1677#0" expanded="true" />
+                <element signature="e#2002#2003#0" expanded="true" />
+                <element signature="e#2036#2037#0" expanded="true" />
+                <element signature="e#2100#2101#0" expanded="true" />
+                <element signature="e#2136#2137#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Rental.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/library/Rental.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-204">
-              <caret line="31" column="29" lean-forward="true" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -80,6 +78,11 @@
       <find>date</find>
       <find>customer</find>
       <find>return</find>
+      <find>printall</find>
+      <find>getD</find>
+      <find>getDate</find>
+      <find>R:</find>
+      <find>tot rent</find>
     </findStrings>
     <replaceStrings>
       <replace>public</replace>
@@ -110,13 +113,13 @@
         <option value="$PROJECT_DIR$/src/TestLibrary.java" />
         <option value="$PROJECT_DIR$/src/library/Exceptions/WrongRentalCost.java" />
         <option value="$PROJECT_DIR$/src/library/Exceptions/DateReturnedBeforeDateRented.java" />
-        <option value="$PROJECT_DIR$/src/library/Exceptions/DuplicateTransactionID.java" />
-        <option value="$PROJECT_DIR$/src/library/Exceptions/DuplicateItemID.java" />
-        <option value="$PROJECT_DIR$/src/library/Exceptions/DuplicateCustomerID.java" />
         <option value="$PROJECT_DIR$/src/library/Customer.java" />
-        <option value="$PROJECT_DIR$/src/library/Rental.java" />
-        <option value="$PROJECT_DIR$/src/library/LibrarySystem.java" />
         <option value="$PROJECT_DIR$/src/library/Util.java" />
+        <option value="$PROJECT_DIR$/src/library/Exceptions/DuplicateItemID.java" />
+        <option value="$PROJECT_DIR$/src/library/Exceptions/DuplicateTransactionID.java" />
+        <option value="$PROJECT_DIR$/src/library/Exceptions/DuplicateCustomerID.java" />
+        <option value="$PROJECT_DIR$/src/library/LibrarySystem.java" />
+        <option value="$PROJECT_DIR$/src/library/Rental.java" />
         <option value="$PROJECT_DIR$/src/library/TestLibrary.java" />
       </list>
     </option>
@@ -128,10 +131,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1358" />
+    <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -151,6 +154,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -181,11 +185,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Assign4-QueensLibrary2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Assign4-QueensLibrary2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="library" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Exceptions" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -201,6 +226,18 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Owner\Desktop\Queens\Winter 2017\212\CMPE-212\Assign4-QueensLibrary2\src" />
     </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager" selected="Application.TestLibrary">
     <configuration default="false" name="TestLibrary" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -505,6 +542,13 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method />
+    </configuration>
     <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
       <config-file value="" />
       <node-interpreter value="project" />
@@ -644,34 +688,38 @@
       <workItem from="1490492189788" duration="8075000" />
       <workItem from="1490574231175" duration="4338000" />
       <workItem from="1490636258603" duration="6015000" />
-      <workItem from="1490673646711" duration="4113000" />
+      <workItem from="1490673646711" duration="4594000" />
+      <workItem from="1490679909892" duration="80000" />
+      <workItem from="1490680081580" duration="518000" />
+      <workItem from="1490726347729" duration="4889000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22541000" />
+    <option name="totallyTimeSpent" value="28509000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1358" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32827735" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26066098" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2700454" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -683,7 +731,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -701,11 +748,48 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/library/LibrarySystem.java">
+    <entry file="file://$PROJECT_DIR$/src/library/TestLibrary.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#1644#1645#0" expanded="true" />
+            <element signature="e#1676#1677#0" expanded="true" />
+            <element signature="e#2002#2003#0" expanded="true" />
+            <element signature="e#2036#2037#0" expanded="true" />
+            <element signature="e#2100#2101#0" expanded="true" />
+            <element signature="e#2136#2137#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/library/TestLibrary.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#1644#1645#0" expanded="true" />
+            <element signature="e#1676#1677#0" expanded="true" />
+            <element signature="e#2002#2003#0" expanded="true" />
+            <element signature="e#2036#2037#0" expanded="true" />
+            <element signature="e#2100#2101#0" expanded="true" />
+            <element signature="e#2136#2137#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/library/TestLibrary.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#1644#1645#0" expanded="true" />
+            <element signature="e#1676#1677#0" expanded="true" />
+            <element signature="e#2002#2003#0" expanded="true" />
+            <element signature="e#2036#2037#0" expanded="true" />
+            <element signature="e#2100#2101#0" expanded="true" />
+            <element signature="e#2136#2137#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -713,7 +797,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -721,7 +804,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/library/LibrarySystem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -729,12 +818,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="32" lean-forward="false" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
-          <folding>
-            <element signature="e#236#237#0" expanded="false" />
-            <element signature="e#275#276#0" expanded="false" />
-            <element signature="e#336#337#0" expanded="false" />
-            <element signature="e#379#380#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -742,10 +825,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="44" lean-forward="false" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
-          <folding>
-            <element signature="e#263#264#0" expanded="false" />
-            <element signature="e#316#317#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -760,23 +839,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
           <caret line="1027" column="26" lean-forward="false" selection-start-line="1027" selection-start-column="18" selection-end-line="1027" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/library/Item.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="549">
-          <caret line="40" column="27" lean-forward="false" selection-start-line="40" selection-start-column="27" selection-end-line="40" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/library/Device.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="32" lean-forward="false" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -784,7 +846,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1075">
           <caret line="14" column="46" lean-forward="false" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -799,10 +860,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="41" lean-forward="false" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
-          <folding>
-            <element signature="e#214#215#0" expanded="false" />
-            <element signature="e#265#266#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -810,27 +867,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="23" lean-forward="true" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/library/Exceptions/DuplicateTransactionID.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="27" lean-forward="false" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
-          <folding>
-            <element signature="e#432#433#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/library/Exceptions/DuplicateItemID.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="27" lean-forward="false" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
-          <folding>
-            <element signature="e#426#427#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -838,17 +874,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="5" lean-forward="true" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/library/Exceptions/DuplicateCustomerID.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="27" lean-forward="false" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
-          <folding>
-            <element signature="e#436#437#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -856,21 +881,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="172">
           <caret line="11" column="31" lean-forward="false" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
-          <folding>
-            <element signature="e#238#239#0" expanded="false" />
-            <element signature="e#276#277#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/library/Customer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="34" column="18" lean-forward="false" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
-          <folding>
-            <element signature="e#2295#2296#0" expanded="false" />
-            <element signature="e#2320#2321#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -878,18 +888,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="11" column="44" lean-forward="false" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
-          <folding>
-            <element signature="e#263#264#0" expanded="false" />
-            <element signature="e#316#317#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/library/LibrarySystem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="180" column="37" lean-forward="true" selection-start-line="180" selection-start-column="37" selection-end-line="180" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -897,27 +895,85 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="298">
           <caret line="115" column="41" lean-forward="true" selection-start-line="115" selection-start-column="41" selection-end-line="115" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/library/TestLibrary.java">
+    <entry file="file://$PROJECT_DIR$/src/library/Exceptions/DuplicateCustomerID.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="94" lean-forward="true" selection-start-line="24" selection-start-column="94" selection-end-line="24" selection-end-column="94" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="289">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/library/Exceptions/DuplicateTransactionID.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="45" lean-forward="true" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/library/Customer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="19" column="30" lean-forward="true" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/library/Exceptions/DuplicateItemID.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="25" lean-forward="true" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/library/Item.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="40" column="27" lean-forward="false" selection-start-line="40" selection-start-column="27" selection-end-line="40" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/library/Device.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="65" column="27" lean-forward="true" selection-start-line="65" selection-start-column="27" selection-end-line="65" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/library/LibrarySystem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="192" column="52" lean-forward="false" selection-start-line="192" selection-start-column="52" selection-end-line="192" selection-end-column="52" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/library/Rental.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-204">
-          <caret line="31" column="29" lean-forward="true" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
+        <state relative-caret-position="110">
+          <caret line="128" column="24" lean-forward="false" selection-start-line="128" selection-start-column="24" selection-end-line="128" selection-end-column="24" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/library/TestLibrary.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="36" column="40" lean-forward="false" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
+          <folding>
+            <element signature="e#1644#1645#0" expanded="true" />
+            <element signature="e#1676#1677#0" expanded="true" />
+            <element signature="e#2002#2003#0" expanded="true" />
+            <element signature="e#2036#2037#0" expanded="true" />
+            <element signature="e#2100#2101#0" expanded="true" />
+            <element signature="e#2136#2137#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
