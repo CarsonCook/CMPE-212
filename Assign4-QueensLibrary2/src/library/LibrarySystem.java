@@ -21,9 +21,9 @@ import static library.Util.*;
  */
 public class LibrarySystem {
 
-    private static HashMap<Integer, Item> items = new HashMap<>();
-    private static HashMap<Integer, Customer> customers = new HashMap<>();
-    private static HashMap<Integer, Rental> rentals = new HashMap<>();
+    private HashMap<Integer, Item> items = new HashMap<>();
+    private HashMap<Integer, Customer> customers = new HashMap<>();
+    private HashMap<Integer, Rental> rentals = new HashMap<>();
 
     /**
      * Adds a Customer to the collection of Customers.
@@ -187,7 +187,7 @@ public class LibrarySystem {
         }
     }
 
-    public static void printLateRentals() {
+    public void printLateRentals() {
         String output = "Late rentals:\n";
         for (Rental rental : rentals.values()) {
             if (rental.isLate(new Date())) {
@@ -223,19 +223,19 @@ public class LibrarySystem {
         return totalRentalCosts;
     }
 
-    public static void printAllCustomers() {
+    public void printAllCustomers() {
         for (Customer customer : customers.values()) {
             System.out.println(customer);
         }
     }
 
-    public static void printAllItems() {
+    public void printAllItems() {
         for (Item item : items.values()) {
             System.out.println(item);
         }
     }
 
-    public static void printAllRentals() {
+    public void printAllRentals() {
         for (Rental rental : rentals.values()) {
             System.out.println(rental);
         }
@@ -263,15 +263,15 @@ public class LibrarySystem {
         return cost;
     }
 
-    public static HashMap<Integer, Item> getItems() {
+    public HashMap<Integer, Item> getItems() {
         return items;
     }
 
-    public static HashMap<Integer, Customer> getCustomers() {
+    public HashMap<Integer, Customer> getCustomers() {
         return customers;
     }
 
-    public static HashMap<Integer, Rental> getRentals() {
+    public HashMap<Integer, Rental> getRentals() {
         return rentals;
     }
 

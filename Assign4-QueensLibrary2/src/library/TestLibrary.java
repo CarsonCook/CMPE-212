@@ -21,22 +21,34 @@ public class TestLibrary {
         LibrarySystem system = new LibrarySystem();
 
         Laptop laptop = new Laptop(10, "Asus", 1);
-        Adaptor adaptor = new Adaptor(15, "Thunder", 1); //test duplicate item ID
-        Customer customer = new Customer(CustomerType.STUDENT, "Carson", "Cook", "Eng", 1);
-        Customer customer2 = new Customer(CustomerType.STUDENT, "Bob", "Job", "Eng", 1); //test duplicate customer id
+        Adaptor adaptor = new Adaptor(12, "Bolt");
+        Adaptor badAdaptor = new Adaptor(15, "Thunder", 1); //test duplicate item ID
+        Magazine magazine = new Magazine(2015, "Carson Cook", "Golden Words", "Cool stuff");
+        Textbook textbook = new Textbook(2012, "Manji", "Queens", "271 Info");
         insertItem(system, laptop);
         insertItem(system, adaptor);
-        LibrarySystem.printAllItems();
+        insertItem(system, badAdaptor);
+        insertItem(system, magazine);
+        insertItem(system, textbook);
+        system.printAllItems();
 
+        Customer customer = new Customer(CustomerType.STUDENT, "Carson", "Cook", "Eng", 1);
+        Customer badCustomer = new Customer(CustomerType.STUDENT, "Bob", "Guy", "Eng", 1); //test duplicate customer id
+        Customer customer2 = new Customer(CustomerType.EMPLOYEE, "Jill", "Reid", "Comp");
         insertCustomer(system, customer);
+        insertCustomer(system, badCustomer);
         insertCustomer(system, customer2);
-        LibrarySystem.printAllCustomers();
+        system.printAllCustomers();
 
         insertTransaction(system, laptop, customer);
-        LibrarySystem.printAllRentals();
-        LibrarySystem.printLateRentals();
+        system.printAllRentals();
+        system.printLateRentals();
         System.out.println("Total rent costs: " + system.getTotalRentalCosts() + " total late fees: " +
                 system.getTotalLateFees());
+
+        for (Rental rental : system.getRentals().values()) {
+            rental.itemReturned(new Date());
+        }
     }
 
     /**
