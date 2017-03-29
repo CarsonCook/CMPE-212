@@ -43,7 +43,7 @@ public class TestLibrary {
         insertTransaction(system, laptop, customer);
         system.printAllRentals();
         system.printLateRentals();
-        System.out.println("Total rent costs: " + system.getTotalRentalCosts() + " total late fees: " +
+        System.out.println("Total rental costs: " + system.getTotalRentalCosts() + " total late fees: " +
                 system.getTotalLateFees());
 
         for (Rental rental : system.getRentals().values()) {

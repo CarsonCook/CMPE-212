@@ -7,6 +7,6 @@ package library.Exceptions;
  */
 public class DateReturnedBeforeDateRented extends Exception {
     public DateReturnedBeforeDateRented() {
-        super("You tried to insert a Customer with an ID that is already in use!");
+        super("You tried to return an Item before it was logged as Rented!");
     }
 }

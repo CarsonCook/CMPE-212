@@ -93,6 +93,7 @@ public class Rental {
         int daysLate = (int) (new Date()).getTime() / 1000 / 60 / 60 / 24 - //from current day at time of call
                 (int) estReturnDate.getTime() / 1000 / 60 / 60 / 24;
         if (daysLate > 0) {
+            System.out.println("\n***Days late:***\n" + daysLate);
             return item.getLateFees(daysLate);
         } else {
             return 0; //not late, no cost
@@ -107,7 +108,7 @@ public class Rental {
      */
     public double getRentalCost() {
         if (item instanceof Device) {
-            double baseCost = -1; //if the getRentalCost() fails, stay at -1 so exception thrown and message displayed
+            double baseCost = -1; //if the getUserRentalCost() fails, stay at -1 so exception thrown and message displayed
             try {
                 baseCost = ((Device) item).getRentalCost();
                 if (baseCost < 0) {
@@ -179,7 +180,7 @@ public class Rental {
 
     public void setRentalDate(Date rentalDate) {
         //avoid null exceptions and items can only be rented on this date
-        if (rentalDate == null||rentalDate.before(new Date())) {
+        if (rentalDate == null || rentalDate.before(new Date())) {
             this.rentalDate = new Date();
         } else {
             try {

@@ -1,5 +1,6 @@
 package library;
 
+import library.Enums.CustomerType;
 import library.Enums.RentalStatus;
 import library.Exceptions.DuplicateCustomerID;
 import library.Exceptions.DuplicateItemID;
@@ -97,7 +98,7 @@ public class LibrarySystem {
         while (!itemOK) {
             switch (itemType) {
                 case "device":
-                    newItem = new Device(getRentalCost(), getString("Enter the device's name"));
+                    newItem = new Device(getUserRentalCost(), getString("Enter the device's name"));
                     itemOK = true;
                     break;
                 case "book":
@@ -106,11 +107,11 @@ public class LibrarySystem {
                     itemOK = true;
                     break;
                 case "adaptor":
-                    newItem = new Adaptor(getRentalCost(), getString("Enter the adaptor's name"));
+                    newItem = new Adaptor(getUserRentalCost(), getString("Enter the adaptor's name"));
                     itemOK = true;
                     break;
                 case "laptop":
-                    newItem = new Laptop(getRentalCost(), getString("Enter the laptop's name"));
+                    newItem = new Laptop(getUserRentalCost(), getString("Enter the laptop's name"));
                     itemOK = true;
                     break;
                 case "magazine":
@@ -149,7 +150,7 @@ public class LibrarySystem {
         while (!itemOK) {
             switch (itemType) {
                 case "device":
-                    newItem = new Device(getRentalCost(), getString("Enter the device's name"), id);
+                    newItem = new Device(getUserRentalCost(), getString("Enter the device's name"), id);
                     itemOK = true;
                     break;
                 case "book":
@@ -158,11 +159,11 @@ public class LibrarySystem {
                     itemOK = true;
                     break;
                 case "adaptor":
-                    newItem = new Adaptor(getRentalCost(), getString("Enter the adaptor's name"), id);
+                    newItem = new Adaptor(getUserRentalCost(), getString("Enter the adaptor's name"), id);
                     itemOK = true;
                     break;
                 case "laptop":
-                    newItem = new Laptop(getRentalCost(), getString("Enter the laptop's name"), id);
+                    newItem = new Laptop(getUserRentalCost(), getString("Enter the laptop's name"), id);
                     itemOK = true;
                     break;
                 case "magazine":
@@ -208,19 +209,28 @@ public class LibrarySystem {
     public double getTotalRentalCosts() {
         double totalRentalCosts = 0;
         for (Rental rental : rentals.values()) {
-            if (rental.getItem() instanceof Device) {
-                try {
-                    double oneCost = ((Device) rental.getItem()).getRentalCost();
-                    if (oneCost < 0) {
-                        throw new WrongRentalCost();
-                    }
-                    totalRentalCosts += oneCost;
-                } catch (WrongRentalCost e) {
-                    System.out.println(e + " 0 was used as the rental cost.");
+            try {
+                double oneCost = getItemRentalCost(rental);
+                if (oneCost < 0) {
+                    throw new WrongRentalCost();
                 }
+                totalRentalCosts += oneCost;
+            } catch (WrongRentalCost e) {
+                System.out.println(e + " 0 was used as the rental cost.");
             }
         }
         return totalRentalCosts;
+    }
+
+    public double getItemRentalCost(Rental rental) {
+        if (rental == null || !(rental.getItem() instanceof Device)) {
+            return 0;
+        }
+        Device device = (Device) rental.getItem();
+        if (rental.getCustomer().getType() == CustomerType.STUDENT) {
+            return device.getRentalCost() - 0.25 * device.getRentalCost();
+        }
+        return device.getRentalCost(); //not student, no discount
     }
 
     public void printAllCustomers() {
@@ -241,7 +251,7 @@ public class LibrarySystem {
         }
     }
 
-    public double getRentalCost() {
+    public double getUserRentalCost() {
         boolean inputOK = false;
         double cost = -1;
         String input;
