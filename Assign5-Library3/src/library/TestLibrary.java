@@ -1,6 +1,5 @@
 package library;
 
-import library.Enums.CustomerType;
 import library.Exceptions.DuplicateCustomerID;
 import library.Exceptions.DuplicateItemID;
 import library.Exceptions.DuplicateTransactionID;
@@ -16,8 +15,8 @@ public class TestLibrary {
 
     public static void main(String[] args) {
         LibrarySystem system = new LibrarySystem();
-
-        Laptop laptop = new Laptop(10, "Asus", 1);
+        system.readFile("trans.in");
+       /* Laptop laptop = new Laptop(10, "Asus", 1);
         Adaptor adaptor = new Adaptor(12, "Bolt");
         Adaptor badAdaptor = new Adaptor(15, "Thunder", 1); //test duplicate item ID
         Magazine magazine = new Magazine(2015, "Carson Cook", "Golden Words", "Cool stuff");
@@ -45,7 +44,7 @@ public class TestLibrary {
 
         for (Rental rental : system.getRentals().values()) {
             rental.itemReturned(new Date());
-        }
+        }*/
     }
 
     /**

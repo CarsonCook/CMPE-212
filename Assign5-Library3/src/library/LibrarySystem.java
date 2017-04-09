@@ -8,6 +8,12 @@ import library.Exceptions.DuplicateTransactionID;
 import library.Exceptions.WrongRentalCost;
 
 import javax.swing.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -388,5 +394,112 @@ public class LibrarySystem {
             }
         }
         return filteredRentals;
+    }
+
+    public void readFile(String filePath) {
+        BufferedReader br = null;
+        FileReader fr = null;
+        try {
+            fr = new FileReader(filePath);
+            br = new BufferedReader(fr);
+            br = new BufferedReader(new FileReader(filePath));
+            String line;
+            while ((line = br.readLine()) != null) {
+                switch (filePath) {
+                    case "items.in":
+                        parseItemFileLine(line);
+                        break;
+                    case "customers.in":
+                        parseCustomerFileLine(line);
+                        break;
+                    case "trans.in":
+                        parseTransFileLine(line);
+                        break;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (br != null)
+                    br.close();
+                if (fr != null)
+                    fr.close();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+
+    private void parseItemFileLine(String line) {
+        String[] values = line.split(", ");
+        Item newItem = null;
+        switch (values[0]) { //type of item
+            case "Book":
+                newItem = new Book(Integer.parseInt(values[5]), values[3], values[4], values[2], Integer.parseInt(values[1]));
+                break;
+            case "Textbook":
+                newItem = new Textbook(Integer.parseInt(values[5]), values[3], values[4], values[2], Integer.parseInt(values[1]));
+                break;
+            case "Magazine":
+                newItem = new Magazine(Integer.parseInt(values[5]), values[3], values[4], values[2], Integer.parseInt(values[1]));
+                break;
+            case "Device":
+                newItem = new Device(Double.parseDouble(values[3]), values[2], Integer.parseInt(values[1]));
+                break;
+            case "Adaptor":
+                newItem = new Adaptor(Double.parseDouble(values[3]), values[2], Integer.parseInt(values[1]));
+                break;
+            case "Laptop":
+                newItem = new Laptop(Double.parseDouble(values[3]), values[2], Integer.parseInt(values[1]));
+                break;
+        }
+        if (newItem == null) {
+            System.out.println("Bad item in file, nothing added to system");
+        } else {
+            items.put(newItem.getID(), newItem);
+        }
+    }
+
+    private void parseCustomerFileLine(String line) {
+        String[] values = line.split(", ");
+        String[] names = values[1].split(" ");
+        String lastName = names.length < 2 ? null : names[1];
+        CustomerType type = values[3].toUpperCase().equals(CustomerType.EMPLOYEE.toString()) ?
+                CustomerType.EMPLOYEE : CustomerType.STUDENT;
+        Customer newCust = new Customer(type, names[0], lastName, values[2], Integer.parseInt(values[0]));
+        customers.put(newCust.getID(), newCust);
+    }
+
+    private void parseTransFileLine(String line) {
+        String[] values = line.split(", ");
+        int transID = Integer.parseInt(values[0]);
+        int itemID = Integer.parseInt(values[1]);
+        int custID = Integer.parseInt(values[2]);
+        String startDateString = "06/27/2007";
+        Date rentalDate = new Date();
+        DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+        try {
+            rentalDate = df.parse(values[3]);
+        } catch (ParseException e) {
+            System.out.println("Bad rental date, set to today");
+        }
+        Date expectedReturnDate = new Date();
+        try {
+            expectedReturnDate = df.parse(values[4]);
+        } catch (ParseException e) {
+            System.out.println("Bad rental date, set to today");
+        }
+        Date returnedDate = new Date();
+        try {
+            returnedDate = df.parse(values[5]);
+        } catch (ParseException e) {
+            System.out.println("Bad rental date, set to today");
+        }
+        Rental newRental = new Rental(items.get(itemID), transID, customers.get(custID), rentalDate, expectedReturnDate);
+        if (returnedDate.getTime() > 0) {
+            newRental.itemReturned(returnedDate);
+        }
+        System.out.println(newRental);
     }
 }

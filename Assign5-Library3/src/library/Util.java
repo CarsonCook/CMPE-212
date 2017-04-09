@@ -14,8 +14,6 @@ import java.util.Date;
  * User input, cloning and sanitation methods.
  */
 public class Util {
-
-
     /**
      * Gets a user-inputted String representing the type of item being rented. Sanitized to make sure it is a type that exists.
      *
