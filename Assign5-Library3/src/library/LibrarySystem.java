@@ -8,9 +8,7 @@ import library.Exceptions.DuplicateTransactionID;
 import library.Exceptions.WrongRentalCost;
 
 import javax.swing.*;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -476,7 +474,6 @@ public class LibrarySystem {
         int transID = Integer.parseInt(values[0]);
         int itemID = Integer.parseInt(values[1]);
         int custID = Integer.parseInt(values[2]);
-        String startDateString = "06/27/2007";
         Date rentalDate = new Date();
         DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
         try {
@@ -501,5 +498,31 @@ public class LibrarySystem {
             newRental.itemReturned(returnedDate);
         }
         System.out.println(newRental);
+    }
+
+    public void writeItemsToFile(String filePath) {
+        FileWriter fw = null;
+        BufferedWriter bw = null;
+        try {
+            fw = new FileWriter(filePath);
+            bw = new BufferedWriter(fw);
+            String output = "";
+            for (Item item : items.values()) {
+                output = output.concat(item.toString()) + "\n";
+            }
+            System.out.println(output);
+            bw.write(output);
+        } catch (IOException e) {
+            System.out.println("bad file path, nothing written");
+        } finally {
+            try {
+                if (bw != null)
+                    bw.close();
+                if (fw != null)
+                    fw.close();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 }
