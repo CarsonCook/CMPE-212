@@ -1,0 +1,54 @@
+package library;
+
+/**
+ * Created by Carson on 02/03/2017.
+ * 14cdwc
+ * Child of Device and Item.
+ * Class representing a Laptop in the library.
+ */
+public class Laptop extends Device {
+
+    public Laptop(double rentalCost, String name) {
+        super(rentalCost, name);
+    }
+
+    public Laptop(double rentalCost, String name, int id) {
+        super(rentalCost, name, id);
+    }
+
+    /**
+     * Copy constructor for a Laptop.
+     *
+     * @param laptop Laptop to be copied
+     */
+    public Laptop(Laptop laptop) {
+        super(laptop);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        //need to check if obj is of type Laptop, if not, caller and obj are not equal
+        if (obj == null || !(obj.getClass() == Laptop.class)) {
+            return false;
+        }
+        Laptop otherLaptop = (Laptop) obj;
+        return otherLaptop.getName().equals(this.getName()) && otherLaptop.getID() == this.getID()
+                && otherLaptop.getRentalCost() == this.getRentalCost();
+    }
+
+    @Override
+    public String toString() {
+        return "Laptop " + super.toString();
+    }
+
+    @Override
+    public Laptop clone() throws CloneNotSupportedException {
+        return new Laptop(this);
+    }
+
+    @Override
+    public double getLateFees(int daysLate) {
+        System.out.println("getLateFees laptop: "+daysLate);
+        return 5 * daysLate + 0.2 * getRentalCost();
+    }
+}
