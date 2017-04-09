@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<GridPane alignment="center" hgap="5" vgap="10" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <Pane id="mainPane" maxHeight="310.0" maxWidth="270.0" minHeight="310.0" minWidth="270.0" prefHeight="310.0" prefWidth="270.0">
+         <children>
+            <RadioButton id="maleRadioButton" layoutX="54.0" layoutY="107.0" mnemonicParsing="false" selected="true" text="Male" />
+            <RadioButton id="femaleRadioButton" layoutX="158.0" layoutY="107.0" mnemonicParsing="false" text="Female" />
+            <TextField id="ageTextField" layoutX="54.0" layoutY="63.0" />
+            <TextField id="weightTextField" layoutX="54.0" layoutY="143.0" />
+            <TextField id="heightTextField" layoutX="54.0" layoutY="185.0" />
+            <Button id="calculateButton" layoutX="46.0" layoutY="231.0" mnemonicParsing="false" text="Calculate" />
+            <Text layoutX="-5.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BMR Calculator" textAlignment="CENTER" wrappingWidth="278.13671875">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text id="ageText" layoutX="9.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Age:" />
+            <Text id="GenderText" layoutX="8.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gender:" />
+            <Text id="heightText" layoutX="8.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Height:" />
+            <Text id="weightText" layoutX="9.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Weight:" />
+            <Text id="bmrText" layoutX="1.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="270.0000023532193" />
+         </children></Pane>
+   </children>
+</GridPane>
