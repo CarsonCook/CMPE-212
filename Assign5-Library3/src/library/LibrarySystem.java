@@ -508,9 +508,55 @@ public class LibrarySystem {
             bw = new BufferedWriter(fw);
             String output = "";
             for (Item item : items.values()) {
-                output = output.concat(item.toString()) + "\n";
+                if (item instanceof Device) {
+                    if (item.getClass() == Laptop.class) {
+                        output = output.concat("Laptop, ");
+                    } else if (item.getClass() == Adaptor.class) {
+                        output = output.concat("Adaptor, ");
+                    } else { //Device
+                        output = output.concat("Device, ");
+                    }
+                    output = output.concat(item.getID() + ", " + item.getName() + ", " + ((Device) item).getRentalCost() + "\n");
+                } else { //Book
+                    if (item.getClass() == Textbook.class) {
+                        output = output.concat("Textbook, ");
+                    } else if (item.getClass() == Magazine.class) {
+                        output = output.concat("Magazine, ");
+                    } else {//book
+                        output = output.concat("Book, ");
+                    }
+                    output = output.concat(item.getID() + ", " + item.getName() + ", " + ((Book) item).getAuthors() + ", "
+                            + ((Book) item).getPublisher() + ", " + ((Book) item).getYear() + "\n");
+                }
             }
-            System.out.println(output);
+            output = output.trim(); //remove last endline
+            bw.write(output);
+        } catch (IOException e) {
+            System.out.println("bad file path, nothing written");
+        } finally {
+            try {
+                if (bw != null)
+                    bw.close();
+                if (fw != null)
+                    fw.close();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+
+    public void writeTransactionsToFile(String filePath) {
+        FileWriter fw = null;
+        BufferedWriter bw = null;
+        try {
+            fw = new FileWriter(filePath);
+            bw = new BufferedWriter(fw);
+            String output = "";
+            for (Rental rental : rentals.values()) {
+                output = output.concat(rental.getID() + ", " + rental.getItem().getID() + ", " + rental.getCustomer().getID()
+                        + ", " + rental.getRentalDate() + ", " + rental.getEstReturnDate() + ", " + rental.getActReturnDate() + "\n");
+            }
+            output = output.trim(); //remove last endline
             bw.write(output);
         } catch (IOException e) {
             System.out.println("bad file path, nothing written");

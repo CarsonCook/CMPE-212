@@ -16,7 +16,8 @@ public class TestLibrary {
     public static void main(String[] args) {
         LibrarySystem system = new LibrarySystem();
         system.readFile("items.in");
-        system.writeItemsToFile("items.out");
+        system.readFile("trans.in");
+        system.writeTransactionsToFile("trans.out");
        /* Laptop laptop = new Laptop(10, "Asus", 1);
         Adaptor adaptor = new Adaptor(12, "Bolt");
         Adaptor badAdaptor = new Adaptor(15, "Thunder", 1); //test duplicate item ID
