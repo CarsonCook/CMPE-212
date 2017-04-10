@@ -1,23 +1,58 @@
 package library;
 
+import javafx.application.Application;
+import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import library.Exceptions.DuplicateCustomerID;
 import library.Exceptions.DuplicateItemID;
 import library.Exceptions.DuplicateTransactionID;
 
 import java.util.Date;
 
+import static javafx.application.Application.launch;
+
 /**
  * Created by Carson on 26/03/2017.
  * 14cdwc
  * Tester class for the Library System
  */
-public class TestLibrary {
+public class TestLibrary extends Application {
+    private static LibrarySystem system;
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("navigation.fxml"));
+        primaryStage.setScene(new Scene(root, 600, 400));
+        primaryStage.setResizable(false);
+        Button showLateTrans = (Button) primaryStage.getScene().lookup("#showLateTransactionsButton");
+        Text text = (Text)primaryStage.getScene().lookup("#text");
+        showLateTrans.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                String output = "Late rentals:\n";
+                for (Rental rental : system.getRentals().values()) {
+                    if (rental.isLate(new Date())) {
+                        output = output.concat(rental.toString());
+                    }
+                }
+                text.setText(output);
+            }
+        });
+        primaryStage.show();
+    }
 
     public static void main(String[] args) {
-        LibrarySystem system = new LibrarySystem();
+        system = new LibrarySystem();
         system.readFile("items.in");
         system.readFile("trans.in");
-        system.writeTransactionsToFile("trans.out");
+        system.readFile("customers.in");
+        launch(args);
        /* Laptop laptop = new Laptop(10, "Asus", 1);
         Adaptor adaptor = new Adaptor(12, "Bolt");
         Adaptor badAdaptor = new Adaptor(15, "Thunder", 1); //test duplicate item ID
